@@ -26,8 +26,8 @@ Pod::Spec.new do |s|
           ss.public_header_files = "JHToolsModule/JHToolsModule/Class/Define/*.{h}"
     end
     s.subspec 'View' do |ss| 
-          ss.source_files = 'IKToolsModule/IKToolsModule/Class/ToolView/**/*' 
-          ss.public_header_files = "IKToolsModule/IKToolsModule/Class/ToolView/*.{h}"
+          ss.source_files = 'JHToolsModule/JHToolsModule/Class/ToolView/**/*' 
+          ss.public_header_files = "JHToolsModule/JHToolsModule/Class/ToolView/*.{h}"
     end
     s.subspec 'BaseVC' do |ss|
           ss.dependency 'JHToolsModule/Category'
@@ -37,24 +37,24 @@ Pod::Spec.new do |s|
     end
    
   	s.subspec 'Category' do |ss|
-          ss.source_files = 'IKToolsModule/IKToolsModule/Class/Category/*.{h,m}' 
-          ss.public_header_files = "IKToolsModule/IKToolsModule/Class/Category/*.{h}"
+          ss.source_files = 'JHToolsModule/JHToolsModule/Class/Category/*.{h,m}' 
+          ss.public_header_files = "JHToolsModule/JHToolsModule/Class/Category/*.{h}"
 
           	ss.subspec 'Safe' do |sss| 
-          	sss.source_files = 'IKToolsModule/IKToolsModule/Class/Category/Safe/**/*' 
-          	sss.public_header_files = "IKToolsModule/IKToolsModule/Class/Category/Safe/*.{h}"
+          	sss.source_files = 'JHToolsModule/JHToolsModule/Class/Category/Safe/**/*' 
+          	sss.public_header_files = "JHToolsModule/JHToolsModule/Class/Category/Safe/*.{h}"
     		end
         	ss.subspec 'Masonry' do |sss| 
-          	sss.source_files = 'IKToolsModule/IKToolsModule/Class/Category/Masonry/**/*' 
-          	sss.public_header_files = "IKToolsModule/IKToolsModule/Class/Category/Masonry/*.{h}"
+          	sss.source_files = 'JHToolsModule/JHToolsModule/Class/Category/Masonry/**/*' 
+          	sss.public_header_files = "JHToolsModule/JHToolsModule/Class/Category/Masonry/*.{h}"
     		end
         	ss.subspec 'Button' do |sss| 
-          	sss.source_files = 'IKToolsModule/IKToolsModule/Class/Category/Button/**/*' 
-          	sss.public_header_files = "IKToolsModule/IKToolsModule/Class/Category/Button/*.{h}"
+          	sss.source_files = 'JHToolsModule/JHToolsModule/Class/Category/Button/**/*' 
+          	sss.public_header_files = "JHToolsModule/JHToolsModule/Class/Category/Button/*.{h}"
     		end
         	ss.subspec 'BaseUI' do |sss| 
-          	sss.source_files = 'IKToolsModule/IKToolsModule/Class/Category/BaseUI/**/*' 
-          	sss.public_header_files = "IKToolsModule/IKToolsModule/Class/Category/BaseUI/*.{h}"
+          	sss.source_files = 'JHToolsModule/JHToolsModule/Class/Category/BaseUI/**/*' 
+          	sss.public_header_files = "JHToolsModule/JHToolsModule/Class/Category/BaseUI/*.{h}"
     		end
     end
 
