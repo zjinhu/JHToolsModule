@@ -1,4 +1,4 @@
- 
+
 Pod::Spec.new do |s|
   s.name             = 'JHToolsModule'
   s.version          = '0.1.2'
@@ -37,25 +37,26 @@ Pod::Spec.new do |s|
     end
    
   	s.subspec 'Category' do |ss|
+          ss.dependency 'JHToolsModule/Define'
           ss.source_files = 'JHToolsModule/JHToolsModule/Class/Category/*.{h,m}' 
           ss.public_header_files = "JHToolsModule/JHToolsModule/Class/Category/*.{h}"
 
           	ss.subspec 'Safe' do |sss| 
-          	sss.source_files = 'JHToolsModule/JHToolsModule/Class/Category/Safe/**/*' 
-          	sss.public_header_files = "JHToolsModule/JHToolsModule/Class/Category/Safe/*.{h}"
-    		end
-        	ss.subspec 'Masonry' do |sss| 
-          	sss.source_files = 'JHToolsModule/JHToolsModule/Class/Category/Masonry/**/*' 
-          	sss.public_header_files = "JHToolsModule/JHToolsModule/Class/Category/Masonry/*.{h}"
-    		end
-        	ss.subspec 'Button' do |sss| 
-          	sss.source_files = 'JHToolsModule/JHToolsModule/Class/Category/Button/**/*' 
-          	sss.public_header_files = "JHToolsModule/JHToolsModule/Class/Category/Button/*.{h}"
-    		end
-        	ss.subspec 'BaseUI' do |sss| 
-          	sss.source_files = 'JHToolsModule/JHToolsModule/Class/Category/BaseUI/**/*' 
-          	sss.public_header_files = "JHToolsModule/JHToolsModule/Class/Category/BaseUI/*.{h}"
-    		end
+          	   sss.source_files = 'JHToolsModule/JHToolsModule/Class/Category/Safe/**/*' 
+          	   sss.public_header_files = "JHToolsModule/JHToolsModule/Class/Category/Safe/*.{h}"
+    		    end
+        	  ss.subspec 'Masonry' do |sss| 
+          	   sss.source_files = 'JHToolsModule/JHToolsModule/Class/Category/Masonry/**/*' 
+          	   sss.public_header_files = "JHToolsModule/JHToolsModule/Class/Category/Masonry/*.{h}"
+    		    end
+        	  ss.subspec 'Button' do |sss| 
+          	   sss.source_files = 'JHToolsModule/JHToolsModule/Class/Category/Button/**/*' 
+          	   sss.public_header_files = "JHToolsModule/JHToolsModule/Class/Category/Button/*.{h}"
+    		    end
+        	  ss.subspec 'BaseUI' do |sss| 
+          	   sss.source_files = 'JHToolsModule/JHToolsModule/Class/Category/BaseUI/**/*' 
+          	   sss.public_header_files = "JHToolsModule/JHToolsModule/Class/Category/BaseUI/*.{h}"
+    		    end
     end
 
 end
