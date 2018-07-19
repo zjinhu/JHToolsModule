@@ -75,6 +75,7 @@
 		8538AE27210039E100AF014C /* MasonryUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasonryUI.h; sourceTree = "<group>"; };
 		8538AE2821003F0900AF014C /* UITableViewCell+AddLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+AddLine.h"; sourceTree = "<group>"; };
 		8538AE2921003F0900AF014C /* UITableViewCell+AddLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+AddLine.m"; sourceTree = "<group>"; };
+		8538AE3921008D1000AF014C /* JHUITools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHUITools.h; sourceTree = "<group>"; };
 		8574B6EC20FF2E2A00F3EB05 /* JHToolsDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHToolsDefine.h; sourceTree = "<group>"; };
 		8574B6ED20FF2E6100F3EB05 /* EdgeInsetsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EdgeInsetsLabel.h; sourceTree = "<group>"; };
 		8574B6EE20FF2E6100F3EB05 /* EdgeInsetsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EdgeInsetsLabel.m; sourceTree = "<group>"; };
@@ -190,6 +191,7 @@
 		8574B6BB20FF237100F3EB05 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				8538AE3921008D1000AF014C /* JHUITools.h */,
 				8574B6BF20FF23AC00F3EB05 /* ToolView */,
 				8574B6BE20FF239A00F3EB05 /* BaseVC */,
 				8574B6BD20FF238900F3EB05 /* Define */,
@@ -423,13 +425,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-JHToolsModule/Pods-JHToolsModule-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/JHButton/JHButton.framework",
+				"${BUILT_PRODUCTS_DIR}/JHMediator/JHMediator.framework",
 				"${BUILT_PRODUCTS_DIR}/KafkaRefresh/KafkaRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/NotificationCenter/NotificationCenter.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JHButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JHMediator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KafkaRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationCenter.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

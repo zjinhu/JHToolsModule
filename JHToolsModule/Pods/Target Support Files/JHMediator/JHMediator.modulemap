@@ -1,0 +1,6 @@
+framework module JHMediator {
+  umbrella header "JHMediator-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JHToolsModule'
-  s.version          = '0.1.3'
+  s.version          = '0.1.5'
   s.summary          = '工具类组件.'
  
   s.description      = <<-DESC
@@ -20,6 +20,9 @@ Pod::Spec.new do |s|
  
   s.dependency 'Masonry'
   s.dependency 'KafkaRefresh'
+
+    s.source_files = 'JHToolsModule/JHToolsModule/Class/JHUITools.h' 
+    s.public_header_files = "JHToolsModule/JHToolsModule/Class/JHUITools.h"
 
     s.subspec 'Define' do |ss|
           ss.source_files = 'JHToolsModule/JHToolsModule/Class/Define/**/*' 
