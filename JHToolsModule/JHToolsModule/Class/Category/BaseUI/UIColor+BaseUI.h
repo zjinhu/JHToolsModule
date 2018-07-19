@@ -41,7 +41,4 @@
 //16进制色值转换
 + (UIColor *)colorWithHex:(NSInteger)hexValue alpha:(CGFloat)alpha;
 
-+(UIColor *) colorFromHexRGB:(NSString *) inColorString;
-
-+ (UIColor *)colorWithHexString:(NSString *)hexStr;
 @end
