@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
     end
    
   	s.subspec 'Category' do |ss|
-          ss.source_files = 'IKToolsModule/IKToolsModule/Class/Category/**/*' 
+          ss.source_files = 'IKToolsModule/IKToolsModule/Class/Category/*.{h,m}' 
           ss.public_header_files = "IKToolsModule/IKToolsModule/Class/Category/*.{h}"
 
           	ss.subspec 'Safe' do |sss| 
