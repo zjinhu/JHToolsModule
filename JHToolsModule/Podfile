@@ -15,4 +15,7 @@ target 'JHToolsModule' do
   pod 'JHMediator'
   pod 'JHButton'
   pod 'NotificationCenter'
+  pod 'SJAttributesFactory'
+  pod 'PushNotificationManager'
+  pod 'YNPageViewController'
 end
