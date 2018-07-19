@@ -1,0 +1,54 @@
+PODS:
+  - KafkaRefresh (1.2.0):
+    - KafkaRefresh/Category (= 1.2.0)
+    - KafkaRefresh/Configuration (= 1.2.0)
+    - KafkaRefresh/Core (= 1.2.0)
+    - KafkaRefresh/Default (= 1.2.0)
+    - KafkaRefresh/Style (= 1.2.0)
+    - KafkaRefresh/UIKit (= 1.2.0)
+  - KafkaRefresh/Category (1.2.0)
+  - KafkaRefresh/Configuration (1.2.0):
+    - KafkaRefresh/UIKit/FootKit
+    - KafkaRefresh/UIKit/HeadKit
+  - KafkaRefresh/Core (1.2.0):
+    - KafkaRefresh/Category
+  - KafkaRefresh/Default (1.2.0):
+    - KafkaRefresh/Style
+  - KafkaRefresh/Style (1.2.0)
+  - KafkaRefresh/UIKit (1.2.0):
+    - KafkaRefresh/UIKit/FootKit (= 1.2.0)
+    - KafkaRefresh/UIKit/HeadKit (= 1.2.0)
+    - KafkaRefresh/UIKit/LayerKit (= 1.2.0)
+  - KafkaRefresh/UIKit/FootKit (1.2.0):
+    - KafkaRefresh/Category
+    - KafkaRefresh/Core
+    - KafkaRefresh/Default
+    - KafkaRefresh/Style
+    - KafkaRefresh/UIKit/LayerKit
+  - KafkaRefresh/UIKit/HeadKit (1.2.0):
+    - KafkaRefresh/Category
+    - KafkaRefresh/Core
+    - KafkaRefresh/Default
+    - KafkaRefresh/Style
+    - KafkaRefresh/UIKit/LayerKit
+  - KafkaRefresh/UIKit/LayerKit (1.2.0):
+    - KafkaRefresh/Category
+    - KafkaRefresh/Default
+  - Masonry (1.1.0)
+
+DEPENDENCIES:
+  - KafkaRefresh
+  - Masonry
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - KafkaRefresh
+    - Masonry
+
+SPEC CHECKSUMS:
+  KafkaRefresh: 20d69e508dfe6b6ffcabe4c3273d7f33bd34ff03
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+
+PODFILE CHECKSUM: 16a58406a369b835918e5dd1b7c12ec284c7116a
+
+COCOAPODS: 1.5.2
