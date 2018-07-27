@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.requires_arc        = true
  
   s.dependency 'Masonry'
-  s.dependency 'KafkaRefresh'
+  s.dependency 'LNRefresh'
 
     s.source_files = 'JHToolsModule/JHToolsModule/Class/JHUITools.h' 
     s.public_header_files = "JHToolsModule/JHToolsModule/Class/JHUITools.h"
