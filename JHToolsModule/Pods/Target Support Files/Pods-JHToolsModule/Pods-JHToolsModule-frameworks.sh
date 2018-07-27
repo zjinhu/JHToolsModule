@@ -143,18 +143,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/JHButton/JHButton.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/JHMediator/JHMediator.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/KafkaRefresh/KafkaRefresh.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/LNRefresh/LNRefresh.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/NotificationCenter/NotificationCenter.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/JHButton/JHButton.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/JHMediator/JHMediator.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/KafkaRefresh/KafkaRefresh.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/LNRefresh/LNRefresh.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/NotificationCenter/NotificationCenter.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

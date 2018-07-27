@@ -9,7 +9,7 @@
 #import "JHBaseTableViewController.h"
 #import "JHToolsDefine.h"
 #import "BaseUI.h"
-#import <KafkaRefresh/KafkaRefresh.h>
+#import "LNRefresh.h"
 @interface JHBaseTableViewController ()
 
 @end
@@ -70,31 +70,20 @@
     /**
      *  添加上拉刷新
      */
-//    [self.tableView bindRefreshStyle:KafkaRefreshStyleAnimatableArrow fillColor:[UIColor redColor] animatedBackgroundColor:[UIColor redColor] atPosition:KafkaRefreshPositionHeader refreshHanler:^{
-//        //to do something...
-//        [weakSelf refreshData];
-//    }];
-    [self.tableView bindHeadRefreshHandler:^{
+    [_tableView addPullToRefresh:^{
         [weakSelf refreshData];
-    } themeColor:[UIColor redColor] refreshStyle:KafkaRefreshStyleAnimatableArrow];
+    }];
     /**
      *  添加下拉加载
      */
-    /**
-     *  添加下拉加载
-     */
-//    [self.tableView bindRefreshStyle:KafkaRefreshStyleAnimatableArrow fillColor:[UIColor redColor] animatedBackgroundColor:[UIColor redColor] atPosition:KafkaRefreshPositionFooter refreshHanler:^{
-//        //to do something...
-//        [weakSelf loadMoreData];
-//    }];
-    [self.tableView bindFootRefreshHandler:^{
+    [_tableView addInfiniteScrolling:^{
         [weakSelf loadMoreData];
-    } themeColor:[UIColor redColor] refreshStyle:KafkaRefreshStyleAnimatableArrow];
+    }];
     /**
      *  初始隐藏
      */
-    _tableView.headRefreshControl.hidden = YES;
-    _tableView.footRefreshControl.hidden = YES;
+    _tableView.ln_header.hidden = YES;
+    _tableView.ln_footer.hidden = YES;
     
     self.extendedLayoutIncludesOpaqueBars = YES;
     
@@ -162,15 +151,11 @@
 }
 
 - (void)endTableViewRefreshing{
-    if ([_tableView.headRefreshControl isRefresh]) {
-        [_tableView.headRefreshControl endRefreshing];
-    }
-    if ([_tableView.footRefreshControl isRefresh]) {
-        [_tableView.footRefreshControl endRefreshing];
-    }
+        [_tableView endRefreshing];
+        [_tableView endLoadingMore];
 }
 -(void)hiddenFooter{
-    _tableView.footRefreshControl.hidden = YES;
+    [_tableView hideRefreshFooter];
 }
 - (void)setUnDelaysContentTouches:(BOOL)unDelaysContentTouches{
     

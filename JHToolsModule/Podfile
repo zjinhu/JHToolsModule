@@ -10,12 +10,12 @@ target 'JHToolsModule' do
 
   # Pods for JHToolsModule
   pod 'Masonry'
-  pod 'KafkaRefresh'
+  pod 'LNRefresh'
   
-  pod 'JHMediator'
-  pod 'JHButton'
-  pod 'NotificationCenter'
-  pod 'SJAttributesFactory'
-  pod 'PushNotificationManager'
-  pod 'YNPageViewController'
+#   pod 'JHMediator'
+#   pod 'JHButton'
+#   pod 'NotificationCenter'
+#   pod 'SJAttributesFactory'
+#   pod 'PushNotificationManager'
+#   pod 'YNPageViewController'
 end

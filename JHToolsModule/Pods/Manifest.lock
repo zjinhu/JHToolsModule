@@ -1,67 +1,20 @@
 PODS:
-  - JHButton (0.2.0):
-    - Masonry
-  - JHMediator (0.1.2)
-  - KafkaRefresh (1.2.0):
-    - KafkaRefresh/Category (= 1.2.0)
-    - KafkaRefresh/Configuration (= 1.2.0)
-    - KafkaRefresh/Core (= 1.2.0)
-    - KafkaRefresh/Default (= 1.2.0)
-    - KafkaRefresh/Style (= 1.2.0)
-    - KafkaRefresh/UIKit (= 1.2.0)
-  - KafkaRefresh/Category (1.2.0)
-  - KafkaRefresh/Configuration (1.2.0):
-    - KafkaRefresh/UIKit/FootKit
-    - KafkaRefresh/UIKit/HeadKit
-  - KafkaRefresh/Core (1.2.0):
-    - KafkaRefresh/Category
-  - KafkaRefresh/Default (1.2.0):
-    - KafkaRefresh/Style
-  - KafkaRefresh/Style (1.2.0)
-  - KafkaRefresh/UIKit (1.2.0):
-    - KafkaRefresh/UIKit/FootKit (= 1.2.0)
-    - KafkaRefresh/UIKit/HeadKit (= 1.2.0)
-    - KafkaRefresh/UIKit/LayerKit (= 1.2.0)
-  - KafkaRefresh/UIKit/FootKit (1.2.0):
-    - KafkaRefresh/Category
-    - KafkaRefresh/Core
-    - KafkaRefresh/Default
-    - KafkaRefresh/Style
-    - KafkaRefresh/UIKit/LayerKit
-  - KafkaRefresh/UIKit/HeadKit (1.2.0):
-    - KafkaRefresh/Category
-    - KafkaRefresh/Core
-    - KafkaRefresh/Default
-    - KafkaRefresh/Style
-    - KafkaRefresh/UIKit/LayerKit
-  - KafkaRefresh/UIKit/LayerKit (1.2.0):
-    - KafkaRefresh/Category
-    - KafkaRefresh/Default
+  - LNRefresh (1.0.1)
   - Masonry (1.1.0)
-  - NotificationCenter (0.1.0)
 
 DEPENDENCIES:
-  - JHButton
-  - JHMediator
-  - KafkaRefresh
+  - LNRefresh
   - Masonry
-  - NotificationCenter
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - JHButton
-    - JHMediator
-    - KafkaRefresh
+    - LNRefresh
     - Masonry
-    - NotificationCenter
 
 SPEC CHECKSUMS:
-  JHButton: d20f19abbd340543d9164b2945fd68b3b7a28dcb
-  JHMediator: cf11f69b8b5c8f2ad962067e814e70dd841e2194
-  KafkaRefresh: 20d69e508dfe6b6ffcabe4c3273d7f33bd34ff03
+  LNRefresh: c6359ab42ab656f35a62fde171a05c5a970c55dc
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  NotificationCenter: 83602b9f51a9e7b6459cc880cee43370f2ed9aef
 
-PODFILE CHECKSUM: 3d01f47da585468050e87638732c0346d052f7c7
+PODFILE CHECKSUM: e3f22aeedd920c6f73a5540344c00f5607af2703
 
 COCOAPODS: 1.5.2

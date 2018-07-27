@@ -1,6 +1,0 @@
-framework module NotificationCenter {
-  umbrella header "NotificationCenter-umbrella.h"
-
-  export *
-  module * { export * }
-}
