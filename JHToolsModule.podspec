@@ -36,6 +36,7 @@ Pod::Spec.new do |s|
     s.subspec 'BaseVC' do |ss|
           ss.dependency 'JHToolsModule/Category'
           ss.dependency 'JHToolsModule/Define'
+          ss.dependency 'JHToolsModule/Utility' 
           ss.source_files = 'JHToolsModule/JHToolsModule/Class/BaseVC/**/*' 
           ss.public_header_files = "JHToolsModule/JHToolsModule/Class/BaseVC/*.{h}"
     end
