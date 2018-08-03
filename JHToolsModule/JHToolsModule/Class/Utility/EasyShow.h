@@ -7,12 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "EasyShowView.h"
-
-#import "EasyTextGlobalConfig.h"
-#import "EasyLoadingGlobalConfig.h"
-#import "EasyEmptyGlobalConfig.h"
-#import "EasyAlertGlobalConfig.h"
+#import <EasyShowView/EasyShowView.h>
 
 @interface EasyShow : NSObject
 //////////toast弹窗

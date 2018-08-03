@@ -6,7 +6,11 @@
 //  Copyright © 2018年 HU. All rights reserved.
 //
 
-#import "EasyShow.h"
+#import "EasyShow.h" 
+#import "EasyTextGlobalConfig.h"
+#import "EasyTextTypes.h"
+#import "EasyLoadingGlobalConfig.h"
+#import "EasyAlertGlobalConfig.h"
 #import "JHToolsDefine.h"
 @implementation EasyShow
 +(void)load{
