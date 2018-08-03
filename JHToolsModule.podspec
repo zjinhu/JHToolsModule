@@ -22,8 +22,8 @@ Pod::Spec.new do |s|
   s.dependency 'LNRefresh'
   s.dependency 'EasyShowView'
 
-    s.source_files = 'JHToolsModule/JHToolsModule/Class/JHUITools.h' 
-    s.public_header_files = "JHToolsModule/JHToolsModule/Class/JHUITools.h"
+    s.source_files = 'JHToolsModule/JHToolsModule/Class/JHToolsModule.h' 
+    s.public_header_files = "JHToolsModule/JHToolsModule/Class/JHToolsModule.h"
 
     s.subspec 'Define' do |ss|
           ss.source_files = 'JHToolsModule/JHToolsModule/Class/Define/**/*' 
