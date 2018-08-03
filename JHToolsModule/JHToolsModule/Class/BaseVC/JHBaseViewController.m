@@ -10,15 +10,16 @@
 #import "JHBaseViewController.h"
 #import "NSString+Base.h"
 #import "BaseUI.h"
-
+#import "EasyShow.h"
 @interface JHBaseViewController ()
 
 @end
 
 @implementation JHBaseViewController
-//判断是否二次展示页面
-//- (void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    //判断是否二次展示页面
 //    if ([self isBeingPresented] || [self isMovingToParentViewController]) {
 //        // push / present
 //        NSLog(@"OneViewController push / present");
@@ -26,7 +27,8 @@
 //        NSLog(@"OneViewController pop");
 //        // pop to here
 //    }
-//}
+    [self showLoading];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -203,4 +205,17 @@
     space.width = -4;
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:space,rightButtonItem, nil];
 }
+
+- (void)showToast:(NSString *)msg{
+    [EasyShow showText:msg];
+}
+
+-(void)showLoading{
+    [EasyShow showLoading];
+}
+
+-(void)hideLoading{
+    [EasyShow hidenLoading];
+}
+
 @end

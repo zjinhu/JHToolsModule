@@ -57,5 +57,20 @@
  *  @param text 导航按钮文本
  */
 - (void)setRightBarButtonWithText:(NSString *)text;
-
+/**
+ *  展示toast
+ *
+ *  @param msg 文本
+ */
+- (void)showToast:(NSString *)msg;
+/**
+ *  展示Loading
+ 
+ */
+-(void)showLoading;
+/**
+ *  隐藏Loading
+ 
+ */
+-(void)hideLoading;
 @end

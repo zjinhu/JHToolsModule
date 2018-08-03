@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JHToolsModule'
-  s.version          = '0.1.9'
+  s.version          = '0.2.0'
   s.summary          = '工具类组件.'
  
   s.description      = <<-DESC
