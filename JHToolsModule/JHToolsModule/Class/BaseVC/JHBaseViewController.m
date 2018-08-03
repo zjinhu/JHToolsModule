@@ -16,7 +16,6 @@
 @end
 
 @implementation JHBaseViewController
-
 //判断是否二次展示页面
 //- (void)viewWillAppear:(BOOL)animated {
 //    [super viewWillAppear:animated];
