@@ -20,6 +20,7 @@ Pod::Spec.new do |s|
  
   s.dependency 'Masonry'
   s.dependency 'LNRefresh'
+  s.dependency 'EasyShowView'
 
     s.source_files = 'JHToolsModule/JHToolsModule/Class/JHUITools.h' 
     s.public_header_files = "JHToolsModule/JHToolsModule/Class/JHUITools.h"
@@ -28,9 +29,9 @@ Pod::Spec.new do |s|
           ss.source_files = 'JHToolsModule/JHToolsModule/Class/Define/**/*' 
           ss.public_header_files = "JHToolsModule/JHToolsModule/Class/Define/*.{h}"
     end
-    s.subspec 'View' do |ss| 
-          ss.source_files = 'JHToolsModule/JHToolsModule/Class/ToolView/**/*' 
-          ss.public_header_files = "JHToolsModule/JHToolsModule/Class/ToolView/*.{h}"
+    s.subspec 'Utility' do |ss| 
+          ss.source_files = 'JHToolsModule/JHToolsModule/Class/Utility/**/*' 
+          ss.public_header_files = "JHToolsModule/JHToolsModule/Class/Utility/*.{h}"
     end
     s.subspec 'BaseVC' do |ss|
           ss.dependency 'JHToolsModule/Category'
