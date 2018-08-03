@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "JHUITools.h"
+#import "JHToolsModule.h"
 @interface ViewController ()
 
 @end

@@ -51,5 +51,11 @@ typedef NS_ENUM(NSInteger,TableViewType) {
  *  隐藏上拉加载
  */
 -(void)hiddenFooter;
-
+/**
+ *  隐藏显示上下拉加载
+ */
+-(void)showRefreshHeader;
+-(void)hiddenRefreshHeader;
+-(void)showRefreshFooter;
+-(void)hiddenRefreshFooter;
 @end

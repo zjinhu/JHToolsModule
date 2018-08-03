@@ -84,5 +84,10 @@ return _instance;}\
 + (instancetype)share##name { return [[self alloc] init]; }\
 - (id)copyWithZone:(NSZone *)zone { return _instance; }\
 - (id)mutableCopyWithZone:(NSZone *)zone { return _instance; }
-
+///LOG
+#ifdef DEBUG
+#define NSLog(format, ...) printf("\n\n↓↓↓↓↓↓↓↓↓↓↓↓[Log]↓↓↓↓↓↓↓↓↓↓↓↓\n>>>>>>>>>>>>>位置<<<<<<<<<<<<<\n%s\n>>>>>>>>>>>>>方法<<<<<<<<<<<<<\n%s\n>>>>>>>>>>>>>行数<<<<<<<<<<<<<\n第%d行\n>>>>>>>>>>>>>信息<<<<<<<<<<<<<\n%s\n↑↑↑↑↑↑↑↑↑↑↑↑[END]↑↑↑↑↑↑↑↑↑↑↑↑\n\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __PRETTY_FUNCTION__, __LINE__, [[NSString stringWithFormat:(format), ##__VA_ARGS__] UTF8String] )
+#else
+#define Log(format, ...)
+#endif
 #endif /* JHToolsDefine_h */

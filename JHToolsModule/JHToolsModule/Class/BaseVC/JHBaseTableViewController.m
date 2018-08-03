@@ -10,6 +10,8 @@
 #import "JHToolsDefine.h"
 #import "BaseUI.h"
 #import "LNRefresh.h"
+#import "JHRefreshHeaderAnimator.h"
+#import "JHRefreshFooterAnimator.h"
 @interface JHBaseTableViewController ()
 
 @end
@@ -70,13 +72,13 @@
     /**
      *  添加上拉刷新
      */
-    [_tableView addPullToRefresh:^{
+    [_tableView addPullToRefresh:[JHRefreshHeaderAnimator createAnimator] block:^{
         [weakSelf refreshData];
     }];
     /**
      *  添加下拉加载
      */
-    [_tableView addInfiniteScrolling:^{
+    [_tableView addInfiniteScrolling:[JHRefreshFooterAnimator createAnimator] block:^{
         [weakSelf loadMoreData];
     }];
     /**
@@ -160,5 +162,19 @@
     
     _tableView.delaysContentTouches = unDelaysContentTouches;
     _unDelaysContentTouches = unDelaysContentTouches;
+}
+#pragma mark 下拉刷新
+-(void)showRefreshHeader{
+    [_tableView showRefreshHeader];
+}
+-(void)hiddenRefreshHeader{
+    [_tableView hideRefreshHeader];
+}
+
+-(void)hiddenRefreshFooter{
+    [_tableView hideRefreshFooter];
+}
+-(void)showRefreshFooter{
+    [_tableView showRefreshFooter];
 }
 @end

@@ -11,7 +11,7 @@ target 'JHToolsModule' do
   # Pods for JHToolsModule
   pod 'Masonry'
   pod 'LNRefresh'
-  
+  pod 'EasyShowView'
 #   pod 'JHMediator'
 #   pod 'JHButton'
 #   pod 'NotificationCenter'

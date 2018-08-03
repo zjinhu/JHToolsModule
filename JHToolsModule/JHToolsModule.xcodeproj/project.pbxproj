@@ -14,6 +14,12 @@
 		8507420320FD9AB9004439B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8507420220FD9AB9004439B9 /* Assets.xcassets */; };
 		8507420620FD9AB9004439B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8507420420FD9AB9004439B9 /* LaunchScreen.storyboard */; };
 		8507420920FD9AB9004439B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8507420820FD9AB9004439B9 /* main.m */; };
+		852342962113168000364793 /* JHRefreshFooterAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8523428E2113168000364793 /* JHRefreshFooterAnimator.m */; };
+		852342972113168000364793 /* NLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 8523428F2113168000364793 /* NLog.m */; };
+		852342982113168000364793 /* EasyShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 852342912113168000364793 /* EasyShow.m */; };
+		852342992113168000364793 /* JHRefreshHeaderAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 852342922113168000364793 /* JHRefreshHeaderAnimator.m */; };
+		8523429A2113168000364793 /* UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 852342932113168000364793 /* UserDefaults.m */; };
+		8523429D2113173E00364793 /* JHBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8523429C2113173E00364793 /* JHBaseWebViewController.m */; };
 		8538AE1A2100248600AF014C /* UITextField+Masonry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8538AE192100248600AF014C /* UITextField+Masonry.m */; };
 		8538AE1D2100252A00AF014C /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8538AE1C2100252A00AF014C /* UIView+Frame.m */; };
 		8538AE20210037A500AF014C /* UITextView+Masonry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8538AE1F210037A500AF014C /* UITextView+Masonry.m */; };
@@ -62,6 +68,18 @@
 		8507420520FD9AB9004439B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8507420720FD9AB9004439B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8507420820FD9AB9004439B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8523428C2113167F00364793 /* UserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaults.h; sourceTree = "<group>"; };
+		8523428D2113168000364793 /* EasyShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyShow.h; sourceTree = "<group>"; };
+		8523428E2113168000364793 /* JHRefreshFooterAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHRefreshFooterAnimator.m; sourceTree = "<group>"; };
+		8523428F2113168000364793 /* NLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLog.m; sourceTree = "<group>"; };
+		852342902113168000364793 /* JHRefreshFooterAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHRefreshFooterAnimator.h; sourceTree = "<group>"; };
+		852342912113168000364793 /* EasyShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyShow.m; sourceTree = "<group>"; };
+		852342922113168000364793 /* JHRefreshHeaderAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHRefreshHeaderAnimator.m; sourceTree = "<group>"; };
+		852342932113168000364793 /* UserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaults.m; sourceTree = "<group>"; };
+		852342942113168000364793 /* JHRefreshHeaderAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHRefreshHeaderAnimator.h; sourceTree = "<group>"; };
+		852342952113168000364793 /* NLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLog.h; sourceTree = "<group>"; };
+		8523429B2113173E00364793 /* JHBaseWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHBaseWebViewController.h; sourceTree = "<group>"; };
+		8523429C2113173E00364793 /* JHBaseWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHBaseWebViewController.m; sourceTree = "<group>"; };
 		8538AE182100248600AF014C /* UITextField+Masonry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+Masonry.h"; sourceTree = "<group>"; };
 		8538AE192100248600AF014C /* UITextField+Masonry.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Masonry.m"; sourceTree = "<group>"; };
 		8538AE1B2100252A00AF014C /* UIView+Frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
@@ -75,7 +93,7 @@
 		8538AE27210039E100AF014C /* MasonryUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasonryUI.h; sourceTree = "<group>"; };
 		8538AE2821003F0900AF014C /* UITableViewCell+AddLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+AddLine.h"; sourceTree = "<group>"; };
 		8538AE2921003F0900AF014C /* UITableViewCell+AddLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+AddLine.m"; sourceTree = "<group>"; };
-		8538AE3921008D1000AF014C /* JHUITools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHUITools.h; sourceTree = "<group>"; };
+		8538AE3921008D1000AF014C /* JHToolsModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHToolsModule.h; sourceTree = "<group>"; };
 		8574B6EC20FF2E2A00F3EB05 /* JHToolsDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHToolsDefine.h; sourceTree = "<group>"; };
 		8574B6ED20FF2E6100F3EB05 /* EdgeInsetsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EdgeInsetsLabel.h; sourceTree = "<group>"; };
 		8574B6EE20FF2E6100F3EB05 /* EdgeInsetsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EdgeInsetsLabel.m; sourceTree = "<group>"; };
@@ -191,8 +209,8 @@
 		8574B6BB20FF237100F3EB05 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				8538AE3921008D1000AF014C /* JHUITools.h */,
-				8574B6BF20FF23AC00F3EB05 /* ToolView */,
+				8538AE3921008D1000AF014C /* JHToolsModule.h */,
+				8574B6BF20FF23AC00F3EB05 /* Utility */,
 				8574B6BE20FF239A00F3EB05 /* BaseVC */,
 				8574B6BD20FF238900F3EB05 /* Define */,
 				8574B6BC20FF237900F3EB05 /* Category */,
@@ -232,17 +250,29 @@
 				8574B6F120FF2ED600F3EB05 /* JHBaseViewController.m */,
 				8574B6F320FF2EF900F3EB05 /* JHBaseTableViewController.h */,
 				8574B6F420FF2EF900F3EB05 /* JHBaseTableViewController.m */,
+				8523429B2113173E00364793 /* JHBaseWebViewController.h */,
+				8523429C2113173E00364793 /* JHBaseWebViewController.m */,
 			);
 			path = BaseVC;
 			sourceTree = "<group>";
 		};
-		8574B6BF20FF23AC00F3EB05 /* ToolView */ = {
+		8574B6BF20FF23AC00F3EB05 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 				8574B6ED20FF2E6100F3EB05 /* EdgeInsetsLabel.h */,
 				8574B6EE20FF2E6100F3EB05 /* EdgeInsetsLabel.m */,
+				8523428D2113168000364793 /* EasyShow.h */,
+				852342912113168000364793 /* EasyShow.m */,
+				852342902113168000364793 /* JHRefreshFooterAnimator.h */,
+				8523428E2113168000364793 /* JHRefreshFooterAnimator.m */,
+				852342942113168000364793 /* JHRefreshHeaderAnimator.h */,
+				852342922113168000364793 /* JHRefreshHeaderAnimator.m */,
+				852342952113168000364793 /* NLog.h */,
+				8523428F2113168000364793 /* NLog.m */,
+				8523428C2113167F00364793 /* UserDefaults.h */,
+				852342932113168000364793 /* UserDefaults.m */,
 			);
-			path = ToolView;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		8574B6F620FF2FBF00F3EB05 /* Safe */ = {
@@ -425,11 +455,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-JHToolsModule/Pods-JHToolsModule-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/EasyShowView/EasyShowView.framework",
 				"${BUILT_PRODUCTS_DIR}/LNRefresh/LNRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyShowView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LNRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 			);
@@ -469,6 +501,8 @@
 				8574B72D20FF317C00F3EB05 /* UIButton+Countdown.m in Sources */,
 				8574B73320FF31C500F3EB05 /* NSOperationQueue+CompletionBlock.m in Sources */,
 				8538AE232100383B00AF014C /* UIView+Masonry.m in Sources */,
+				8523429D2113173E00364793 /* JHBaseWebViewController.m in Sources */,
+				8523429A2113168000364793 /* UserDefaults.m in Sources */,
 				8538AE262100396D00AF014C /* UIWebView+Masonry.m in Sources */,
 				8574B71D20FF30EE00F3EB05 /* NullSafe.m in Sources */,
 				8574B74820FF4F2900F3EB05 /* UITableView+Masonry.m in Sources */,
@@ -477,6 +511,7 @@
 				8574B70920FF307700F3EB05 /* UINavigationBar+BaseUI.m in Sources */,
 				8538AE1A2100248600AF014C /* UITextField+Masonry.m in Sources */,
 				8574B72420FF312100F3EB05 /* NSObject+swizzle.m in Sources */,
+				852342982113168000364793 /* EasyShow.m in Sources */,
 				8574B71E20FF30EE00F3EB05 /* NSMutableArray+safe.m in Sources */,
 				8574B73C20FF3B4800F3EB05 /* UICollectionView+Masonry.m in Sources */,
 				850741FE20FD9AAA004439B9 /* ViewController.m in Sources */,
@@ -488,6 +523,8 @@
 				8574B70520FF304500F3EB05 /* UIFont+BaseUI.m in Sources */,
 				8574B72F20FF317C00F3EB05 /* UIButton+Position.m in Sources */,
 				8574B71C20FF30EE00F3EB05 /* NSMutableDictionary+safe.m in Sources */,
+				852342972113168000364793 /* NLog.m in Sources */,
+				852342962113168000364793 /* JHRefreshFooterAnimator.m in Sources */,
 				8574B71A20FF30EE00F3EB05 /* NSNumber+safe.m in Sources */,
 				8574B71F20FF30EE00F3EB05 /* UITableView+safe.m in Sources */,
 				8574B73020FF317C00F3EB05 /* NSObject+BlockSEL.m in Sources */,
@@ -499,6 +536,7 @@
 				8574B70620FF304500F3EB05 /* UIImage+BaseUI.m in Sources */,
 				8538AE20210037A500AF014C /* UITextView+Masonry.m in Sources */,
 				8574B6F220FF2ED600F3EB05 /* JHBaseViewController.m in Sources */,
+				852342992113168000364793 /* JHRefreshHeaderAnimator.m in Sources */,
 				8574B72E20FF317C00F3EB05 /* UIButton+DelayEvent.m in Sources */,
 				8574B71B20FF30EE00F3EB05 /* NSString+safe.m in Sources */,
 			);
