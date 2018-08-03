@@ -30,6 +30,7 @@ Pod::Spec.new do |s|
           ss.public_header_files = "JHToolsModule/JHToolsModule/Class/Define/*.{h}"
     end
     s.subspec 'Utility' do |ss| 
+          ss.dependency 'JHToolsModule/Define'
           ss.source_files = 'JHToolsModule/JHToolsModule/Class/Utility/**/*' 
           ss.public_header_files = "JHToolsModule/JHToolsModule/Class/Utility/*.{h}"
     end
