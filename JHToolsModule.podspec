@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JHToolsModule'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.summary          = '工具类组件.'
  
   s.description      = <<-DESC
@@ -21,7 +21,10 @@ Pod::Spec.new do |s|
   s.dependency 'Masonry'
   s.dependency 'LNRefresh'
   s.dependency 'EasyShowView'
-
+  s.dependency 'SDWebImage'
+   s.resource_bundles = {
+     'JHToolsModule' => ['JHToolsModule/JHToolsModule/Images/**/*.*']
+  }
     s.source_files = 'JHToolsModule/JHToolsModule/Class/JHToolsModule.h' 
     s.public_header_files = "JHToolsModule/JHToolsModule/Class/JHToolsModule.h"
 
@@ -31,6 +34,7 @@ Pod::Spec.new do |s|
     end
     s.subspec 'Utility' do |ss| 
           ss.dependency 'JHToolsModule/Define'
+          ss.dependency 'JHToolsModule/Category'
           ss.source_files = 'JHToolsModule/JHToolsModule/Class/Utility/**/*' 
           ss.public_header_files = "JHToolsModule/JHToolsModule/Class/Utility/*.{h}"
     end

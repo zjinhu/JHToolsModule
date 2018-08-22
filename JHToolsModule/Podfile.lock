@@ -2,23 +2,33 @@ PODS:
   - EasyShowView (2.1.2)
   - LNRefresh (1.0.1)
   - Masonry (1.1.0)
+  - MJRefresh (3.1.15.6)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
 
 DEPENDENCIES:
   - EasyShowView
   - LNRefresh
   - Masonry
+  - MJRefresh
+  - SDWebImage
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - EasyShowView
     - LNRefresh
     - Masonry
+    - MJRefresh
+    - SDWebImage
 
 SPEC CHECKSUMS:
   EasyShowView: 296c168baae336135af31eee4ce66e3bc4cffa2a
   LNRefresh: c6359ab42ab656f35a62fde171a05c5a970c55dc
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: 0efa19656679d70a0f47cbe76e56c2271fe53a97
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
 
-PODFILE CHECKSUM: 05e76263e3ce906ceba0c579567f05e5817fe41b
+PODFILE CHECKSUM: 64355b8e5e3cef47504e3c0d67ab4b60b7841c07
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0.beta.1

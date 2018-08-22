@@ -12,4 +12,5 @@
 #import "UIFont+BaseUI.h"
 #import "UIColor+BaseUI.h"
 #import "UINavigationBar+BaseUI.h"
+#import "UIImageView+LoadURL.h"
 #endif /* BaseUI_h */

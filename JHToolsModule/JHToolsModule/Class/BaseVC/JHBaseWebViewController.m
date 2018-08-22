@@ -12,6 +12,8 @@
 #import "NSObject+BlockSEL.h"
 #import "LNRefresh.h"
 #import "JHRefreshHeaderAnimator.h"
+#import "WeakScriptMessageDelegate.h"
+#import "UserDefaults.h"
 @interface JHBaseWebViewController ()<WKUIDelegate,WKNavigationDelegate>
 @property (nonatomic, strong) UIProgressView *loadingProgressView;//进度条
 @property (nonatomic, strong) UIButton *reloadBtn;//重新加载的按钮
@@ -44,7 +46,6 @@
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
     self.title = self.navTitle;
-    [self setNavgationItem];
     [self.view addSubview:self.reloadBtn];
     [self.view addSubview:self.webView];
     [self.view addSubview:self.loadingProgressView];
@@ -57,21 +58,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setNavgationItem {
-    [self setLeftBarButtonWithImage:ImageNamed(@"") AndHighLightImage:ImageNamed(@"")];
-    //[self setRightBarButtonWithImage:ImageNamed(@"faxian_guanbi") AndHighLightImage:ImageNamed(@"faxian_guanbi_anxia")];
-    [self.leftBarButton selectorBlock:^(id weakSelf, id arg) {
-        [weakSelf closeVC];
-    }];
-}
-#pragma mark 加载请求
-- (void)loadRequest {
-    NSURL *url = [NSURL URLWithString:_url];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    [request setValue:[self headerCookie] forHTTPHeaderField:@"Cookie"];
-    [_webView loadRequest:request];
-}
 #pragma mark WKNavigationDelegate
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler{
+    //    NSHTTPURLResponse *response = (NSHTTPURLResponse *)navigationResponse.response;
+    //    //读取wkwebview中的cookie 方法 读取Set-Cookie字段
+    //    NSString *cookieString = [[response allHeaderFields] valueForKey:@"Set-Cookie"];
+    //    NLog(@"wkwebview中的cookie :%@", cookieString);
+    //    //看看存入到了NSHTTPCookieStorage了没有
+    //    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    //    for (NSHTTPCookie *cookie in cookieJar.cookies) {
+    //        NLog(@"NSHTTPCookieStorage中的cookie%@", cookie);
+    //    }
+    decisionHandler(WKNavigationResponsePolicyAllow);
+}
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
     
@@ -122,7 +121,16 @@
         completionHandler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, nil);
     }
 }
-
+- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
+    
+    //    NLog(@"%s", __FUNCTION__);
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        completionHandler();
+    }]];
+    
+    [self presentViewController:alert animated:YES completion:NULL];
+}
 #pragma mark -LazyLoading
 - (WKWebView*)webView {
     if (!_webView) {
@@ -131,20 +139,19 @@
         config.preferences.javaScriptCanOpenWindowsAutomatically = YES;
         config.preferences.javaScriptEnabled = YES;
         config.allowsInlineMediaPlayback = YES;
-        NSString *cookieValue = @"";
-        if (self.supportAutoLogin) {
-            cookieValue = [self documentCookie:YES];
-        }else{
-            cookieValue = [self documentCookie:NO];
+        ////JS 方式注入cookie
+        NSString *cookieValue= @"";
+        if ([UserDefaults boolForKey:@"isLogin"]) {
+            NSString *token = [UserDefaults valueForKey:@"Access_token"];
+            NSLog(@"token=%@",token);
+            cookieValue = [NSString stringWithFormat:@"document.cookie = '%@=%@';", @"access_token", token];
         }
-        WKUserContentController* userContentController = WKUserContentController.new;
-        WKUserScript * cookieScript = [[WKUserScript alloc]
-                                       initWithSource: cookieValue
-                                       injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
-        [userContentController addUserScript:cookieScript];
-        config.userContentController = userContentController;
-        
-        _webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, NAVIGATION_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT) configuration:config];
+        if (cookieValue.length>2) {
+            //添加在js中操作的对象名称，通过该对象来向web view发送消息
+            WKUserScript * cookieScript = [[WKUserScript alloc]initWithSource:cookieValue injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
+            [config.userContentController addUserScript:cookieScript];
+        }
+        _webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-NAVIGATION_BAR_HEIGHT) configuration:config];
         _webView.navigationDelegate = self;
         _webView.UIDelegate = self;
         //添加此属性可触发侧滑返回上一网页与下一网页操作
@@ -187,7 +194,11 @@
 
 #pragma mark Action
 - (void)goBack {
-    [self popOrGoBack];
+    if (_webView.canGoBack) {
+        [_webView goBack];
+    }else{
+        [self closeVC];
+    }
 }
 
 - (void)closeVC {
@@ -201,13 +212,6 @@
     }
 }
 
-- (void)popOrGoBack{
-    if (_webView.canGoBack) {
-        [_webView goBack];
-    }else{
-        [self closeVC];
-    }
-}
 //kvo监听
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     WS(weakSelf);
@@ -227,41 +231,24 @@
     /**
      WebView在第一次加载页面如果没网络时，是没办法reload的，即使你再次打开网络，reload也是没法办刷新的。此处直接通过 loadRequest 方法来实现没网络时候仍然可以重新加载页面的用户体验
      */
-    NSURL *url = [NSURL URLWithString:[_currentPageUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];//将url中 中文 进行编码
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    [request setValue:[self headerCookie] forHTTPHeaderField:@"Cookie"];
-    [_webView loadRequest:request];
+    [_webView loadRequest:[self loadUrl:_currentPageUrl]];
 }
 
-
-- (NSString *)documentCookie:(BOOL)containLoginInfo {
-    NSString *ret = @"";
-    NSMutableString *tempStr = [[NSMutableString alloc] initWithCapacity:3];
-    [tempStr appendString:([NSString stringWithFormat:@"document.cookie = 'platform=%@';", @"ios"])];
-    //    if (containLoginInfo) {
-    //        if ([AccountInfoModel isLogin]) {
-    //            AccountInfoModel *account = [AccountInfoModel getCurrentSaveModel];
-    //            [tempStr appendString:([NSString stringWithFormat:@"document.cookie = 'token=%@';", account.token])];
-    //            [tempStr appendString:([NSString stringWithFormat:@"document.cookie = 'userid=%@';", account.uid])];
-    //        }
-    //    }
-    ret = tempStr;
-    return ret;
+- (void)loadRequest {
+    [self clearWbCache];
+    [_webView loadRequest:[self loadUrl:_url]];
 }
 
-
-- (NSString *)headerCookie {
-    NSString *ret = @"";
-    NSMutableString *tempStr = [[NSMutableString alloc] initWithCapacity:3];
-    //    if ([AccountInfoModel isLogin]) {
-    //        AccountInfoModel *account = [AccountInfoModel getCurrentSaveModel];
-    //
-    //        [tempStr appendString:([NSString stringWithFormat:@"token=%@ ", account.token])];
-    //        [tempStr appendString:([NSString stringWithFormat:@"userid=%@ ;", account.uid])];
-    //    }
-    [tempStr appendString:([NSString stringWithFormat:@"platform=%@ ;", @"ios"])];
-    ret = tempStr;
-    return ret;
+-(NSMutableURLRequest *)loadUrl:(NSString *)str{
+    NSURL *url = [NSURL URLWithString:str];
+    NSMutableURLRequest *request= [NSMutableURLRequest requestWithURL:url];
+    ////首次加载写入cookie    PHP网页方式
+    if ([UserDefaults boolForKey:@"isLogin"]) {
+        NSString *token = [UserDefaults valueForKey:@"Access_token"];
+        NSLog(@"token=%@",token);
+        [request setValue:[NSString stringWithFormat:@"%@=%@",@"access_token",token] forHTTPHeaderField:@"Cookie"];
+    }
+    return request;
 }
 #pragma mark 清除缓存
 - (void)cleanAllWebsiteDataStore{
@@ -273,5 +260,10 @@
     [[WKWebsiteDataStore defaultDataStore] removeDataOfTypes:websiteDataTypes modifiedSince:dateFrom completionHandler:^{
         // Done
     }];
+}
+- (void)clearWbCache {
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    [[NSURLCache sharedURLCache] setDiskCapacity:0];
+    [[NSURLCache sharedURLCache] setMemoryCapacity:0];
 }
 @end

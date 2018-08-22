@@ -18,6 +18,10 @@
 
 + (id)valueForKey:(NSString *)defaultName;
 
++ (void)setBool:(BOOL)value forKey:(NSString *)defaultName;
+
++ (BOOL)boolForKey:(NSString *)defaultName;
+
 +(void)removeObjectForKey:(NSString*)key;
 
 +(void)clearAll;

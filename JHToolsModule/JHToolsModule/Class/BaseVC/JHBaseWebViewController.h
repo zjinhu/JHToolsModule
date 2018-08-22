@@ -14,8 +14,7 @@
 @property (nonatomic, strong) NSString *navTitle;     //页面标题
 @property (nonatomic, assign) BOOL supportAutoLogin;  //默认不支持
 @property (nonatomic, strong) NSString *url;
-- (void)setNavgationItem;
-
+ 
 - (instancetype)initWithLoadURL:(NSString *)urlString;
 
 - (void)cleanAllWebsiteDataStore;

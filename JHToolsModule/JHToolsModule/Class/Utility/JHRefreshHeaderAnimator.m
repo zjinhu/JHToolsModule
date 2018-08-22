@@ -7,6 +7,7 @@
 //
 
 #import "JHRefreshHeaderAnimator.h"
+#import "BaseUI.h"
 @interface JHRefreshHeaderAnimator ()
 @property (nonatomic, strong) NSMutableArray *gifViewImages;
 @end
@@ -24,7 +25,7 @@
  
     self.gifViewImages = [NSMutableArray array];
     for (NSUInteger i = 0; i <= 19; i++) {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"refresh_pull_%lu", (unsigned long)i]];
+        UIImage *image = [UIImage loadImageNamed:[NSString stringWithFormat:@"refresh_pull_%lu", (unsigned long)i]];
         [self.gifViewImages addObject:image];
     }
     [self.animatorView addSubview:self.gifView];
@@ -45,7 +46,7 @@
         case LNRefreshState_WillRefresh: {
             NSMutableArray *idleImages = [NSMutableArray array];
             for (NSUInteger i = 0; i <= 11; i++) {
-                UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"refresh_release_%lu", (unsigned long)i]];
+                UIImage *image = [UIImage loadImageNamed:[NSString stringWithFormat:@"refresh_release_%lu", (unsigned long)i]];
                 [idleImages addObject:image];
             }
             self.gifView.animationImages = idleImages;
@@ -62,13 +63,13 @@
 }
 
 - (void)endRefreshAnimation_DIY:(LNRefreshComponent *)view {
-    self.gifView.image = [UIImage imageNamed:@"refresh_pull_0"];
+    self.gifView.image = [UIImage loadImageNamed:@"refresh_pull_0"];
 }
 
 - (void)startRefreshAnimation_DIY:(LNRefreshComponent *)view {
     NSMutableArray *idleImages = [NSMutableArray array];
     for (NSUInteger i = 0; i <= 23; i++) {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"refresh_loop_%lu", (unsigned long)i]];
+        UIImage *image = [UIImage loadImageNamed:[NSString stringWithFormat:@"refresh_loop_%lu", (unsigned long)i]];
         [idleImages addObject:image];
     }
     self.gifView.animationImages = idleImages;

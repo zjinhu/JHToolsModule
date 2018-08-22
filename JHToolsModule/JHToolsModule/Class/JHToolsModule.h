@@ -24,4 +24,7 @@
 #import "NSObject+BlockSEL.h"
 #import "NLog.h"
 #import "EasyShow.h"
+#import "GPSLocationManager.h"
+#import "UILineView.h"
+#import "UserDefaults.h"
 #endif /* JHToolsModule_h */

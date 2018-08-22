@@ -28,6 +28,15 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:defaultName];
 }
 
++ (void)setBool:(BOOL)value forKey:(NSString *)defaultName{
+    [[NSUserDefaults standardUserDefaults] setBool:value forKey:defaultName];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (BOOL)boolForKey:(NSString *)defaultName{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:defaultName];
+}
+
 +(void)removeObjectForKey:(NSString *)key{
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
     [[NSUserDefaults standardUserDefaults] synchronize];

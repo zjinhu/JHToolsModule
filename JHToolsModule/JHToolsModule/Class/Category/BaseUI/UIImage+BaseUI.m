@@ -9,6 +9,22 @@
 #import "UIImage+BaseUI.h"
 #import <CoreImage/CoreImage.h>
 @implementation UIImage (BaseUI)
+
++ (UIImage *)loadImageNamed:(NSString *)name{
+    NSString *mainBundlePath = [NSBundle mainBundle].bundlePath;
+    NSString *bundlePath = [NSString stringWithFormat:@"%@/%@",mainBundlePath,@"JHToolsModule.bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
+    if (bundle == nil) {
+        bundlePath = [NSString stringWithFormat:@"%@/%@",mainBundlePath,@"Frameworks/JHToolsModule.framework/JHToolsModule.bundle"];
+        bundle = [NSBundle bundleWithPath:bundlePath];
+    }
+    if ([UIImage respondsToSelector:@selector(imageNamed:inBundle:compatibleWithTraitCollection:)]) {
+        return [UIImage imageNamed:name inBundle:bundle compatibleWithTraitCollection:nil];
+    } else {
+        return [UIImage imageWithContentsOfFile:[bundle pathForResource:name ofType:nil]];
+    }
+}
+
 + (UIImage *)imageWithColor:(UIColor *)color{
     CGRect rect = CGRectMake(0, 0, 1, 1);
     UIGraphicsBeginImageContext(rect.size);

@@ -27,11 +27,17 @@
 //        NSLog(@"OneViewController pop");
 //        // pop to here
 //    }
-    [self showLoading];
+//    [self showLoading];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self setLeftBackBarButton];
+    [self.leftBarButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    // Do any additional setup after loading the view.
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
 }
@@ -61,8 +67,8 @@
     
     _leftBarButton = [[UIButton alloc] init];
     
-    [_leftBarButton setImage:[UIImage imageNamed:@"daohang_fanhui1_anxai"] forState:UIControlStateHighlighted];
-    [_leftBarButton setImage:[UIImage imageNamed:@"daohang_fanhui1"] forState:UIControlStateNormal];
+    [_leftBarButton setImage:[UIImage loadImageNamed:@"nav_ic_back"] forState:UIControlStateHighlighted];
+    [_leftBarButton setImage:[UIImage loadImageNamed:@"nav_ic_back"] forState:UIControlStateNormal];
     _leftBarButton.frame = CGRectMake(0, 0, KNavigationBarButtonHeight, KNavigationBarButtonHeight);
     
     [_leftBarButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
