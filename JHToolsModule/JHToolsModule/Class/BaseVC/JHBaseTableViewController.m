@@ -155,9 +155,7 @@
         [_tableView endRefreshing];
         [_tableView endLoadingMore];
 }
--(void)hiddenFooter{
-    [_tableView hideRefreshFooter];
-}
+
 - (void)setUnDelaysContentTouches:(BOOL)unDelaysContentTouches{
     
     _tableView.delaysContentTouches = unDelaysContentTouches;

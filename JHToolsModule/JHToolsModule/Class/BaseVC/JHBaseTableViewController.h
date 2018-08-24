@@ -48,10 +48,6 @@ typedef NS_ENUM(NSInteger,TableViewType) {
 - (void)endTableViewRefreshing;
 
 /**
- *  隐藏上拉加载
- */
--(void)hiddenFooter;
-/**
  *  隐藏显示上下拉加载
  */
 -(void)showRefreshHeader;

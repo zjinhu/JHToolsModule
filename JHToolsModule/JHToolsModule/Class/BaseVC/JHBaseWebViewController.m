@@ -171,7 +171,7 @@
 
 - (UIProgressView*)loadingProgressView {
     if (!_loadingProgressView) {
-        _loadingProgressView = [[UIProgressView alloc]initWithFrame:CGRectMake(0, NAVIGATION_BAR_HEIGHT, SCREEN_WIDTH, 2)];
+        _loadingProgressView = [[UIProgressView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 2)];
         _loadingProgressView.progressTintColor = [UIColor baseTileBlueColor];
     }
     return _loadingProgressView;
