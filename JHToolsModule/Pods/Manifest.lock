@@ -1,5 +1,19 @@
 PODS:
-  - EasyShowView (2.1.2)
+  - EasyShowView (2.1.4):
+    - EasyShowView/EasyAlert (= 2.1.4)
+    - EasyShowView/EasyEmpty (= 2.1.4)
+    - EasyShowView/EasyLoading (= 2.1.4)
+    - EasyShowView/EasyShowUtils (= 2.1.4)
+    - EasyShowView/EasyText (= 2.1.4)
+  - EasyShowView/EasyAlert (2.1.4):
+    - EasyShowView/EasyShowUtils
+  - EasyShowView/EasyEmpty (2.1.4):
+    - EasyShowView/EasyShowUtils
+  - EasyShowView/EasyLoading (2.1.4):
+    - EasyShowView/EasyShowUtils
+  - EasyShowView/EasyShowUtils (2.1.4)
+  - EasyShowView/EasyText (2.1.4):
+    - EasyShowView/EasyShowUtils
   - LNRefresh (1.0.1)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.6)
@@ -23,7 +37,7 @@ SPEC REPOS:
     - SDWebImage
 
 SPEC CHECKSUMS:
-  EasyShowView: 296c168baae336135af31eee4ce66e3bc4cffa2a
+  EasyShowView: ec832e175d5926baef413e2dc095fb4ec5c3add4
   LNRefresh: c6359ab42ab656f35a62fde171a05c5a970c55dc
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 0efa19656679d70a0f47cbe76e56c2271fe53a97

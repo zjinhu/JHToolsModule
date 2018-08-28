@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "EasyShowView.h"
 #import "EasyAlertConfig.h"
 #import "EasyAlertGlobalConfig.h"
 #import "EasyAlertItem.h"
@@ -28,7 +29,6 @@
 #import "EasyShowLabel.h"
 #import "EasyShowUtils.h"
 #import "UIView+EasyShowExt.h"
-#import "EasyShowView.h"
 #import "EasyTextBgView.h"
 #import "EasyTextConfig.h"
 #import "EasyTextGlobalConfig.h"

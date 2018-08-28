@@ -99,14 +99,22 @@
     [webView evaluateJavaScript:@"document.title" completionHandler:^(id _Nullable title, NSError * _Nullable error) {
         self.navigationItem.title = title;
     }];
-    [_webView.scrollView endRefreshing];
+    if ([UserDefaults boolForKey:@"isLogin"]) {
+        NSString *token = [UserDefaults valueForKey:@"Access_token"];
+        NSLog(@"token=%@",token);
+        NSString *cookieValue = [NSString stringWithFormat:@"document.cookie = '%@=%@';", @"access_token", token];
+        [self.webView evaluateJavaScript:cookieValue completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+            NSLog(@"result --- %@\n error --- %@",result, error);
+        }];
+    }
+//    [_webView.scrollView endRefreshing];
 }
 
 //4.页面加载失败
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error{
     _webView.hidden = YES;
     _reloadBtn.hidden = NO;
-    [_webView.scrollView endRefreshing];
+//    [_webView.scrollView endRefreshing];
 }
 //HTTPS认证
 - (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential))completionHandler {
@@ -159,10 +167,10 @@
         //进度条的监听
         [_webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
         
-        __weak typeof (self) wself = self;
-        [_webView.scrollView addPullToRefresh:[JHRefreshHeaderAnimator createAnimator] block:^{
-            [wself.webView reload];
-        }];
+//        __weak typeof (self) wself = self;
+//        [_webView.scrollView addPullToRefresh:[JHRefreshHeaderAnimator createAnimator] block:^{
+//            [wself.webView reload];
+//        }];
         
     }
     return _webView;
@@ -173,6 +181,7 @@
     if (!_loadingProgressView) {
         _loadingProgressView = [[UIProgressView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 2)];
         _loadingProgressView.progressTintColor = [UIColor baseTileBlueColor];
+        _loadingProgressView.trackTintColor = [UIColor clearColor];
     }
     return _loadingProgressView;
 }
