@@ -32,13 +32,13 @@
 }
 
 - (void)dealloc {
-    [_webView removeObserver:self forKeyPath:@"estimatedProgress"];
-    [_webView stopLoading];
-    _webView.UIDelegate = nil;
-    _webView.navigationDelegate = nil;
-    _reloadBtn = nil;
-    _loadingProgressView = nil;
-    _webView = nil;
+    [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
+    [self.webView stopLoading];
+    self.webView.UIDelegate = nil;
+    self.webView.navigationDelegate = nil;
+    self.reloadBtn = nil;
+    self.loadingProgressView = nil;
+    self.webView = nil;
 }
 
 - (void)viewDidLoad {
@@ -85,16 +85,16 @@
 }
 
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation{
-    _webView.hidden = NO;
-    _loadingProgressView.hidden = NO;
+    self.webView.hidden = NO;
+    self.loadingProgressView.hidden = NO;
     if ([webView.URL.scheme isEqual:@"about"]) {
         webView.hidden = YES;
     }
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation{
-    _webView.hidden = NO;
-    _reloadBtn.hidden = YES;
+    self.webView.hidden = NO;
+    self.reloadBtn.hidden = YES;
     //导航栏配置
     [webView evaluateJavaScript:@"document.title" completionHandler:^(id _Nullable title, NSError * _Nullable error) {
         self.navigationItem.title = title;
@@ -112,8 +112,8 @@
 
 //4.页面加载失败
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error{
-    _webView.hidden = YES;
-    _reloadBtn.hidden = NO;
+    self.webView.hidden = YES;
+    self.reloadBtn.hidden = NO;
 //    [_webView.scrollView endRefreshing];
 }
 //HTTPS认证
@@ -203,8 +203,8 @@
 
 #pragma mark Action
 - (void)goBack {
-    if (_webView.canGoBack) {
-        [_webView goBack];
+    if (self.webView.canGoBack) {
+        [self.webView goBack];
     }else{
         [self closeVC];
     }
@@ -224,28 +224,33 @@
 //kvo监听
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     WS(weakSelf);
-    if ([keyPath isEqualToString:@"estimatedProgress"]) {//进度条
-        _loadingProgressView.progress = [change[@"new"] floatValue];
-        if (_loadingProgressView.progress == 1.0) {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.4f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    if ([keyPath isEqualToString:@"estimatedProgress"]) {
+        //        self.loadingProgressView.progress = self.webView.estimatedProgress;
+        self.loadingProgressView.progress = [change[@"new"] floatValue];
+        if (self.loadingProgressView.progress == 1) {
+            [UIView animateWithDuration:0.25f delay:0.3f options:UIViewAnimationOptionCurveEaseOut animations:^{
+                weakSelf.loadingProgressView.transform = CGAffineTransformMakeScale(1.0f, 1.4f);
+            } completion:^(BOOL finished) {
                 weakSelf.loadingProgressView.hidden = YES;
-            });
+            }];
         }
+    }else{
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
 
 - (void)reloadBtnClick {
-    _loadingProgressView.progress = 0;
-    _loadingProgressView.hidden = NO;//重置进度条
+    self.loadingProgressView.progress = 0;
+    self.loadingProgressView.hidden = NO;//重置进度条
     /**
      WebView在第一次加载页面如果没网络时，是没办法reload的，即使你再次打开网络，reload也是没法办刷新的。此处直接通过 loadRequest 方法来实现没网络时候仍然可以重新加载页面的用户体验
      */
-    [_webView loadRequest:[self loadUrl:_currentPageUrl]];
+    [self.webView loadRequest:[self loadUrl:_currentPageUrl]];
 }
 
 - (void)loadRequest {
     [self clearWbCache];
-    [_webView loadRequest:[self loadUrl:_url]];
+    [self.webView loadRequest:[self loadUrl:_url]];
 }
 
 -(NSMutableURLRequest *)loadUrl:(NSString *)str{
