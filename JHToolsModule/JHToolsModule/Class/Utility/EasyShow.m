@@ -13,8 +13,8 @@
 #import "EasyAlertGlobalConfig.h"
 #import "JHToolsDefine.h"
 @implementation EasyShow
-+(void)load{
-    [super load];
++(void)initialize{
+//    [super load];
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{ //只执行一次就可以了
         EasyTextGlobalConfig *options = [EasyTextGlobalConfig shared];
