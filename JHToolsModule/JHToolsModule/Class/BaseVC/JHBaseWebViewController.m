@@ -225,8 +225,10 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     WS(weakSelf);
     if ([keyPath isEqualToString:@"estimatedProgress"]) {
-        //        self.loadingProgressView.progress = self.webView.estimatedProgress;
-        self.loadingProgressView.progress = [change[@"new"] floatValue];
+        CGFloat progress = [[change objectForKey:NSKeyValueChangeNewKey] floatValue];
+        if (progress >= self.loadingProgressView.progress) {
+            [self.loadingProgressView setProgress:progress animated:YES];
+        }
         if (self.loadingProgressView.progress == 1) {
             [UIView animateWithDuration:0.25f delay:0.3f options:UIViewAnimationOptionCurveEaseOut animations:^{
                 weakSelf.loadingProgressView.transform = CGAffineTransformMakeScale(1.0f, 1.4f);
