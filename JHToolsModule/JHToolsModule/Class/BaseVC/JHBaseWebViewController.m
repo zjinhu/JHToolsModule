@@ -171,7 +171,6 @@
 //        [_webView.scrollView addPullToRefresh:[JHRefreshHeaderAnimator createAnimator] block:^{
 //            [wself.webView reload];
 //        }];
-        
     }
     return _webView;
 }
