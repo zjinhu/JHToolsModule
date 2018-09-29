@@ -40,7 +40,11 @@
     if (hidden) {
         self.scrollView.ln_insetB = self.scrollViewInsets.bottom;
     } else {
-        self.scrollView.ln_insetB = self.scrollViewInsets.bottom + self.animator.incremental;
+        if (self.isAutoBack) {
+            self.scrollView.ln_insetB = self.scrollViewInsets.bottom;
+        } else {
+            self.scrollView.ln_insetB = self.scrollViewInsets.bottom + self.animator.incremental;
+        }
     }
 }
 
@@ -50,6 +54,7 @@
     if (self.frame.origin.y != targetY) {
         self.ln_y = targetY;
     }
+    [self.animator layoutSubviews];
 }
 
 - (void)contentOffsetChangeAction:(NSDictionary *)change {

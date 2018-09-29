@@ -214,10 +214,10 @@ static const char LNRefreshFooterKey = '\0';
         [self removeRefreshHeader];
     }
     LNRefreshHeader *header = [LNRefreshHeader initWithFrame:CGRectZero animator:animater block:block];
-    header.frame = CGRectMake(self.contentOffset.x, -header.animator.incremental + self.contentOffset.y, self.bounds.size.width, header.animator.incremental);
+    header.frame = CGRectMake(self.contentOffset.x, -(header.animator.incremental + self.contentInset.top), self.bounds.size.width, header.animator.incremental);
     header.animator.animatorView = header;
     self.ln_header = header;
-    [self insertSubview:header atIndex:0];
+    [self insertSubview:self.ln_header atIndex:0];
     return self.ln_header;
 }
 
@@ -233,11 +233,10 @@ static const char LNRefreshFooterKey = '\0';
         [self removeRefreshFooter];
     }
     LNRefreshFooter *footer = [LNRefreshFooter initWithFrame:CGRectZero animator:animater block:block];
-    footer.frame = CGRectMake(self.contentOffset.x, self.contentSize.height + self.contentOffset.y - self.contentInset.top, self.bounds.size.width, footer.animator.incremental);
+    footer.frame = CGRectMake(self.contentOffset.x, self.contentSize.height - self.contentInset.top, self.bounds.size.width, footer.animator.incremental);
     footer.animator.animatorView = footer;
     footer.hidden = YES;
     self.ln_footer = footer;
-    
     [self insertSubview:self.ln_footer atIndex:0];
     return self.ln_footer;
 }
@@ -258,6 +257,9 @@ static const char LNRefreshFooterKey = '\0';
 #pragma mark - Action
 - (void)pullDownDealFooterWithItemCount:(NSInteger)itemCount cursor:(NSString *)cursor {
     [self endRefreshing];
+    if ([cursor isKindOfClass:[NSNull class]] || [cursor isEqualToString:@"(null)"]) {
+        cursor = nil;
+    }
     if (itemCount == 0) {
         self.ln_footer.hidden = YES;
     } else {
@@ -271,6 +273,9 @@ static const char LNRefreshFooterKey = '\0';
 
 - (void)pullUpRefreshDealFooterWithItemCount:(NSInteger)itemCount cursor:(NSString *)cursor {
     [self endLoadingMore];
+    if ([cursor isKindOfClass:[NSNull class]] || [cursor isEqualToString:@"(null)"]) {
+        cursor = nil;
+    }
     if (itemCount > 0 && cursor.length > 0) {
         [self resetNoMoreData];
     } else {
@@ -308,19 +313,15 @@ static const char LNRefreshFooterKey = '\0';
 }
 
 - (void)resetNoMoreData {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.ln_footer.noMoreData = NO;
-        self.ln_footer.hidden = NO;
-        [self.ln_footer stop];
-    });
+    self.ln_footer.noMoreData = NO;
+    self.ln_footer.hidden = NO;
+    [self.ln_footer stop];
 }
 
 - (void)noticeNoMoreData {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.ln_footer.noMoreData = YES;
-        self.ln_footer.hidden = NO;
-        [self.ln_footer stop];
-    });
+    self.ln_footer.noMoreData = YES;
+    self.ln_footer.hidden = NO;
+    [self.ln_footer stop];
 }
 
 - (void)hideRefreshFooter {

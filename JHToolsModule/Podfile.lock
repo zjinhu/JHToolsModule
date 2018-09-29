@@ -14,9 +14,9 @@ PODS:
   - EasyShowView/EasyShowUtils (2.1.4)
   - EasyShowView/EasyText (2.1.4):
     - EasyShowView/EasyShowUtils
-  - LNRefresh (1.0.1)
+  - LNRefresh (1.0.2)
   - Masonry (1.1.0)
-  - MJRefresh (3.1.15.6)
+  - MJRefresh (3.1.15.7)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
@@ -38,9 +38,9 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   EasyShowView: ec832e175d5926baef413e2dc095fb4ec5c3add4
-  LNRefresh: c6359ab42ab656f35a62fde171a05c5a970c55dc
+  LNRefresh: 43955d88cbf562194dbdf1301eeaaba253546ca0
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MJRefresh: 0efa19656679d70a0f47cbe76e56c2271fe53a97
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
 
 PODFILE CHECKSUM: 64355b8e5e3cef47504e3c0d67ab4b60b7841c07

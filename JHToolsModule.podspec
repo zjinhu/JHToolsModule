@@ -54,19 +54,19 @@ Pod::Spec.new do |s|
           	ss.subspec 'Safe' do |sss| 
           	   sss.source_files = 'JHToolsModule/JHToolsModule/Class/Category/Safe/**/*' 
           	   sss.public_header_files = "JHToolsModule/JHToolsModule/Class/Category/Safe/*.{h}"
-    		    end
-        	  ss.subspec 'Masonry' do |sss| 
+    		end
+        	ss.subspec 'Masonry' do |sss| 
           	   sss.source_files = 'JHToolsModule/JHToolsModule/Class/Category/Masonry/**/*' 
           	   sss.public_header_files = "JHToolsModule/JHToolsModule/Class/Category/Masonry/*.{h}"
-    		    end
-        	  ss.subspec 'Button' do |sss| 
+    		end
+        	ss.subspec 'Button' do |sss| 
           	   sss.source_files = 'JHToolsModule/JHToolsModule/Class/Category/Button/**/*' 
           	   sss.public_header_files = "JHToolsModule/JHToolsModule/Class/Category/Button/*.{h}"
-    		    end
-        	  ss.subspec 'BaseUI' do |sss| 
+    		end
+        	ss.subspec 'BaseUI' do |sss| 
           	   sss.source_files = 'JHToolsModule/JHToolsModule/Class/Category/BaseUI/**/*' 
           	   sss.public_header_files = "JHToolsModule/JHToolsModule/Class/Category/BaseUI/*.{h}"
-    		    end
+    		end
     end
 
 end

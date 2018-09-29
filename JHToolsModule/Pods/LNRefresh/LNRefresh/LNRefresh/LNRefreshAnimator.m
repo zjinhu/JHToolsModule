@@ -43,15 +43,29 @@
 }
 
 - (void)updateAnimationView:(CGFloat)num {
-    self.animatorView.ln_y -= num;
-    self.animatorView.ln_h = self.incremental;
+    CGRect frame = self.animatorView.frame;
+    frame.origin.y -= num;
+    frame.size.height = self.incremental;
+    if (self.animatorView) {
+        self.animatorView.frame = frame;        
+    }
 }
 
 - (void)setupSubViews {
-    for (UIView *view in self.animatorView.subviews) {
-        [view removeFromSuperview];
-    }
-    [[self.animatorView.layer.sublayers copy] makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        @synchronized(self) {
+            if (self.animatorView) {
+                NSArray *views = [self.animatorView.subviews copy];
+                for (UIView *view in views) {
+                    [view removeFromSuperview];
+                }
+                NSArray *layers = [self.animatorView.layer.sublayers copy];
+                for (CALayer *layer in layers) {
+                    [layer removeFromSuperlayer];
+                }
+            }
+        }
+    });
 }
 
 - (void)layoutSubviews {}
