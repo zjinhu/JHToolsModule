@@ -16,6 +16,47 @@
 
 //weak
 #define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+////可以对非self参数进行weak
+//#define weakify(var) __weak typeof(var) weak##var = var;
+//#define strongify(var) \
+//_Pragma("clang diagnostic push") \
+//_Pragma("clang diagnostic ignored \"-Wshadow\"") \
+//__strong typeof(var) var = weak##var; \
+//_Pragma("clang diagnostic pop")
+
+#ifndef weakify
+#if DEBUG
+#if __has_feature(objc_arc)
+#define weakify(object) autoreleasepool{} __weak __typeof__(object) weak##_##object = object;
+#else
+#define weakify(object) autoreleasepool{} __block __typeof__(object) block##_##object = object;
+#endif
+#else
+#if __has_feature(objc_arc)
+#define weakify(object) try{} @finally{} {} __weak __typeof__(object) weak##_##object = object;
+#else
+#define weakify(object) try{} @finally{} {} __block __typeof__(object) block##_##object = object;
+#endif
+#endif
+#endif
+
+#ifndef strongify
+#if DEBUG
+#if __has_feature(objc_arc)
+#define strongify(object) autoreleasepool{} __typeof__(object) object = weak##_##object;
+#else
+#define strongify(object) autoreleasepool{} __typeof__(object) object = block##_##object;
+#endif
+#else
+#if __has_feature(objc_arc)
+#define strongify(object) try{} @finally{} __typeof__(object) object = weak##_##object;
+#else
+#define strongify(object) try{} @finally{} __typeof__(object) object = block##_##object;
+#endif
+#endif
+#endif
+
+////////////////////////////////////////////////////////////////
 //图片
 #define ImageNamed(NAME)  ([UIImage imageNamed:NAME])
 //比例线
@@ -25,6 +66,10 @@
 #define FontOfMedium(sizeint)   [UIFont systemFontOfSize:sizeint weight:UIFontWeightMedium]
 #define FontOfSemibold(sizeint) [UIFont systemFontOfSize:sizeint weight:UIFontWeightSemibold]
 #define Font(sizeint)           [UIFont systemFontOfSize:sizeint]
+//FontOfWidgt(16, UIFontWeightMedium);
+#define FontOfWidgt(sizeint,w)          [UIFont systemFontOfSize:sizeint weight:w]
+#define RealValue(value) ((value)/375.0f*[UIScreen mainScreen].bounds.size.width)///仅用于字体,view大小用#define FIT_WIDTH  (SCREEN_WIDTH/375) FIT_HEIGHT  (SCREEN_HEIGHT/667)
+
 ///颜色
 #define CLEARCOLOR [UIColor clearColor]
 
@@ -38,11 +83,16 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 // 判断是否是iPhone X
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
-#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
-#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
-#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
-#define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define iPhone_3_5  (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)  //3.5寸
+#define iPhone_4    (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0) //4寸
+#define iPhone_4_7  (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0) //4.7寸
+#define iPhone_5_5  (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0) //5.5寸
+#define iPhoneX     (IS_IPHONE && SCREEN_MAX_LENGTH >= 812)  //iPhoneX刘海系列
+#define iPhone_5_8  (IS_IPHONE && SCREEN_MAX_LENGTH == 812)  //5.8寸
+#define iPhone_6_1  (IS_IPHONE && SCREEN_MAX_LENGTH == 896 && Scare==2.0)  //6.1寸
+#define iPhone_6_5  (IS_IPHONE && SCREEN_MAX_LENGTH == 896 && Scare==3.0)  //6.5寸
+
 // 状态栏高度
 #define STATUS_BAR_HEIGHT (iPhoneX ? 44.f : 20.f)
 // 导航栏高度

@@ -5,7 +5,7 @@
 //  Created by iOS on 2018/1/19.
 //  Copyright © 2018年 iOS. All rights reserved.
 //
-#define MarginLeft          (IS_IPHONE_6P ? 20 : 16)
+#define MarginLeft          (iPhone_5_5 ? 20 : 16)
 #import "UITableViewCell+AddLine.h"
 #import "BaseUI.h"
 #import "JHToolsDefine.h"

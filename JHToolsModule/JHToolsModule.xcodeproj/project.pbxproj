@@ -31,6 +31,7 @@
 		8538AE232100383B00AF014C /* UIView+Masonry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8538AE222100383B00AF014C /* UIView+Masonry.m */; };
 		8538AE262100396D00AF014C /* UIWebView+Masonry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8538AE252100396D00AF014C /* UIWebView+Masonry.m */; };
 		8538AE2A21003F0900AF014C /* UITableViewCell+AddLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8538AE2921003F0900AF014C /* UITableViewCell+AddLine.m */; };
+		853EB6BC2146188800B041BE /* UILabel+FitLines.m in Sources */ = {isa = PBXBuildFile; fileRef = 853EB6BB2146188800B041BE /* UILabel+FitLines.m */; };
 		8574B6EF20FF2E6100F3EB05 /* EdgeInsetsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8574B6EE20FF2E6100F3EB05 /* EdgeInsetsLabel.m */; };
 		8574B6F220FF2ED600F3EB05 /* JHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8574B6F120FF2ED600F3EB05 /* JHBaseViewController.m */; };
 		8574B6F520FF2EF900F3EB05 /* JHBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8574B6F420FF2EF900F3EB05 /* JHBaseTableViewController.m */; };
@@ -171,6 +172,8 @@
 		8538AE2821003F0900AF014C /* UITableViewCell+AddLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+AddLine.h"; sourceTree = "<group>"; };
 		8538AE2921003F0900AF014C /* UITableViewCell+AddLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+AddLine.m"; sourceTree = "<group>"; };
 		8538AE3921008D1000AF014C /* JHToolsModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHToolsModule.h; sourceTree = "<group>"; };
+		853EB6BA2146188800B041BE /* UILabel+FitLines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+FitLines.h"; sourceTree = "<group>"; };
+		853EB6BB2146188800B041BE /* UILabel+FitLines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+FitLines.m"; sourceTree = "<group>"; };
 		8574B6EC20FF2E2A00F3EB05 /* JHToolsDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHToolsDefine.h; sourceTree = "<group>"; };
 		8574B6ED20FF2E6100F3EB05 /* EdgeInsetsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EdgeInsetsLabel.h; sourceTree = "<group>"; };
 		8574B6EE20FF2E6100F3EB05 /* EdgeInsetsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EdgeInsetsLabel.m; sourceTree = "<group>"; };
@@ -499,6 +502,8 @@
 			isa = PBXGroup;
 			children = (
 				8574B6FF20FF304500F3EB05 /* BaseUI.h */,
+				853EB6BA2146188800B041BE /* UILabel+FitLines.h */,
+				853EB6BB2146188800B041BE /* UILabel+FitLines.m */,
 				8526922E212C24A50079B497 /* UIImageView+LoadURL.h */,
 				8526922D212C24A50079B497 /* UIImageView+LoadURL.m */,
 				8574B70720FF307700F3EB05 /* UINavigationBar+BaseUI.h */,
@@ -619,6 +624,7 @@
 				850741F320FD9AAA004439B9 /* Frameworks */,
 				850741F420FD9AAA004439B9 /* Resources */,
 				61B47F1ECC664910BD4EDE78 /* [CP] Embed Pods Frameworks */,
+				8564BA6B215F66F50021075A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -763,6 +769,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JHToolsModule/Pods-JHToolsModule-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8564BA6B215F66F50021075A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nTAGS=\"TODO:|FIX:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\n";
+		};
 		E2836A21303798E0F4A0EA41 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -788,6 +811,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				853EB6BC2146188800B041BE /* UILabel+FitLines.m in Sources */,
 				8574B70420FF304500F3EB05 /* NSString+Base.m in Sources */,
 				8538AE2A21003F0900AF014C /* UITableViewCell+AddLine.m in Sources */,
 				8574B70320FF304500F3EB05 /* UIColor+BaseUI.m in Sources */,

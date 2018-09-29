@@ -13,4 +13,5 @@
 #import "UIColor+BaseUI.h"
 #import "UINavigationBar+BaseUI.h"
 #import "UIImageView+LoadURL.h"
+#import "UILabel+FitLines.h"
 #endif /* BaseUI_h */

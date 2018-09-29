@@ -223,7 +223,7 @@
 
 //kvo监听
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
-    WS(weakSelf);
+    @weakify(self);
     if ([keyPath isEqualToString:@"estimatedProgress"]) {
         CGFloat progress = [[change objectForKey:NSKeyValueChangeNewKey] floatValue];
         if (progress >= self.loadingProgressView.progress) {
@@ -231,9 +231,10 @@
         }
         if (self.loadingProgressView.progress == 1) {
             [UIView animateWithDuration:0.25f delay:0.3f options:UIViewAnimationOptionCurveEaseOut animations:^{
-                weakSelf.loadingProgressView.transform = CGAffineTransformMakeScale(1.0f, 1.4f);
+                @strongify(self);
+                self.loadingProgressView.transform = CGAffineTransformMakeScale(1.0f, 1.4f);
             } completion:^(BOOL finished) {
-                weakSelf.loadingProgressView.hidden = YES;
+                self.loadingProgressView.hidden = YES;
             }];
         }
     }else{
