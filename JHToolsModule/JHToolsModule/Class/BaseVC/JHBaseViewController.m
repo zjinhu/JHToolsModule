@@ -8,7 +8,6 @@
 #define KNavigationBarButtonHeight 40
 
 #import "JHBaseViewController.h"
-#import "NSString+Base.h"
 #import "BaseUI.h"
 #import "EasyShow.h"
 @interface JHBaseViewController ()
