@@ -13,5 +13,4 @@ target 'JHToolsModule' do
   pod 'LNRefresh'
   pod 'EasyShowView'
   pod 'SDWebImage'
-  pod 'MJRefresh'
 end
