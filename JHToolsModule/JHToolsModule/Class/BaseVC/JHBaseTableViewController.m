@@ -94,6 +94,15 @@
     }else {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    
+    NSArray *gestureArray = self.navigationController.view.gestureRecognizers;//获取所有的手势
+    //当是侧滑手势的时候设置panGestureRecognizer需要UIScreenEdgePanGestureRecognizer失效才生效即可
+    for (UIGestureRecognizer *gesture in gestureArray) {
+        if ([gesture isKindOfClass:[UIScreenEdgePanGestureRecognizer class]]) {
+            [_tableView.panGestureRecognizer requireGestureRecognizerToFail:gesture];
+        }
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

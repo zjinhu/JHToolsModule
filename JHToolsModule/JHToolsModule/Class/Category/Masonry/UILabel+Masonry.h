@@ -118,10 +118,16 @@
  */
 - (void)setRowSpace:(CGFloat)rowSpace;
 
-
+/**
+ *获取自定义样式或者普通UILabel高度
+ */
 + (CGFloat)getHeightWithText:(NSString*)str width:(CGFloat)width;
 
 + (CGFloat)getHeightWithAttribute:(NSMutableAttributedString*)attributedString width:(CGFloat)width;
 
-+ (CGFloat)getHeightWithAttribute:(id)object width:(CGFloat)width numberOfLines:(NSInteger)numberOfLines;
+/**
+ *设置行间距并且计算高度
+ */
+- (void)setText:(NSString*)text lineSpacing:(CGFloat)lineSpacing;
++ (CGFloat)text:(NSString*)text heightWithFontSize:(CGFloat)fontSize width:(CGFloat)width lineSpacing:(CGFloat)lineSpacing;
 @end

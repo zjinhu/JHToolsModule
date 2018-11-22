@@ -45,7 +45,18 @@
     tableView.delegate = delegate;
     tableView.dataSource = delegate;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
+    tableView.backgroundColor = [UIColor clearColor];
+    tableView.tableFooterView = [UIView new];
+    tableView.showsHorizontalScrollIndicator = NO;
+    tableView.showsVerticalScrollIndicator = NO;
+    tableView.estimatedRowHeight = 100;
+    tableView.rowHeight = UITableViewAutomaticDimension;
+    tableView.estimatedSectionHeaderHeight = 0;
+    tableView.estimatedSectionFooterHeight = 0;
+    tableView.delaysContentTouches = YES;
+    if (@available(iOS 11.0, *)){
+        tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentAutomatic;
+    }
     [superView addSubview:tableView];
     
     if (superView && constraints) {

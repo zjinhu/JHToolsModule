@@ -9,14 +9,6 @@
 #import "UILabel+Masonry.h"
 #import <CoreText/CoreText.h>
 
-// 获取屏幕的宽度
-#define kScreenWidthLabel ([UIScreen mainScreen].bounds.size.width)
-// 不同屏幕尺寸字体适配
-#define kScreenWidthRatioLabel  (kScreenWidthLabel / 375.0)
-#define AdaptedWidthLabel(x)  ceilf((x) * kScreenWidthRatioLabel)
-// 字体适配
-#define AdaptedFontSizeLabel(R)     [UIFont systemFontOfSize:AdaptedWidthLabel(R)]
-
 @implementation UILabel (Masonry)
 
 +(instancetype)masLabelWithFontSize:(CGFloat)fontSize{
@@ -82,7 +74,7 @@
     UILabel *label = [[UILabel alloc]init];
     label.text = text;
     if (fontSize!=0) {
-        label.font = AdaptedFontSizeLabel(fontSize);
+        label.font = [UIFont systemFontOfSize:fontSize];
     }
     
     if (font != nil) {
@@ -150,22 +142,49 @@
 }
 
 + (CGFloat)getHeightWithText:(NSString*)str width:(CGFloat)width{
-    return [self getHeightWithAttribute:str width:width numberOfLines:0];
+    return [self getHeight:str width:width numberOfLines:0];
 }
 
 + (CGFloat)getHeightWithAttribute:(NSMutableAttributedString*)attributedString width:(CGFloat)width{
-    return [self getHeightWithAttribute:attributedString width:width numberOfLines:0];
+    return [self getHeight:attributedString width:width numberOfLines:0];
 }
-+ (CGFloat)getHeightWithAttribute:(id)object width:(CGFloat)width numberOfLines:(NSInteger)numberOfLines{
++ (CGFloat)getHeight:(id)object width:(CGFloat)width numberOfLines:(NSInteger)numberOfLines{
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, MAXFLOAT)];
     label.numberOfLines = numberOfLines;
-    if ([object isEqual:[NSString class]]) {
+    if ([object isKindOfClass:[NSString class]]) {
         [label setText:object];
-    }
-    if ([object isEqual:[NSMutableAttributedString class]]) {
+    }else{
         [label setAttributedText:object];
     }
     [label sizeToFit];
     return label.frame.size.height;
 }
+
+- (void)setText:(NSString*)text lineSpacing:(CGFloat)lineSpacing {
+    if (lineSpacing < 0.01 || !text) {
+        self.text = text;
+        return;
+    }
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:text];
+    [attributedString addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, [text length])];
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:lineSpacing];
+    [paragraphStyle setLineBreakMode:self.lineBreakMode];
+    [paragraphStyle setAlignment:self.textAlignment];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [text length])];
+    
+    self.attributedText = attributedString;
+}
+
+
++ (CGFloat)text:(NSString*)text heightWithFontSize:(CGFloat)fontSize width:(CGFloat)width lineSpacing:(CGFloat)lineSpacing {
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, MAXFLOAT)];
+    label.font = [UIFont systemFontOfSize:fontSize];
+    label.numberOfLines = 0;
+    [label setText:text lineSpacing:lineSpacing];
+    [label sizeToFit];
+    return label.frame.size.height;
+}
+
 @end

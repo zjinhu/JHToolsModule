@@ -121,19 +121,35 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define IOS10_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0)
 #define IOS11_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 11.0)
 #define IOS12_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 12.0)
-//单例封装(用法.h SingletonH(A); .m SingletonM(A);  类: [x shareA])
-#define SingletonH(name)  + (instancetype)share##name;
+//单例封装(用法.h SingletonH; .m SingletonM(A);  类: [A shared])
+// .h
+#define SingletonH  + (instancetype)shared ;
+// .m
+#define SingletonM(class) \
+static class *_showInstance; \
++ (id)allocWithZone:(struct _NSZone *)zone { \
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+_showInstance = [super allocWithZone:zone]; \
+}); \
+return _showInstance; \
+} \
++ (instancetype)shared { \
+if (nil == _showInstance) { \
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+_showInstance = [[class alloc] init]; \
+}); \
+} \
+return _showInstance; \
+} \
+- (id)copyWithZone:(NSZone *)zone{ \
+return _showInstance; \
+} \
+- (id)mutableCopyWithZone:(NSZone *)zone{ \
+return _showInstance; \
+} \
 
-#define SingletonM(name) static id _instance;\
-+ (instancetype)allocWithZone:(struct _NSZone *)zone {\
-static dispatch_once_t onceToken;\
-dispatch_once(&onceToken, ^{\
-_instance = [super allocWithZone:zone];\
-});\
-return _instance;}\
-+ (instancetype)share##name { return [[self alloc] init]; }\
-- (id)copyWithZone:(NSZone *)zone { return _instance; }\
-- (id)mutableCopyWithZone:(NSZone *)zone { return _instance; }
 ///LOG
 #ifdef DEBUG
 #define NSLog(format, ...) printf("\n\n↓↓↓↓↓↓↓↓↓↓↓↓[Log]↓↓↓↓↓↓↓↓↓↓↓↓\n>>>>>>>>>>>>>位置<<<<<<<<<<<<<\n%s\n>>>>>>>>>>>>>方法<<<<<<<<<<<<<\n%s\n>>>>>>>>>>>>>行数<<<<<<<<<<<<<\n第%d行\n>>>>>>>>>>>>>信息<<<<<<<<<<<<<\n%s\n↑↑↑↑↑↑↑↑↑↑↑↑[END]↑↑↑↑↑↑↑↑↑↑↑↑\n\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __PRETTY_FUNCTION__, __LINE__, [[NSString stringWithFormat:(format), ##__VA_ARGS__] UTF8String] )

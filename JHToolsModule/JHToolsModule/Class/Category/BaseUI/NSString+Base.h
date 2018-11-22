@@ -11,15 +11,20 @@
 @interface NSString (Base)
 - (NSString *)getMD5;
 - (NSString *)stringByTrim;
+- (NSString *)getBase64;
 
+- (BOOL)empty;
+- (BOOL)isNotNull;
+- (BOOL)isTelephone;
+- (BOOL)isIdentifyNo;
 
 - (CGSize)getSizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size;
 
 - (CGSize)getSizeWithFont:(UIFont *)font;
 
 - (CGSize)getSizeWithAtt:(NSDictionary *)att ConstrainedToSize:(CGSize)size;
+
 - (CGSize)getSizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size AndLineHeight:(CGFloat)lineHeight;
-- (CGSize)getSizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size AndParagraphStyle:(NSParagraphStyle *)paragraphStyle;
 
 
 

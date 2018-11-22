@@ -17,6 +17,8 @@
  
 - (instancetype)initWithLoadURL:(NSString *)urlString;
 
+- (void)loadRequest;
+
 - (void)cleanAllWebsiteDataStore;
 
 - (void)closeVC;

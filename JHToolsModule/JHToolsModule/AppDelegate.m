@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "NSOperationQueue+CompletionBlock.h"
 @interface AppDelegate ()
 
 @end
@@ -21,21 +20,6 @@
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0/255.0 green:175/255.0 blue:240/255.0 alpha:1]];
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
                                                            [UIColor whiteColor], NSForegroundColorAttributeName, [UIFont systemFontOfSize:21], NSFontAttributeName, nil]];
-    
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    queue.completionBlock = ^{
-        NSLog(@"I'm done!");
-    };
-    [queue addOperationWithBlock:^{
-        sleep(12);
-        NSLog(@"I am an operation.1");
-    }];
-    [queue addOperationWithBlock:^{
-        NSLog(@"I am an operation.2");
-    }];
-    [queue addOperationWithBlock:^{
-        NSLog(@"I am an operation.3");
-    }];
     
     return YES;
 }

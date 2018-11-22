@@ -17,14 +17,16 @@
 #import "JHToolsDefine.h"
 #import "BaseUI.h"
 #import "UITableViewCell+AddLine.h"
-#import "NSOperationQueue+CompletionBlock.h"
+
 #import "SafeEX.h"
 #import "MasonryUI.h" 
 #import "UIButton+Position.h"
 #import "NSObject+BlockSEL.h"
+#import "UIControl+Block.h"
 #import "NLog.h"
 #import "EasyShow.h"
 #import "GPSLocationManager.h"
 #import "UILineView.h"
 #import "UserDefaults.h"
+#import "NSArray+Sudoku.h"
 #endif /* JHToolsModule_h */

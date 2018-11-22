@@ -20,7 +20,7 @@ typedef void (^LocationResult)(CLLocation *location, NSError *error);
 
 @interface GPSLocationManager : NSObject
 
-SingletonH(GPSLocationManager);
+SingletonH
  
 /**
  * @brief 启动定位，并设置定位成功回调

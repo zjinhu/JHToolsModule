@@ -6,7 +6,7 @@
 //  Copyright © 2018年 HU. All rights reserved.
 //
 #define KNavigationBarButtonHeight 40
-
+#import "JHToolsDefine.h"
 #import "JHBaseViewController.h"
 #import "BaseUI.h"
 #import "EasyShow.h"
@@ -15,6 +15,18 @@
 @end
 
 @implementation JHBaseViewController
+
+-(UIRectEdge)preferredScreenEdgesDeferringSystemGestures{
+    return UIRectEdgeAll;
+}
+
+-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+    if (self.navigationController.viewControllers.count == 1) {
+        return NO;
+    }else{
+        return YES;
+    }
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -28,6 +40,14 @@
 //    }
 //    [self showLoading];
 }
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if (self.navigationController.viewControllers.count==1) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -118,10 +138,10 @@
  */
 - (void)setLeftBarButtonWithText:(NSString *)text{
     
-    CGSize buttonSize                     = [text getSizeWithFont:[UIFont menuFont]];
+    CGSize buttonSize                     = [text getSizeWithFont:Font(16)];
     _leftBarButton                        = [[UIButton alloc] init];
     _leftBarButton.frame                  = CGRectMake(0, 0, buttonSize.width, buttonSize.height);
-    _leftBarButton.titleLabel.font        = [UIFont menuFont];
+    _leftBarButton.titleLabel.font        = Font(16);
     [_leftBarButton setTitle:text forState:UIControlStateNormal];
     [_leftBarButton setTitle:text forState:UIControlStateHighlighted];
     //    [_leftBarButton setTitleColor:BaseNaviBarTextColor forState:UIControlStateNormal];
@@ -138,12 +158,12 @@
     }
 }
 - (void)setLeftBarButtonWithImage:(UIImage *)normalImage AndHighLightImage:(UIImage *)highLightImage AndText:(NSString *)text{
-    CGSize textSize = [text getSizeWithFont:[UIFont baseFont]];
+    CGSize textSize = [text getSizeWithFont:Font(15)];
     CGFloat height = normalImage.size.height > textSize.height ? normalImage.size.height : textSize.height;
     CGFloat width = textSize.width + normalImage.size.width + 8;
     _leftBarButton                        = [[UIButton alloc] init];
     _leftBarButton.frame                  = CGRectMake(0, 0, width, height);
-    _leftBarButton.titleLabel.font        = [UIFont baseFont];
+    _leftBarButton.titleLabel.font        = Font(15);
     [_leftBarButton setImage:normalImage forState:UIControlStateNormal];
     [_leftBarButton setImage:highLightImage forState:UIControlStateHighlighted];
     [_leftBarButton setTitle:text forState:UIControlStateNormal];
@@ -197,10 +217,10 @@
  */
 - (void)setRightBarButtonWithText:(NSString *)text{
     
-    CGSize buttonSize                      = [text getSizeWithFont:[UIFont menuFont]];
+    CGSize buttonSize                      = [text getSizeWithFont:Font(16)];
     _rightBarButton                        = [[UIButton alloc] init];
     _rightBarButton.frame                  = CGRectMake(0, 0, buttonSize.width, buttonSize.height);
-    _rightBarButton.titleLabel.font        = [UIFont menuFont];
+    _rightBarButton.titleLabel.font        = Font(16);
     [_rightBarButton setTitle:text forState:UIControlStateNormal];
     [_rightBarButton setTitle:text forState:UIControlStateHighlighted];
     [_rightBarButton setTitleColor:[UIColor baseTextColor] forState:UIControlStateNormal];
@@ -220,6 +240,10 @@
 }
 
 -(void)hideLoading{
+    [EasyShow hidenLoading];
+}
+
+-(void)dealloc{
     [EasyShow hidenLoading];
 }
 

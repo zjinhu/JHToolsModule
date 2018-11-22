@@ -16,7 +16,7 @@
 
 @implementation GPSLocationManager
 
-SingletonM(GPSLocationManager);
+SingletonM(GPSLocationManager)
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
     switch (status) {
