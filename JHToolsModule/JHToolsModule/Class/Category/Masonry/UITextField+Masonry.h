@@ -28,7 +28,7 @@
  *
  *    @return The text field instance.
  */
-+ (instancetype)masLextFieldWithHolder:(NSString *)holder
++ (instancetype)masTextFieldWithHolder:(NSString *)holder
                              superView:(UIView *)superView
                            constraints:(JHConstrainMaker)constraints;
 
@@ -43,7 +43,7 @@
  *
  *    @return The text field instance.
  */
-+ (UITextField *)masLextFieldWithHolder:(NSString *)holder
++ (UITextField *)masTextFieldWithHolder:(NSString *)holder
                                delegate:(id<UITextFieldDelegate>)delegate
                               superView:(UIView *)superView
                             constraints:(JHConstrainMaker)constraints;
@@ -59,7 +59,7 @@
  *
  *    @return The text field instance.
  */
-+ (UITextField *)masLextFieldWithHolder:(NSString *)holder
++ (UITextField *)masTextFieldWithHolder:(NSString *)holder
                                    text:(NSString *)text
                               superView:(UIView *)superView
                             constraints:(JHConstrainMaker)constraints;
@@ -76,7 +76,7 @@
  *
  *    @return The text field instance.
  */
-+ (UITextField *)masLextFieldWithHolder:(NSString *)holder
++ (UITextField *)masTextFieldWithHolder:(NSString *)holder
                                    text:(NSString *)text
                                delegate:(id<UITextFieldDelegate>)delegate
                               superView:(UIView *)superView

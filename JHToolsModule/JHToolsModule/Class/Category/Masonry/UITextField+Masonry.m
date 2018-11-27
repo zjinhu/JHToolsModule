@@ -36,38 +36,38 @@ static const void *LeftMarginOfCursorKey = "LeftMarginOfCursor";
     }
 }
 
-+ (instancetype)masLextFieldWithHolder:(NSString *)holder
++ (instancetype)masTextFieldWithHolder:(NSString *)holder
                              superView:(UIView *)superView
                            constraints:(JHConstrainMaker)constraints {
-    return [self masLextFieldWithHolder:holder
+    return [self masTextFieldWithHolder:holder
                                    text:nil
                               superView:superView
                             constraints:constraints];
 }
 
-+ (UITextField *)masLextFieldWithHolder:(NSString *)holder
++ (UITextField *)masTextFieldWithHolder:(NSString *)holder
                                    text:(NSString *)text
                               superView:(UIView *)superView
                             constraints:(JHConstrainMaker)constraints {
-    return [self masLextFieldWithHolder:holder
+    return [self masTextFieldWithHolder:holder
                                    text:text
                                delegate:nil
                               superView:superView
                             constraints:constraints];
 }
 
-+ (UITextField *)masLextFieldWithHolder:(NSString *)holder
++ (UITextField *)masTextFieldWithHolder:(NSString *)holder
                                delegate:(id<UITextFieldDelegate>)delegate
                               superView:(UIView *)superView
                             constraints:(JHConstrainMaker)constraints {
-    return [self masLextFieldWithHolder:holder
+    return [self masTextFieldWithHolder:holder
                                    text:nil
                                delegate:delegate
                               superView:superView
                             constraints:constraints];
 }
 
-+ (UITextField *)masLextFieldWithHolder:(NSString *)holder
++ (UITextField *)masTextFieldWithHolder:(NSString *)holder
                                    text:(NSString *)text
                                delegate:(id<UITextFieldDelegate>)delegate
                               superView:(UIView *)superView
