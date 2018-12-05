@@ -120,6 +120,7 @@
 		85E4E37B212D35C5001FB1A9 /* ic_arrow_gray_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 85E4E33D212D35C5001FB1A9 /* ic_arrow_gray_right@2x.png */; };
 		85E4E37C212D35C5001FB1A9 /* nav_ic_back_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 85E4E33E212D35C5001FB1A9 /* nav_ic_back_white@3x.png */; };
 		85E4E37D212D35C5001FB1A9 /* nav_ic_back_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 85E4E33F212D35C5001FB1A9 /* nav_ic_back_white@2x.png */; };
+		91420FCF21B7C033005B7961 /* UILabel+AttributeClick.m in Sources */ = {isa = PBXBuildFile; fileRef = 91420FCE21B7C033005B7961 /* UILabel+AttributeClick.m */; };
 		91B3BE4C21A695160044CC8D /* UIControl+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B3BE4B21A695160044CC8D /* UIControl+Block.m */; };
 /* End PBXBuildFile section */
 
@@ -288,6 +289,8 @@
 		85E4E33D212D35C5001FB1A9 /* ic_arrow_gray_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_arrow_gray_right@2x.png"; sourceTree = "<group>"; };
 		85E4E33E212D35C5001FB1A9 /* nav_ic_back_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_ic_back_white@3x.png"; sourceTree = "<group>"; };
 		85E4E33F212D35C5001FB1A9 /* nav_ic_back_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_ic_back_white@2x.png"; sourceTree = "<group>"; };
+		91420FCD21B7C033005B7961 /* UILabel+AttributeClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AttributeClick.h"; sourceTree = "<group>"; };
+		91420FCE21B7C033005B7961 /* UILabel+AttributeClick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AttributeClick.m"; sourceTree = "<group>"; };
 		91B3BE4A21A695160044CC8D /* UIControl+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Block.h"; sourceTree = "<group>"; };
 		91B3BE4B21A695160044CC8D /* UIControl+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Block.m"; sourceTree = "<group>"; };
 		92D1C6EFC981BC9F00DF6516 /* Pods_JHToolsModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JHToolsModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -360,8 +363,8 @@
 			children = (
 				8508714C212AD42F006EA702 /* NSArray+Sudoku.h */,
 				8508714B212AD42F006EA702 /* NSArray+Sudoku.m */,
-				8538AE2821003F0900AF014C /* UITableViewCell+AddLine.h */,
-				8538AE2921003F0900AF014C /* UITableViewCell+AddLine.m */,
+				8574B6FE20FF304500F3EB05 /* NSString+Base.h */,
+				8574B6FD20FF304500F3EB05 /* NSString+Base.m */,
 				8574B6F920FF2FF000F3EB05 /* BaseUI */,
 				8574B6F820FF2FD600F3EB05 /* Button */,
 				8574B6F720FF2FCD00F3EB05 /* Masonry */,
@@ -492,10 +495,12 @@
 			isa = PBXGroup;
 			children = (
 				8574B6FF20FF304500F3EB05 /* BaseUI.h */,
-				8574B6FE20FF304500F3EB05 /* NSString+Base.h */,
-				8574B6FD20FF304500F3EB05 /* NSString+Base.m */,
+				8538AE2821003F0900AF014C /* UITableViewCell+AddLine.h */,
+				8538AE2921003F0900AF014C /* UITableViewCell+AddLine.m */,
 				853EB6BA2146188800B041BE /* UILabel+FitLines.h */,
 				853EB6BB2146188800B041BE /* UILabel+FitLines.m */,
+				91420FCD21B7C033005B7961 /* UILabel+AttributeClick.h */,
+				91420FCE21B7C033005B7961 /* UILabel+AttributeClick.m */,
 				8526922E212C24A50079B497 /* UIImageView+LoadURL.h */,
 				8526922D212C24A50079B497 /* UIImageView+LoadURL.m */,
 				8574B70720FF307700F3EB05 /* UINavigationBar+BaseUI.h */,
@@ -807,6 +812,7 @@
 				8574B72D20FF317C00F3EB05 /* UIButton+Countdown.m in Sources */,
 				8538AE232100383B00AF014C /* UIView+Masonry.m in Sources */,
 				8523429D2113173E00364793 /* JHBaseWebViewController.m in Sources */,
+				91420FCF21B7C033005B7961 /* UILabel+AttributeClick.m in Sources */,
 				8523429A2113168000364793 /* UserDefaults.m in Sources */,
 				8538AE262100396D00AF014C /* UIWebView+Masonry.m in Sources */,
 				8574B71D20FF30EE00F3EB05 /* NullSafe.m in Sources */,

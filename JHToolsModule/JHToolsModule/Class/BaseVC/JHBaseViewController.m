@@ -10,6 +10,7 @@
 #import "JHBaseViewController.h"
 #import "BaseUI.h"
 #import "EasyShow.h"
+#import "NSString+Base.h"
 @interface JHBaseViewController ()
 
 @end

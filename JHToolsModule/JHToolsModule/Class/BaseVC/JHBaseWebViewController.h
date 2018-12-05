@@ -17,6 +17,12 @@
  
 - (instancetype)initWithLoadURL:(NSString *)urlString;
 
+- (instancetype)initWithURL:(NSURL *)url;
+
+- (instancetype)initWithURL:(NSURL *)url cookie:(NSDictionary *)cookie;
+
+- (instancetype)initWithURLRequest:(NSURLRequest *)requst;
+
 - (void)loadRequest;
 
 - (void)cleanAllWebsiteDataStore;

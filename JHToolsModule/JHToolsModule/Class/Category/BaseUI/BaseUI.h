@@ -13,5 +13,6 @@
 #import "UINavigationBar+BaseUI.h"
 #import "UIImageView+LoadURL.h"
 #import "UILabel+FitLines.h"
-#import "NSString+Base.h"
+#import "UITableViewCell+AddLine.h"
+#import "UILabel+AttributeClick.h"
 #endif /* BaseUI_h */

@@ -16,7 +16,7 @@
 #import "JHBaseWebViewController.h"
 #import "JHToolsDefine.h"
 #import "BaseUI.h"
-#import "UITableViewCell+AddLine.h"
+#import "NSString+Base.h"
 
 #import "SafeEX.h"
 #import "MasonryUI.h" 
