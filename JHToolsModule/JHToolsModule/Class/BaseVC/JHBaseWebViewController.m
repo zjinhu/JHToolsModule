@@ -118,7 +118,6 @@ static NSString *POSTRequest = @"POST";
     
     [self loadRequest];
     
-    
     //注册方法
     [[self.webView configuration].userContentController addScriptMessageHandler:[[WeakScriptMessageDelegate alloc] initWithDelegate:self] name:@"JumpViewController"];
 }
