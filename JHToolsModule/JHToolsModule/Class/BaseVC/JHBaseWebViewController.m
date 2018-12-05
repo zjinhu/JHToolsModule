@@ -81,12 +81,17 @@ static NSString *POSTRequest = @"POST";
     self.webView.UIDelegate = self;
     self.webView.scrollView.delegate = self;
     
+    // 获取默认User-Agent
+    @weakify(self);
     [self.webView evaluateJavaScript:@"navigator.userAgent" completionHandler:^(id result, NSError *error) {
+        @strongify(self);
         NSString *oldAgent = result;
-        // 给User-Agent添加额外的信息
-        NSString *newAgent = [NSString stringWithFormat:@"%@;%@", oldAgent, @"iOSAPP"];
+        NSString *newAgent = [NSString stringWithFormat:@"%@;%@", oldAgent, @"ikangiOS"];
+        NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:newAgent, @"UserAgent", nil];
+        [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
         [self.webView setCustomUserAgent:newAgent];
     }];
+    
     //添加此属性可触发侧滑返回上一网页与下一网页操作
     self.webView.allowsBackForwardNavigationGestures = YES;
     //进度条的监听
