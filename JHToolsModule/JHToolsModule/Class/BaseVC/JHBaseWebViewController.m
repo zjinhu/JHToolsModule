@@ -75,7 +75,6 @@ static NSString *POSTRequest = @"POST";
     self.title = self.navTitle;
     [self.view addSubview:self.reloadBtn];
     
-
     self.webView = [[WKWebView alloc]initWithFrame:self.view.bounds configuration:self.config];
     self.webView.navigationDelegate = self;
     self.webView.UIDelegate = self;
