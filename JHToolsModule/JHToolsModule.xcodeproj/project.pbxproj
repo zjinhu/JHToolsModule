@@ -363,8 +363,6 @@
 			children = (
 				8508714C212AD42F006EA702 /* NSArray+Sudoku.h */,
 				8508714B212AD42F006EA702 /* NSArray+Sudoku.m */,
-				8574B6FE20FF304500F3EB05 /* NSString+Base.h */,
-				8574B6FD20FF304500F3EB05 /* NSString+Base.m */,
 				8574B6F920FF2FF000F3EB05 /* BaseUI */,
 				8574B6F820FF2FD600F3EB05 /* Button */,
 				8574B6F720FF2FCD00F3EB05 /* Masonry */,
@@ -495,6 +493,8 @@
 			isa = PBXGroup;
 			children = (
 				8574B6FF20FF304500F3EB05 /* BaseUI.h */,
+				8574B6FE20FF304500F3EB05 /* NSString+Base.h */,
+				8574B6FD20FF304500F3EB05 /* NSString+Base.m */,
 				8538AE2821003F0900AF014C /* UITableViewCell+AddLine.h */,
 				8538AE2921003F0900AF014C /* UITableViewCell+AddLine.m */,
 				853EB6BA2146188800B041BE /* UILabel+FitLines.h */,

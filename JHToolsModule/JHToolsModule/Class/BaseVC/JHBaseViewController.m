@@ -9,8 +9,7 @@
 #import "JHToolsDefine.h"
 #import "JHBaseViewController.h"
 #import "BaseUI.h"
-#import "EasyShow.h"
-#import "NSString+Base.h"
+#import "EasyShow.h" 
 @interface JHBaseViewController ()
 
 @end

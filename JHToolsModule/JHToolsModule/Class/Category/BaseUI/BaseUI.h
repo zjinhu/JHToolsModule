@@ -10,6 +10,7 @@
 #define BaseUI_h
 #import "UIImage+BaseUI.h"
 #import "UIColor+BaseUI.h"
+#import "NSString+Base.h"
 #import "UINavigationBar+BaseUI.h"
 #import "UIImageView+LoadURL.h"
 #import "UILabel+FitLines.h"
