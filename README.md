@@ -1,7 +1,7 @@
 # JHToolsModule
 工具类集合，包括类别，宏，工具视图，base视图，自用
 
-依赖  Masonry   KafkaRefresh
+依赖  Masonry   LNRefresh  EasyShowView  SDWebImage
 
 ##  安装
 ### 1.手动添加:<br>
