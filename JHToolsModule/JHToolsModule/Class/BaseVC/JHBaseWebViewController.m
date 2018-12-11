@@ -68,6 +68,18 @@ static NSString *POSTRequest = @"POST";
     self.webView.scrollView.delegate = nil;
 }
 
+- (void)setAgent:(NSString *)agent{
+    _agent = agent;
+    if (_agent.length>0) {
+        // 获取默认User-Agent
+        UIWebView *webView = [[UIWebView alloc] init];
+        NSString *oldAgent = [webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
+        //设置新的UA
+        NSString *newAgent = [NSString stringWithFormat:@"%@%@", oldAgent,[NSString stringWithFormat:@";%@",_agent]];
+        [self.webView setCustomUserAgent:newAgent];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad]; 
     self.view.backgroundColor = [UIColor whiteColor];
@@ -80,14 +92,6 @@ static NSString *POSTRequest = @"POST";
     self.webView.UIDelegate = self;
     self.webView.scrollView.delegate = self;
     
-    if (_agent.length>0) {
-        // 获取默认User-Agent
-        UIWebView *webView = [[UIWebView alloc] init];
-        NSString *oldAgent = [webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
-        //设置新的UA
-        NSString *newAgent = [NSString stringWithFormat:@"%@%@", oldAgent,[NSString stringWithFormat:@";%@",_agent]];
-        [self.webView setCustomUserAgent:newAgent];
-    }
     //添加此属性可触发侧滑返回上一网页与下一网页操作
     self.webView.allowsBackForwardNavigationGestures = YES;
     //进度条的监听
