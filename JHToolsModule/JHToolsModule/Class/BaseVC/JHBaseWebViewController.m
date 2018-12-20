@@ -8,12 +8,9 @@
 
 #import "JHBaseWebViewController.h"
 #import "JHToolsDefine.h"
-#import "BaseUI.h"
-#import "NSObject+BlockSEL.h"
+#import "Category.h"
 #import "LNRefresh.h"
-#import "JHRefreshHeaderAnimator.h"
-#import "WeakScriptMessageDelegate.h"
-#import "UserDefaults.h"
+#import "Utility.h"
 
 static NSString *POSTRequest = @"POST";
 

@@ -10,8 +10,7 @@
 #import "JHToolsDefine.h"
 #import "BaseUI.h"
 #import "LNRefresh.h"
-#import "JHRefreshHeaderAnimator.h"
-#import "JHRefreshFooterAnimator.h"
+#import "Utility.h" 
 @interface JHBaseTableViewController ()
 
 @end

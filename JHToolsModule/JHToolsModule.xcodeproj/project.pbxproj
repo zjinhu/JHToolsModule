@@ -121,6 +121,8 @@
 		85E4E37C212D35C5001FB1A9 /* nav_ic_back_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 85E4E33E212D35C5001FB1A9 /* nav_ic_back_white@3x.png */; };
 		85E4E37D212D35C5001FB1A9 /* nav_ic_back_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 85E4E33F212D35C5001FB1A9 /* nav_ic_back_white@2x.png */; };
 		91420FCF21B7C033005B7961 /* UILabel+AttributeClick.m in Sources */ = {isa = PBXBuildFile; fileRef = 91420FCE21B7C033005B7961 /* UILabel+AttributeClick.m */; };
+		91AA65BC21CB8FB70055905F /* LimitTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AA65B721CB8FB30055905F /* LimitTextView.m */; };
+		91AA65BD21CB8FB70055905F /* LimitTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AA65B821CB8FB40055905F /* LimitTextField.m */; };
 		91B3BE4C21A695160044CC8D /* UIControl+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B3BE4B21A695160044CC8D /* UIControl+Block.m */; };
 /* End PBXBuildFile section */
 
@@ -291,6 +293,14 @@
 		85E4E33F212D35C5001FB1A9 /* nav_ic_back_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_ic_back_white@2x.png"; sourceTree = "<group>"; };
 		91420FCD21B7C033005B7961 /* UILabel+AttributeClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AttributeClick.h"; sourceTree = "<group>"; };
 		91420FCE21B7C033005B7961 /* UILabel+AttributeClick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AttributeClick.m"; sourceTree = "<group>"; };
+		91AA65B721CB8FB30055905F /* LimitTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LimitTextView.m; sourceTree = "<group>"; };
+		91AA65B821CB8FB40055905F /* LimitTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LimitTextField.m; sourceTree = "<group>"; };
+		91AA65B921CB8FB50055905F /* LimitTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LimitTextView.h; sourceTree = "<group>"; };
+		91AA65BA21CB8FB60055905F /* LimitTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LimitTextField.h; sourceTree = "<group>"; };
+		91AA65BB21CB8FB70055905F /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		91AA65BE21CB8FD40055905F /* BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
+		91AA65BF21CB8FE50055905F /* Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
+		91AA65C021CB8FF50055905F /* Button.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
 		91B3BE4A21A695160044CC8D /* UIControl+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Block.h"; sourceTree = "<group>"; };
 		91B3BE4B21A695160044CC8D /* UIControl+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Block.m"; sourceTree = "<group>"; };
 		92D1C6EFC981BC9F00DF6516 /* Pods_JHToolsModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JHToolsModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -361,6 +371,7 @@
 		8574B6BC20FF237900F3EB05 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				91AA65BF21CB8FE50055905F /* Category.h */,
 				8508714C212AD42F006EA702 /* NSArray+Sudoku.h */,
 				8508714B212AD42F006EA702 /* NSArray+Sudoku.m */,
 				8574B6F920FF2FF000F3EB05 /* BaseUI */,
@@ -382,6 +393,7 @@
 		8574B6BE20FF239A00F3EB05 /* BaseVC */ = {
 			isa = PBXGroup;
 			children = (
+				91AA65BE21CB8FD40055905F /* BaseVC.h */,
 				8574B6F020FF2ED600F3EB05 /* JHBaseViewController.h */,
 				8574B6F120FF2ED600F3EB05 /* JHBaseViewController.m */,
 				8574B6F320FF2EF900F3EB05 /* JHBaseTableViewController.h */,
@@ -395,6 +407,11 @@
 		8574B6BF20FF23AC00F3EB05 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				91AA65BB21CB8FB70055905F /* Utility.h */,
+				91AA65BA21CB8FB60055905F /* LimitTextField.h */,
+				91AA65B821CB8FB40055905F /* LimitTextField.m */,
+				91AA65B921CB8FB50055905F /* LimitTextView.h */,
+				91AA65B721CB8FB30055905F /* LimitTextView.m */,
 				8574B6ED20FF2E6100F3EB05 /* EdgeInsetsLabel.h */,
 				8574B6EE20FF2E6100F3EB05 /* EdgeInsetsLabel.m */,
 				8523428D2113168000364793 /* EasyShow.h */,
@@ -477,6 +494,7 @@
 		8574B6F820FF2FD600F3EB05 /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				91AA65C021CB8FF50055905F /* Button.h */,
 				8574B72920FF317C00F3EB05 /* NSObject+BlockSEL.h */,
 				8574B72B20FF317C00F3EB05 /* NSObject+BlockSEL.m */,
 				91B3BE4A21A695160044CC8D /* UIControl+Block.h */,
@@ -806,6 +824,7 @@
 			files = (
 				853EB6BC2146188800B041BE /* UILabel+FitLines.m in Sources */,
 				8574B70420FF304500F3EB05 /* NSString+Base.m in Sources */,
+				91AA65BD21CB8FB70055905F /* LimitTextField.m in Sources */,
 				8538AE2A21003F0900AF014C /* UITableViewCell+AddLine.m in Sources */,
 				8574B70320FF304500F3EB05 /* UIColor+BaseUI.m in Sources */,
 				85087155212AD490006EA702 /* UILineView.m in Sources */,
@@ -827,6 +846,7 @@
 				85087156212AD490006EA702 /* WeakScriptMessageDelegate.m in Sources */,
 				8574B71E20FF30EE00F3EB05 /* NSMutableArray+safe.m in Sources */,
 				8574B73C20FF3B4800F3EB05 /* UICollectionView+Masonry.m in Sources */,
+				91AA65BC21CB8FB70055905F /* LimitTextView.m in Sources */,
 				850741FE20FD9AAA004439B9 /* ViewController.m in Sources */,
 				8538AE1D2100252A00AF014C /* UIView+Frame.m in Sources */,
 				8507420920FD9AB9004439B9 /* main.m in Sources */,
