@@ -18,7 +18,7 @@
 @implementation JHBaseTableViewController
 
 - (void)setTableViewStyleGrouped{
-    
+//    self.tableViewType = TableViewStyleGrouped;
 }
 
 
@@ -48,21 +48,26 @@
     _tableView.rowHeight = UITableViewAutomaticDimension;
     _tableView.estimatedSectionHeaderHeight = 0;
     _tableView.estimatedSectionFooterHeight = 0;
+    //头角需要自适应高度的话请设置
+//    self.tableView.estimatedSectionHeaderHeight = 200;
+//    self.tableView.sectionHeaderHeight = UITableViewAutomaticDimension;
+//    self.tableView.estimatedSectionFooterHeight = 200;
+//    self.tableView.sectionFooterHeight = UITableViewAutomaticDimension;
     _tableView.delaysContentTouches = YES;
     [self.view addSubview:_tableView];
     
-    if (self.shouldAdjustSafeArea) {
+    if (@available(iOS 11.0, *)) {
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.view.mas_top);
-            make.left.equalTo(self.view.mas_left);
-            make.width.equalTo(@(SCREEN_WIDTH));
-            make.bottom.equalTo(self.view.mas_bottom).offset(-HOME_INDICATOR_HEIGHT);
+            make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
+            make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
+            make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
+            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
         }];
     }else{
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.view.mas_top);
             make.left.equalTo(self.view.mas_left);
-            make.width.equalTo(@(SCREEN_WIDTH));
+            make.right.equalTo(self.view.mas_right);
             make.bottom.equalTo(self.view.mas_bottom);
         }];
     }

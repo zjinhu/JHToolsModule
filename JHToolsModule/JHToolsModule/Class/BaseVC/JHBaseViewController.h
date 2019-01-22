@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface JHBaseViewController : UIViewController
+
 @property (nonatomic,strong) UIButton        * leftBarButton;               //导航左侧按钮
 @property (nonatomic,strong) UIButton        * rightBarButton;              //导航右侧按钮
-@property (nonatomic, assign) BOOL shouldAdjustSafeArea;
+
 /**
  *  返回上一级页面
  */

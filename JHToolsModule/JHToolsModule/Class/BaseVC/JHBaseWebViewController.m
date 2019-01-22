@@ -100,21 +100,21 @@ static NSString *POSTRequest = @"POST";
     //        }];
     [self.view addSubview:self.webView];
     
-    if (@available(iOS 11.0, *)) {
-        [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
-            make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
-            make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
-            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
-        }];
-    }else{
+//    if (@available(iOS 11.0, *)) {
+//        [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
+//            make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
+//            make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
+//            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+//        }];
+//    }else{
         [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.view.mas_top);
             make.left.equalTo(self.view.mas_left);
-            make.right.mas_equalTo(self.view.mas_right);
+            make.right.equalTo(self.view.mas_right);
             make.bottom.equalTo(self.view.mas_bottom);
         }];
-    }
+//    }
     
     [self.view addSubview:self.loadingProgressView];
     
@@ -158,9 +158,30 @@ static NSString *POSTRequest = @"POST";
         [webView evaluateJavaScript:@"var a = document.getElementsByTagName('a');for(var i=0;i<a.length;i++){a[i].setAttribute('target','');}" completionHandler:nil];
     }
     //发送请求前，存一份当前页面url，留作加载失败点击重现加载时候用
-    NSString *urlString = [[navigationAction.request URL] absoluteString];
+    NSURL *URL = navigationAction.request.URL;
+    NSString *urlString = [URL absoluteString];
     urlString = [urlString stringByRemovingPercentEncoding];
     _currentPageUrl = urlString;
+    
+    NSString *scheme = [URL scheme];
+    // 打电话
+    if ([scheme isEqualToString:@"tel"]) {
+        if ([[UIApplication sharedApplication] canOpenURL:URL]) {
+            [[UIApplication sharedApplication] openURL:URL];
+            // 一定要加上这句,否则会打开新页面
+            decisionHandler(WKNavigationActionPolicyCancel);
+            return;
+        }
+    }
+    // 打开appstore
+    if ([URL.absoluteString containsString:@"itunes.apple.com"]) {
+        if ([[UIApplication sharedApplication] canOpenURL:URL]) {
+            [[UIApplication sharedApplication] openURL:URL];
+            decisionHandler(WKNavigationActionPolicyCancel);
+            return;
+        }
+    }
+    
     decisionHandler(WKNavigationActionPolicyAllow);
 }
 
@@ -178,6 +199,9 @@ static NSString *POSTRequest = @"POST";
     //导航栏配置
     [webView evaluateJavaScript:@"document.title" completionHandler:^(id _Nullable title, NSError * _Nullable error) {
         self.navigationItem.title = title;
+    }];
+    [webView evaluateJavaScript:@"navigator.userAgent" completionHandler:^(id result, NSError *error) {
+        NSLog(@"userAgent :%@", result);
     }];
 //    if ([UserDefaults boolForKey:@"isLogin"] && _supportAutoLogin) {
 //        NSString *token = [UserDefaults valueForKey:@"Access_token"];

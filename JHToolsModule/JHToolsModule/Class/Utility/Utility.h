@@ -18,4 +18,7 @@
 #import "LimitTextField.h"
 #import "LimitTextView.h"
 #import "WeakScriptMessageDelegate.h"
+#import "JHBaseHeaderFooterView.h"
+#import "MSWeakTimer.h"
+#import "JHBaseTableViewCell.h"
 #endif /* Utility_h */

@@ -120,6 +120,9 @@
 		85E4E37B212D35C5001FB1A9 /* ic_arrow_gray_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 85E4E33D212D35C5001FB1A9 /* ic_arrow_gray_right@2x.png */; };
 		85E4E37C212D35C5001FB1A9 /* nav_ic_back_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 85E4E33E212D35C5001FB1A9 /* nav_ic_back_white@3x.png */; };
 		85E4E37D212D35C5001FB1A9 /* nav_ic_back_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 85E4E33F212D35C5001FB1A9 /* nav_ic_back_white@2x.png */; };
+		910F8A2121F70B6E009DBC37 /* MSWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 910F8A1F21F70B6E009DBC37 /* MSWeakTimer.m */; };
+		910F8A2421F70C05009DBC37 /* JHBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 910F8A2321F70C05009DBC37 /* JHBaseTableViewCell.m */; };
+		910F8A2721F713F2009DBC37 /* JHBaseHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 910F8A2621F713F2009DBC37 /* JHBaseHeaderFooterView.m */; };
 		91420FCF21B7C033005B7961 /* UILabel+AttributeClick.m in Sources */ = {isa = PBXBuildFile; fileRef = 91420FCE21B7C033005B7961 /* UILabel+AttributeClick.m */; };
 		91AA65BC21CB8FB70055905F /* LimitTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AA65B721CB8FB30055905F /* LimitTextView.m */; };
 		91AA65BD21CB8FB70055905F /* LimitTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AA65B821CB8FB40055905F /* LimitTextField.m */; };
@@ -291,6 +294,12 @@
 		85E4E33D212D35C5001FB1A9 /* ic_arrow_gray_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_arrow_gray_right@2x.png"; sourceTree = "<group>"; };
 		85E4E33E212D35C5001FB1A9 /* nav_ic_back_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_ic_back_white@3x.png"; sourceTree = "<group>"; };
 		85E4E33F212D35C5001FB1A9 /* nav_ic_back_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_ic_back_white@2x.png"; sourceTree = "<group>"; };
+		910F8A1F21F70B6E009DBC37 /* MSWeakTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSWeakTimer.m; sourceTree = "<group>"; };
+		910F8A2021F70B6E009DBC37 /* MSWeakTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSWeakTimer.h; sourceTree = "<group>"; };
+		910F8A2221F70C05009DBC37 /* JHBaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHBaseTableViewCell.h; sourceTree = "<group>"; };
+		910F8A2321F70C05009DBC37 /* JHBaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHBaseTableViewCell.m; sourceTree = "<group>"; };
+		910F8A2521F713F2009DBC37 /* JHBaseHeaderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHBaseHeaderFooterView.h; sourceTree = "<group>"; };
+		910F8A2621F713F2009DBC37 /* JHBaseHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHBaseHeaderFooterView.m; sourceTree = "<group>"; };
 		91420FCD21B7C033005B7961 /* UILabel+AttributeClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AttributeClick.h"; sourceTree = "<group>"; };
 		91420FCE21B7C033005B7961 /* UILabel+AttributeClick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AttributeClick.m"; sourceTree = "<group>"; };
 		91AA65B721CB8FB30055905F /* LimitTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LimitTextView.m; sourceTree = "<group>"; };
@@ -408,6 +417,12 @@
 			isa = PBXGroup;
 			children = (
 				91AA65BB21CB8FB70055905F /* Utility.h */,
+				910F8A2221F70C05009DBC37 /* JHBaseTableViewCell.h */,
+				910F8A2321F70C05009DBC37 /* JHBaseTableViewCell.m */,
+				910F8A2521F713F2009DBC37 /* JHBaseHeaderFooterView.h */,
+				910F8A2621F713F2009DBC37 /* JHBaseHeaderFooterView.m */,
+				910F8A2021F70B6E009DBC37 /* MSWeakTimer.h */,
+				910F8A1F21F70B6E009DBC37 /* MSWeakTimer.m */,
 				91AA65BA21CB8FB60055905F /* LimitTextField.h */,
 				91AA65B821CB8FB40055905F /* LimitTextField.m */,
 				91AA65B921CB8FB50055905F /* LimitTextView.h */,
@@ -831,6 +846,7 @@
 				8574B72D20FF317C00F3EB05 /* UIButton+Countdown.m in Sources */,
 				8538AE232100383B00AF014C /* UIView+Masonry.m in Sources */,
 				8523429D2113173E00364793 /* JHBaseWebViewController.m in Sources */,
+				910F8A2121F70B6E009DBC37 /* MSWeakTimer.m in Sources */,
 				91420FCF21B7C033005B7961 /* UILabel+AttributeClick.m in Sources */,
 				8523429A2113168000364793 /* UserDefaults.m in Sources */,
 				8538AE262100396D00AF014C /* UIWebView+Masonry.m in Sources */,
@@ -842,7 +858,9 @@
 				8508714D212AD42F006EA702 /* NSArray+Sudoku.m in Sources */,
 				8538AE1A2100248600AF014C /* UITextField+Masonry.m in Sources */,
 				8574B72420FF312100F3EB05 /* NSObject+swizzle.m in Sources */,
+				910F8A2721F713F2009DBC37 /* JHBaseHeaderFooterView.m in Sources */,
 				852342982113168000364793 /* EasyShow.m in Sources */,
+				910F8A2421F70C05009DBC37 /* JHBaseTableViewCell.m in Sources */,
 				85087156212AD490006EA702 /* WeakScriptMessageDelegate.m in Sources */,
 				8574B71E20FF30EE00F3EB05 /* NSMutableArray+safe.m in Sources */,
 				8574B73C20FF3B4800F3EB05 /* UICollectionView+Masonry.m in Sources */,
