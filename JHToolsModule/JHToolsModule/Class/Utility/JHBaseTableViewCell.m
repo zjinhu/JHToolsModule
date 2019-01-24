@@ -47,11 +47,11 @@
 }
 #pragma mark - register cell tools
 
-+ (void)registerClass:(UITableView *)tableView reuseIdentifier:(NSString *)reuseIdentifier {
++ (void)registerCell:(UITableView *)tableView reuseIdentifier:(NSString *)reuseIdentifier {
     [tableView registerClass:[self class] forCellReuseIdentifier:reuseIdentifier];
 }
 
-+ (void)registerClass:(UITableView *)tableView {
++ (void)registerCell:(UITableView *)tableView {
     [tableView registerClass:[self class] forCellReuseIdentifier:NSStringFromClass([self class])];
 }
 
