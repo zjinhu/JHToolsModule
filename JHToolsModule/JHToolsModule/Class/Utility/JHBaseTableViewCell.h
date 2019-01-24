@@ -12,15 +12,18 @@
 
 - (void)setUpCellViews;//初始化cell 视图
 
-- (void)setCellModel:(id)model atIndexPath:(NSIndexPath *)indexPath;//设置cell model
+- (void)setCellWithModel:(id)model;//设置cell model
 
-- (CGFloat)setCellWithModel:(id)model atIndexPath:(NSIndexPath *)indexPath;//设置cell model并拿到cell高度
+- (CGFloat)getCellHeightWithModel:(id)model;//设置cell model并拿到cell高度
 
 #pragma mark - register cell tools
 
-+ (void)registerClassToTableView:(UITableView *)tableView reuseIdentifier:(NSString *)reuseIdentifier;
++ (void)registerCell:(UITableView *)tableView reuseIdentifier:(NSString *)reuseIdentifier;
 
-+ (void)registerClassToTableView:(UITableView *)tableView;
++ (void)registerCell:(UITableView *)tableView;
 
++ (instancetype)dequeueReusableCell:(UITableView *)tableView reuseIdentifier:(NSString *)reuseIdentifier;
+
++ (instancetype)dequeueReusableCell:(UITableView *)tableView;
 @end
 

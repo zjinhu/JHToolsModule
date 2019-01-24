@@ -28,16 +28,17 @@
     }
     return self;
 }
+
 - (void)setUpCellViews{
     //初始化视图
 }
 
-- (void)setCellModel:(id)model atIndexPath:(NSIndexPath *)indexPath {
+- (void)setCellWithModel:(id)model{
     //设置model并更新UI
 }
 
-- (CGFloat)setCellWithModel:(id)model atIndexPath:(NSIndexPath *)indexPath {
-    [self setCellModel:model atIndexPath:indexPath];
+- (CGFloat)getCellHeightWithModel:(id)model{
+    [self setCellWithModel:model];
     [self layoutIfNeeded];
     [self updateConstraintsIfNeeded];
     //根据masonry撑开的contentView获取cell当前高度,可能用到的地方是缓存高度
@@ -46,12 +47,19 @@
 }
 #pragma mark - register cell tools
 
-+ (void)registerClassToTableView:(UITableView *)tableView reuseIdentifier:(NSString *)reuseIdentifier {
++ (void)registerClass:(UITableView *)tableView reuseIdentifier:(NSString *)reuseIdentifier {
     [tableView registerClass:[self class] forCellReuseIdentifier:reuseIdentifier];
 }
 
-+ (void)registerClassToTableView:(UITableView *)tableView {
++ (void)registerClass:(UITableView *)tableView {
     [tableView registerClass:[self class] forCellReuseIdentifier:NSStringFromClass([self class])];
 }
 
++ (instancetype)dequeueReusableCell:(UITableView *)tableView reuseIdentifier:(NSString *)reuseIdentifier{
+    return [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+}
+
++ (instancetype)dequeueReusableCell:(UITableView *)tableView{
+    return [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([self class])];
+}
 @end
