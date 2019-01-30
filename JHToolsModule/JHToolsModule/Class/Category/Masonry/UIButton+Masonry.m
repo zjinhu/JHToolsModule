@@ -22,7 +22,11 @@ static const void *JHButtonTouchUpKey     = "JHButtonTouchUpKey";
 +(instancetype)masButtonWithSupView:(UIView *)supView
                         constraints:(JHConstrainMaker)constaints
                             touchUp:(JHButtonBlock)touchUp{
-    return [self masButtonWithNorImage:nil cornerRadius:0 supView:supView constraints:constaints touchUp:touchUp];
+    return [self masButtonWithNorImage:nil
+                          cornerRadius:0
+                               supView:supView
+                           constraints:constaints
+                               touchUp:touchUp];
 }
 
 
@@ -31,7 +35,14 @@ static const void *JHButtonTouchUpKey     = "JHButtonTouchUpKey";
                        constraints:(JHConstrainMaker)constraints
                            touchUp:(JHButtonBlock)touchUp
 {
-    return [self masButtonWithTitle:title titleColor:nil norImage:nil selectedImage:nil backColor:nil fontSize:0 isBold:NO cornerRadius:0 supView:superView constraints:constraints touchUp:touchUp];
+    return [self masButtonWithTitle:title
+                         titleColor:nil
+                          backColor:nil
+                           fontSize:0
+                       cornerRadius:0
+                            supView:superView
+                        constraints:constraints
+                            touchUp:touchUp];
 }
 
 +(instancetype)masButtonWithNorImage:(id)norImage
@@ -39,7 +50,17 @@ static const void *JHButtonTouchUpKey     = "JHButtonTouchUpKey";
                              supView:(UIView *)supView
                          constraints:(JHConstrainMaker)constaints
                              touchUp:(JHButtonBlock)touchUp{
-    return [self masButtonWithTitle:nil titleColor:nil norImage:norImage selectedImage:nil backColor:nil fontSize:0 isBold:0 cornerRadius:cornerRadius supView:supView constraints:constaints touchUp:touchUp];
+    return [self masButtonWithTitle:nil
+                         titleColor:nil
+                           norImage:norImage
+                      selectedImage:nil
+                          backColor:nil
+                           fontSize:0
+                             weight:UIFontWeightRegular
+                       cornerRadius:cornerRadius
+                            supView:supView
+                        constraints:constaints
+                            touchUp:touchUp];
 }
 
 /**
@@ -49,7 +70,6 @@ static const void *JHButtonTouchUpKey     = "JHButtonTouchUpKey";
  @param titleColor      标题颜色
  @param backColor       背景颜色
  @param fontSize        字体大小
- @param isBold          是否加粗
  @param cornerRadius    圆角
  @param supView         父视图
  @param constaints      Marsonry布局
@@ -60,7 +80,6 @@ static const void *JHButtonTouchUpKey     = "JHButtonTouchUpKey";
                        titleColor:(UIColor *)titleColor
                         backColor:(UIColor *)backColor
                          fontSize:(CGFloat)fontSize
-                           isBold:(BOOL)isBold
                      cornerRadius:(CGFloat)cornerRadius
                           supView:(UIView *)supView
                       constraints:(JHConstrainMaker)constaints
@@ -71,13 +90,48 @@ static const void *JHButtonTouchUpKey     = "JHButtonTouchUpKey";
                       selectedImage:nil
                           backColor:backColor
                            fontSize:fontSize
-                             isBold:isBold
+                             weight:UIFontWeightRegular
                        cornerRadius:cornerRadius
                             supView:supView
                         constraints:constaints
                             touchUp:touchUp];
 }
 
+/**
+ * 快速创建UIButton，设置：标题，标题颜色，背景颜色，字体大小，是否加粗，圆角，父视图，Marsonry布局
+ 
+ @param title           标题
+ @param titleColor      标题颜色
+ @param backColor       背景颜色
+ @param fontSize        字体大小
+ @param weight          字重
+ @param cornerRadius    圆角
+ @param supView         父视图
+ @param constaints      Marsonry布局
+ @param touchUp         点击事件
+ @return                返回一个button
+ */
++(instancetype)masButtonWithTitle:(NSString *)title
+                       titleColor:(UIColor *)titleColor
+                        backColor:(UIColor *)backColor
+                         fontSize:(CGFloat)fontSize
+                           weight:(UIFontWeight)weight
+                     cornerRadius:(CGFloat)cornerRadius
+                          supView:(UIView *)supView
+                      constraints:(JHConstrainMaker)constaints
+                          touchUp:(JHButtonBlock)touchUp{
+    return [self masButtonWithTitle:title
+                         titleColor:titleColor
+                           norImage:nil
+                      selectedImage:nil
+                          backColor:backColor
+                           fontSize:fontSize
+                             weight:weight
+                       cornerRadius:cornerRadius
+                            supView:supView
+                        constraints:constaints
+                            touchUp:touchUp];
+}
 
 /**
  * 快速创建UIButton，设置：标题，标题颜色，默认图片，选中的图片，背景颜色，字体大小，是否加粗，圆角，父视图，Marsonry布局
@@ -88,7 +142,7 @@ static const void *JHButtonTouchUpKey     = "JHButtonTouchUpKey";
  @param selectImage        选中的图片
  @param backColor       背景颜色
  @param fontSize        字体大小
- @param isBold          是否加粗
+ @param weight          字重
  @param cornerRadius    圆角
  @param supView         父视图
  @param constaints      Marsonry布局
@@ -101,14 +155,25 @@ static const void *JHButtonTouchUpKey     = "JHButtonTouchUpKey";
                     selectedImage:(id)selectImage
                         backColor:(UIColor *)backColor
                          fontSize:(CGFloat)fontSize
-                           isBold:(BOOL)isBold
+                           weight:(UIFontWeight)weight
                      cornerRadius:(CGFloat)cornerRadius
                           supView:(UIView *)supView
                       constraints:(JHConstrainMaker)constaints
                           touchUp:(JHButtonBlock)touchUp{
-    return [self masButtonWithTitle:title titleColor:titleColor norImage:norImage selectedImage:selectImage backColor:backColor fontSize:fontSize isBold:isBold borderWidth:0 borderColor:nil cornerRadius:cornerRadius supView:supView constraints:constaints touchUp:touchUp];
+    return [self masButtonWithTitle:title
+                         titleColor:titleColor
+                           norImage:norImage
+                      selectedImage:selectImage
+                          backColor:backColor
+                           fontSize:fontSize
+                             weight:weight
+                        borderWidth:0
+                        borderColor:nil
+                       cornerRadius:cornerRadius
+                            supView:supView
+                        constraints:constaints
+                            touchUp:touchUp];
 }
-
 /**
  * 快速创建UIButton，设置：标题，标题颜色，默认图片，选中的图片，背景颜色，字体大小，是否加粗，边框宽度，边框颜色，圆角，父视图，Marsonry布局
  
@@ -118,7 +183,7 @@ static const void *JHButtonTouchUpKey     = "JHButtonTouchUpKey";
  @param selectImage        选中的图片
  @param backColor       背景颜色
  @param fontSize        字体大小
- @param isBold          是否加粗
+ @param weight          字重
  @param borderWidth     边框宽度
  @param borderColor     边框颜色
  @param cornerRadius    圆角
@@ -133,7 +198,7 @@ static const void *JHButtonTouchUpKey     = "JHButtonTouchUpKey";
                     selectedImage:(id)selectImage
                         backColor:(UIColor *)backColor
                          fontSize:(CGFloat)fontSize
-                           isBold:(BOOL)isBold
+                           weight:(UIFontWeight)weight
                       borderWidth:(CGFloat)borderWidth
                       borderColor:(UIColor *)borderColor
                      cornerRadius:(CGFloat)cornerRadius
@@ -177,11 +242,7 @@ static const void *JHButtonTouchUpKey     = "JHButtonTouchUpKey";
     }
     
     if (fontSize > 0) {
-        if (isBold) {
-            button.titleLabel.font = [UIFont boldSystemFontOfSize:fontSize];
-        }else{
-            button.titleLabel.font = [UIFont systemFontOfSize:fontSize];
-        }
+        button.titleLabel.font =  [UIFont systemFontOfSize:fontSize weight:weight];
     }
     
     

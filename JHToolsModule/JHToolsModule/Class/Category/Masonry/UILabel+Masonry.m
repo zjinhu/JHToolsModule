@@ -15,11 +15,18 @@
     return [self masLabelWithFontSize:fontSize text:nil];
 }
 
++(instancetype)masLabelWithFont:(UIFont *)font{
+    return [self masLabelWithFont:font text:nil];
+}
+
 
 +(instancetype)masLabelWithFontSize:(CGFloat)fontSize text:(NSString *)text{
     return [self masLabelWithFontSize:fontSize text:text superView:nil constraints:nil];
 }
 
++(instancetype)masLabelWithFont:(UIFont *)font text:(NSString *)text{
+    return [self masLabelWithFont:font text:text superView:nil constraints:nil];
+}
 
 +(instancetype)masLabelWithFontSize:(CGFloat)fontSize
                           textColor:(UIColor *)textColor
@@ -28,12 +35,26 @@
     return [self masLabelWithFontSize:fontSize lines:1 text:nil textColor:textColor superView:superView constraints:constraints];
 }
 
++(instancetype)masLabelWithFont:(UIFont *)font
+                      textColor:(UIColor *)textColor
+                      superView:(UIView *)superView
+                    constraints:(JHConstrainMaker)constraints{
+    return [self masLabelWithFont:font lines:1 text:nil textColor:textColor superView:superView constraints:constraints];
+}
+
 
 +(instancetype)masLabelWithFontSize:(CGFloat)fontSize
                                text:(NSString *)text
                           superView:(UIView *)superView
                         constraints:(JHConstrainMaker)constraints{
     return [self masLabelWithFontSize:fontSize lines:1 text:text superView:superView constraints:constraints];
+}
+
++(instancetype)masLabelWithFont:(UIFont *)font
+                           text:(NSString *)text
+                      superView:(UIView *)superView
+                    constraints:(JHConstrainMaker)constraints{
+    return [self masLabelWithFont:font lines:1 text:text textColor:nil superView:superView constraints:constraints];
 }
 
 +(instancetype)masLabelWithFontSize:(CGFloat)fontSize

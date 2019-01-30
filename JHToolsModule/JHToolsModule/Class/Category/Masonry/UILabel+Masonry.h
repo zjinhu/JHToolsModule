@@ -15,7 +15,12 @@
  @return                UILabel
  */
 +(instancetype)masLabelWithFontSize:(CGFloat)fontsize;
-
+/**
+ *创建一个Label,设置字体大小
+ @param                 font 字体大小
+ @return                UILabel
+ */
++(instancetype)masLabelWithFont:(UIFont *)font;
 
 /**
  *快速创建一个Label,字体大小,父视图,masonry布局
@@ -29,8 +34,18 @@
                           textColor:(UIColor *)textColor
                           superView:(UIView *)superView
                         constraints:(JHConstrainMaker)constraints;
-
-
+/**
+ *快速创建一个Label,字体大小,父视图,masonry布局
+ 
+ @param font           字体大小
+ @param superView       父视图
+ @param constraints     masonry布局
+ @return label
+ */
++(instancetype)masLabelWithFont:(UIFont *)font
+                      textColor:(UIColor *)textColor
+                      superView:(UIView *)superView
+                    constraints:(JHConstrainMaker)constraints;
 /**
  *快速创建一个label,字体大小,文本
  
@@ -41,6 +56,15 @@
 +(instancetype)masLabelWithFontSize:(CGFloat)fontsize
                                text:(NSString *)text;
 
+/**
+ *快速创建一个label,字体大小,文本
+ 
+ @param                 font 字体大小
+ @param                 text 文本
+ @return                label
+ */
++(instancetype)masLabelWithFont:(UIFont *)font
+                           text:(NSString *)text;
 
 /**
  *快速创建一个Label,字体大小,文本,父视图,masonry布局
@@ -55,8 +79,19 @@
                                text:(NSString *)text
                           superView:(UIView *)superView
                         constraints:(JHConstrainMaker)constraints;
-
-
+/**
+ *快速创建一个Label,字体大小,文本,父视图,masonry布局
+ 
+ @param                 font 字体大小
+ @param                 text 文本
+ @param                 superView 父视图
+ @param                 constraints masonry布局
+ @return                label
+ */
++(instancetype)masLabelWithFont:(UIFont *)font
+                           text:(NSString *)text
+                      superView:(UIView *)superView
+                    constraints:(JHConstrainMaker)constraints;
 /**
  *快速创建一个Label,字体大小,文本,行数,父视图,masonry布局
  

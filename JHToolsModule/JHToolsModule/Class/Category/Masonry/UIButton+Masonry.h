@@ -16,6 +16,7 @@ typedef void(^JHButtonActionBlock)(id sender);
 
 @interface UIButton (Masonry)
 
+
 /**
  *  按钮的block点击事件
  */
@@ -77,7 +78,6 @@ typedef void(^JHButtonActionBlock)(id sender);
  @param titleColor      标题颜色
  @param backColor       背景颜色
  @param fontSize        字体大小
- @param isBold          是否加粗
  @param cornerRadius    圆角
  @param supView         父视图
  @param constaints      Marsonry布局
@@ -88,7 +88,30 @@ typedef void(^JHButtonActionBlock)(id sender);
                        titleColor:(UIColor *)titleColor
                         backColor:(UIColor *)backColor
                          fontSize:(CGFloat)fontSize
-                           isBold:(BOOL)isBold
+                     cornerRadius:(CGFloat)cornerRadius
+                          supView:(UIView *)supView
+                      constraints:(JHConstrainMaker)constaints
+                          touchUp:(JHButtonBlock)touchUp;
+
+/**
+ * 快速创建UIButton，设置：标题，标题颜色，背景颜色，字体大小，是否加粗，圆角，父视图，Marsonry布局
+ 
+ @param title           标题
+ @param titleColor      标题颜色
+ @param backColor       背景颜色
+ @param fontSize        字体大小
+ @param weight          字重
+ @param cornerRadius    圆角
+ @param supView         父视图
+ @param constaints      Marsonry布局
+ @param touchUp         点击事件
+ @return                返回一个button
+ */
++(instancetype)masButtonWithTitle:(NSString *)title
+                       titleColor:(UIColor *)titleColor
+                        backColor:(UIColor *)backColor
+                         fontSize:(CGFloat)fontSize
+                           weight:(UIFontWeight)weight
                      cornerRadius:(CGFloat)cornerRadius
                           supView:(UIView *)supView
                       constraints:(JHConstrainMaker)constaints
@@ -101,10 +124,10 @@ typedef void(^JHButtonActionBlock)(id sender);
  @param title           标题
  @param titleColor      标题颜色
  @param norImage        默认图片
- @param selected        选中的图片
+ @param selectImage        选中的图片
  @param backColor       背景颜色
  @param fontSize        字体大小
- @param isBold          是否加粗
+ @param weight          字重
  @param cornerRadius    圆角
  @param supView         父视图
  @param constaints      Marsonry布局
@@ -114,10 +137,10 @@ typedef void(^JHButtonActionBlock)(id sender);
 +(instancetype)masButtonWithTitle:(NSString *)title
                        titleColor:(UIColor *)titleColor
                          norImage:(id)norImage
-                    selectedImage:(id)selected
+                    selectedImage:(id)selectImage
                         backColor:(UIColor *)backColor
                          fontSize:(CGFloat)fontSize
-                           isBold:(BOOL)isBold
+                           weight:(UIFontWeight)weight
                      cornerRadius:(CGFloat)cornerRadius
                           supView:(UIView *)supView
                       constraints:(JHConstrainMaker)constaints
@@ -129,10 +152,10 @@ typedef void(^JHButtonActionBlock)(id sender);
  @param title           标题
  @param titleColor      标题颜色
  @param norImage        默认图片
- @param selected        选中的图片
+ @param selectImage        选中的图片
  @param backColor       背景颜色
  @param fontSize        字体大小
- @param isBold          是否加粗
+ @param weight          字重
  @param borderWidth     边框宽度
  @param borderColor     边框颜色
  @param cornerRadius    圆角
@@ -144,15 +167,16 @@ typedef void(^JHButtonActionBlock)(id sender);
 +(instancetype)masButtonWithTitle:(NSString *)title
                        titleColor:(UIColor *)titleColor
                          norImage:(id)norImage
-                    selectedImage:(id)selected
+                    selectedImage:(id)selectImage
                         backColor:(UIColor *)backColor
                          fontSize:(CGFloat)fontSize
-                           isBold:(BOOL)isBold
+                           weight:(UIFontWeight)weight
                       borderWidth:(CGFloat)borderWidth
                       borderColor:(UIColor *)borderColor
                      cornerRadius:(CGFloat)cornerRadius
                           supView:(UIView *)supView
                       constraints:(JHConstrainMaker)constaints
                           touchUp:(JHButtonBlock)touchUp;
+
 
 @end
