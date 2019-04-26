@@ -127,6 +127,7 @@
 		91AA65BC21CB8FB70055905F /* LimitTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AA65B721CB8FB30055905F /* LimitTextView.m */; };
 		91AA65BD21CB8FB70055905F /* LimitTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AA65B821CB8FB40055905F /* LimitTextField.m */; };
 		91B3BE4C21A695160044CC8D /* UIControl+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B3BE4B21A695160044CC8D /* UIControl+Block.m */; };
+		91B8B77E227305DB004FB751 /* NSDate+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B8B77D227305DB004FB751 /* NSDate+Tool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -312,6 +313,8 @@
 		91AA65C021CB8FF50055905F /* Button.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
 		91B3BE4A21A695160044CC8D /* UIControl+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Block.h"; sourceTree = "<group>"; };
 		91B3BE4B21A695160044CC8D /* UIControl+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Block.m"; sourceTree = "<group>"; };
+		91B8B77C227305DB004FB751 /* NSDate+Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Tool.h"; sourceTree = "<group>"; };
+		91B8B77D227305DB004FB751 /* NSDate+Tool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Tool.m"; sourceTree = "<group>"; };
 		92D1C6EFC981BC9F00DF6516 /* Pods_JHToolsModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JHToolsModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18AE08586D1AEDD7D5D41F5 /* Pods-JHToolsModule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JHToolsModule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JHToolsModule/Pods-JHToolsModule.debug.xcconfig"; sourceTree = "<group>"; };
 		F97202E71F0164F075C5D120 /* Pods-JHToolsModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JHToolsModule.release.xcconfig"; path = "Pods/Target Support Files/Pods-JHToolsModule/Pods-JHToolsModule.release.xcconfig"; sourceTree = "<group>"; };
@@ -383,6 +386,8 @@
 				91AA65BF21CB8FE50055905F /* Category.h */,
 				8508714C212AD42F006EA702 /* NSArray+Sudoku.h */,
 				8508714B212AD42F006EA702 /* NSArray+Sudoku.m */,
+				91B8B77C227305DB004FB751 /* NSDate+Tool.h */,
+				91B8B77D227305DB004FB751 /* NSDate+Tool.m */,
 				8574B6F920FF2FF000F3EB05 /* BaseUI */,
 				8574B6F820FF2FD600F3EB05 /* Button */,
 				8574B6F720FF2FCD00F3EB05 /* Masonry */,
@@ -848,6 +853,7 @@
 				8523429D2113173E00364793 /* JHBaseWebViewController.m in Sources */,
 				910F8A2121F70B6E009DBC37 /* MSWeakTimer.m in Sources */,
 				91420FCF21B7C033005B7961 /* UILabel+AttributeClick.m in Sources */,
+				91B8B77E227305DB004FB751 /* NSDate+Tool.m in Sources */,
 				8523429A2113168000364793 /* UserDefaults.m in Sources */,
 				8538AE262100396D00AF014C /* UIWebView+Masonry.m in Sources */,
 				8574B71D20FF30EE00F3EB05 /* NullSafe.m in Sources */,

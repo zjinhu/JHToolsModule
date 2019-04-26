@@ -9,6 +9,7 @@
 #ifndef Category_h
 #define Category_h
 #import "NSArray+Sudoku.h"
+#import "NSDate+Tool.h"
 
 #import "BaseUI.h"
 #import "Button.h"

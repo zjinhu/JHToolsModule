@@ -14,6 +14,28 @@
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
 
+static const CGFloat d5 = 5.0f;
+static const CGFloat d10 = 10.0f;
+static const CGFloat d15 = 15.0f;
+static const CGFloat d20 = 20.0f;
+static const CGFloat d30 = 30.0f;
+
+static const CGFloat w10 = 10.0f;
+static const CGFloat w20 = 20.0f;
+static const CGFloat w30 = 30.0f;
+static const CGFloat w40 = 40.0f;
+static const CGFloat w50 = 50.0f;
+static const CGFloat w60 = 60.0f;
+
+static const CGFloat h10 = 10.0f;
+static const CGFloat h20 = 20.0f;
+static const CGFloat h30 = 30.0f;
+static const CGFloat h40 = 40.0f;
+static const CGFloat h50 = 50.0f;
+static const CGFloat h60 = 60.0f;
+
+static const CGFloat h44 = 44.0f;
+static const CGFloat h64 = 64.0f;
 //weak
 #define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
 ////可以对非self参数进行weak
