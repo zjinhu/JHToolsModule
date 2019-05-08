@@ -8,6 +8,7 @@
 
 #import "GPSLocationManager.h"
 #import "JHToolsDefine.h"
+#import "EasyShowView.h"
 @interface GPSLocationManager()<CLLocationManagerDelegate>
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, copy) LocationResult locationResultBlock;
@@ -18,21 +19,33 @@
 
 SingletonM(GPSLocationManager)
 
-- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
-    switch (status) {
-        case kCLAuthorizationStatusNotDetermined:
-            if ([[[UIDevice currentDevice] systemVersion] doubleValue] > 8.0) {
-                [_locationManager requestWhenInUseAuthorization];
-            } else {
-                [_locationManager startUpdatingLocation];
-            }
+- (void)locationManagerAuthorizationStatus{
+    switch ([CLLocationManager authorizationStatus]) {
+        case kCLAuthorizationStatusNotDetermined:/* 用户尚未决定是否启用定位服务 */
+            [_locationManager requestWhenInUseAuthorization];
+            [_locationManager startUpdatingLocation];
             break;
-        case kCLAuthorizationStatusDenied:
-            //请打开系统设置中\"隐私->定位服务\",允许使用您的位置。
+        case kCLAuthorizationStatusDenied:/* 用户禁止使用定位或者定位服务处于关闭状态 */
+            _locationResultBlock(kZeroLocation, [NSError new]);
             break;
-        case kCLAuthorizationStatusRestricted:
+        case kCLAuthorizationStatusRestricted:/* 没有获得用户授权 */{
             //定位服务无法使用！
-            break;
+            _locationResultBlock(kZeroLocation, [NSError new]);
+            EasyAlertView *alertView = [EasyAlertView alertViewWithTitle:@"温馨提示" subtitle:@"您暂未开启定位,请到设置->隐私->定位服务中开启!" AlertViewType:AlertViewTypeSystemAlert config:nil];
+
+            [alertView addAlertItem:^EasyAlertItem *{
+                return [EasyAlertItem itemWithTitle:@"确认" type:AlertItemTypeSystemDefault callback:^(EasyAlertView *showview, long index) {
+                    NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+                        [[UIApplication sharedApplication] openURL:url];
+                    }
+                }];
+            }];
+            [alertView addAlertItem:^EasyAlertItem *{
+                return [EasyAlertItem itemWithTitle:@"取消" type:AlertItemTypeSystemCancel callback:nil];
+            }];
+            [alertView showAlertView];
+            break;}
             
         default:
             [_locationManager startUpdatingLocation];//开启位置更新
@@ -58,8 +71,7 @@ SingletonM(GPSLocationManager)
     _locationManager.delegate = self;
     _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     _locationManager.distanceFilter = kCLDistanceFilterNone;
-    [_locationManager requestAlwaysAuthorization];// 前后台同时定位
-    [_locationManager startUpdatingLocation];
+    [self locationManagerAuthorizationStatus];// 前后台同时定位
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{

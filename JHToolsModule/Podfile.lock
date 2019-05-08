@@ -16,9 +16,9 @@ PODS:
     - EasyShowView/EasyShowUtils
   - LNRefresh (1.0.4)
   - Masonry (1.1.0)
-  - SDWebImage (4.4.2):
-    - SDWebImage/Core (= 4.4.2)
-  - SDWebImage/Core (4.4.2)
+  - SDWebImage (5.0.2):
+    - SDWebImage/Core (= 5.0.2)
+  - SDWebImage/Core (5.0.2)
 
 DEPENDENCIES:
   - EasyShowView
@@ -37,8 +37,8 @@ SPEC CHECKSUMS:
   EasyShowView: ec832e175d5926baef413e2dc095fb4ec5c3add4
   LNRefresh: f0a88399fdcebd4503dbfc2e2178d63a28c9458c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  SDWebImage: 6764b5fa0f73c203728052955dbefa2bf1f33282
 
 PODFILE CHECKSUM: b26e8e5f0bfeb24621052c7feaf758d4cfa68828
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.6.1

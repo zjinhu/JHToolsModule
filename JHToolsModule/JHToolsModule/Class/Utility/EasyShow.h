@@ -68,31 +68,5 @@
 + (void)hidenLoingInView:(UIView *)superView ;
 + (void)hidenLoading:(EasyLoadingView *)LoadingView ;
 
-///////弹窗
-/**
- *  快速创建AlertView的方法
- *
- * part        alertView的组成部分 标题，副标题，显示类型
- * config      配置信息（如果为空，就是使用EasyAlertGlobalConfig中的属性值）
- * buttonArray 所以需要显示的按钮
- * callback    点击按钮回调
- */
-+ (void)alertViewWithPart:(EasyAlertPart *(^)(void))part
-                   config:(EasyAlertConfig *(^)(void))config
-              buttonArray:(NSArray<NSString *> *(^)(void))buttonArray
-                 callback:(AlertCallback)callback ;
 
-
-
-/**
- * 第一步：创建一个自定义的Alert/ActionSheet
- */
-+ (void)alertViewWithTitle:(NSString *)title
-                  subtitle:(NSString *)subtitle
-             AlertViewType:(AlertViewType)alertType
-                    config:(EasyAlertConfig *(^)(void))config ;
-
-+ (void)alertViewWithPart:(EasyAlertPart *(^)(void))part
-                   config:(EasyAlertConfig *(^)(void))config
-                 callback:(AlertCallback)callback;
 @end

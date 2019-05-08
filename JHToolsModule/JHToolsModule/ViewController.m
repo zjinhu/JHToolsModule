@@ -37,6 +37,11 @@
         make.top.mas_equalTo(200);
         make.size.mas_equalTo(CGSizeMake(100, 50));
     }];
+    
+    [[GPSLocationManager shared] startLocationAndCompletion:^(CLLocation *location, NSError *error) {
+        
+        [[GPSLocationManager shared] stop];
+    }];
 }
 
 
