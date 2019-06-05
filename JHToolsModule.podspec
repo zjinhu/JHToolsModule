@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.requires_arc        = true
  
   s.dependency 'Masonry'
-  s.dependency 'LNRefresh'
+  s.dependency 'MJRefresh'
   s.dependency 'EasyShowView'
   s.dependency 'SDWebImage'
    s.resource_bundles = {
