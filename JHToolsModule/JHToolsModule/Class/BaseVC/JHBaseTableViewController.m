@@ -9,7 +9,7 @@
 #import "JHBaseTableViewController.h"
 #import "JHToolsDefine.h"
 #import "BaseUI.h"
-#import "LNRefresh.h"
+#import <MJRefresh/MJRefresh.h>
 #import "Utility.h" 
 @interface JHBaseTableViewController ()
 
@@ -76,20 +76,21 @@
     /**
      *  添加上拉刷新
      */
-    [_tableView addPullToRefresh:[JHRefreshHeaderAnimator createAnimator] block:^{
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakSelf refreshData];
     }];
+    
     /**
      *  添加下拉加载
      */
-    [_tableView addInfiniteScrolling:[JHRefreshFooterAnimator createAnimator] block:^{
+    _tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         [weakSelf loadMoreData];
     }];
     /**
      *  初始隐藏
      */
-    _tableView.ln_header.hidden = YES;
-    _tableView.ln_footer.hidden = YES;
+    _tableView.mj_header.hidden = YES;
+    _tableView.mj_footer.hidden = YES;
     
     self.extendedLayoutIncludesOpaqueBars = YES;
     
@@ -165,8 +166,8 @@
 }
 
 - (void)endTableViewRefreshing{
-        [_tableView endRefreshing];
-        [_tableView endLoadingMore];
+    [_tableView.mj_footer endRefreshing];
+    [_tableView.mj_header endRefreshing];
 }
 
 - (void)setUnDelaysContentTouches:(BOOL)unDelaysContentTouches{
@@ -176,16 +177,16 @@
 }
 #pragma mark 下拉刷新
 -(void)showRefreshHeader{
-    [_tableView showRefreshHeader];
+    _tableView.mj_header.hidden = NO;
 }
 -(void)hiddenRefreshHeader{
-    [_tableView hideRefreshHeader];
+    _tableView.mj_header.hidden = YES;
 }
 
 -(void)hiddenRefreshFooter{
-    [_tableView hideRefreshFooter];
+    _tableView.mj_footer.hidden = YES;
 }
 -(void)showRefreshFooter{
-    [_tableView showRefreshFooter];
+    _tableView.mj_footer.hidden = NO;
 }
 @end

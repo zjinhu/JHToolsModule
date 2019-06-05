@@ -12,4 +12,7 @@
 - (void)imageWithURL:(NSString*)url;
 - (void)imageWithPlaceHolder:(NSString*)imageName
                     imageURL:(NSString*)imageURL;
+//手动设置占位图
+- (void)imageCenterPlaceHolder:(UIImage*)imagePlaceHolder
+                      imageURL:(NSString*)imageURL;
 @end

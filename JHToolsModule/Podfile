@@ -10,7 +10,7 @@ target 'JHToolsModule' do
 
   # Pods for JHToolsModule
   pod 'Masonry'
-  pod 'LNRefresh'
+  pod 'MJRefresh'
   pod 'EasyShowView'
   pod 'SDWebImage'
 end

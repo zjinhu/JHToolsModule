@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "EasyShowView.h"
+#import <EasyShowView/EasyShowView.h>
 
 @interface EasyShow : NSObject
 //////////toast弹窗

@@ -9,8 +9,6 @@
 #ifndef Utility_h
 #define Utility_h
 #import "EdgeInsetsLabel.h"
-#import "JHRefreshHeaderAnimator.h"
-#import "JHRefreshFooterAnimator.h"
 #import "NLog.h"
 #import "UILineView.h"
 #import "UserDefaults.h"
