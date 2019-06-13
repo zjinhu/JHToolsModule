@@ -19,4 +19,5 @@
 #import "JHBaseHeaderFooterView.h"
 #import "MSWeakTimer.h"
 #import "JHBaseTableViewCell.h"
+#import "JHBaseTableView.h"
 #endif /* Utility_h */
