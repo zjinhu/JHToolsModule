@@ -37,6 +37,7 @@
         cell.textLabel.text = [NSString stringWithFormat:@"text%zd",indexPath.row];
         return cell;
     };
+    
 }
 
 
