@@ -5,7 +5,7 @@
 //  Created by 狄烨 . on 2019/6/13.
 //  Copyright © 2019 HU. All rights reserved.
 //
-#import "JHToolsModule.h"
+
 #import "JHBaseTableView.h"
 @interface JHBaseTableView()<UITableViewDelegate,UITableViewDataSource>
 
@@ -34,6 +34,9 @@
     self.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, CGFLOAT_MIN)];
 
     self.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.showsHorizontalScrollIndicator = NO;
+    self.showsVerticalScrollIndicator = NO;
+    self.delaysContentTouches = YES;
 }
 
 -(void)setMainDataArr:(NSMutableArray *)mainDataArr{
@@ -44,12 +47,26 @@
     [self reloadData];
 }
 
--(void)setDisableAutomaticDimension:(BOOL)disableAutomaticDimension{
-    _disableAutomaticDimension = disableAutomaticDimension;
-    if(_disableAutomaticDimension){
-        self.estimatedRowHeight = 0;
-        self.estimatedSectionHeaderHeight = 0;
-        self.estimatedSectionFooterHeight = 0;
+-(void)setCellAutomaticDimension:(BOOL)cellAutomaticDimension{
+    _cellAutomaticDimension = cellAutomaticDimension;
+    if(_cellAutomaticDimension){
+        self.estimatedRowHeight = 60;
+        self.rowHeight = UITableViewAutomaticDimension;
+    }
+}
+
+-(void)setHeaderAutomaticDimension:(BOOL)headerAutomaticDimension{
+    _headerAutomaticDimension = headerAutomaticDimension;
+    if(_headerAutomaticDimension){
+        self.estimatedSectionHeaderHeight = 60;
+        self.sectionHeaderHeight = UITableViewAutomaticDimension;
+    }
+}
+-(void)setFooterAutomaticDimension:(BOOL)footerAutomaticDimension{
+    _footerAutomaticDimension = footerAutomaticDimension;
+    if(_footerAutomaticDimension){
+        self.estimatedSectionFooterHeight = 60;
+        self.sectionFooterHeight = UITableViewAutomaticDimension;
     }
 }
 #pragma mark 判断是否是多个section的情况
@@ -62,22 +79,15 @@
     if([self.tableDataSource respondsToSelector:@selector(cellForRowAtIndexPath:)]){
         return [self.tableDataSource tableView:tableView cellForRowAtIndexPath:indexPath];
     }else{
-        NSString *className  = nil;
-        Class cellClass = nil;
-        if(self.setCellClassAtIndexPath){
-            cellClass = self.setCellClassAtIndexPath(indexPath);
-            className = NSStringFromClass(cellClass);
-        }
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:className];
-        if(!cell){
-            if(cellClass){
-                cell = [[cellClass alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:className];
-            }else{
-                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:className];
-                cell.textLabel.text = @"Undefined Cell";
+        UITableViewCell *cell = nil;
+        if(self.setCellAtIndexPath){
+            cell =self.setCellAtIndexPath(indexPath,tableView);
+        }else{
+            cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
+            if (!cell) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellID"];
             }
         }
-        cell.backgroundColor = ColorOfRandom;
         return cell;
     }
 }
@@ -179,13 +189,8 @@
         headerView = [self.tableDelegate tableView:tableView viewForHeaderInSection:section];
         
     }else{
-        if(self.setHeaderClassInSection){
-            headerView = [self getHeaderViewInSection:section];
-            
-        }else{
-            if(self.setHeaderViewInSection){
-                headerView = self.setHeaderViewInSection(section);
-            }
+        if(self.setHeaderViewInSection){
+            headerView = self.setHeaderViewInSection(section);
         }
     }
     NSMutableArray *secArr = self.mainDataArr.count ? [self isMultiDatas] ? self.mainDataArr[section] : self.mainDataArr : nil;
@@ -198,13 +203,8 @@
         footerView = [self.tableDelegate tableView:tableView viewForFooterInSection:section];
         
     }else{
-        if(self.setFooterClassInSection){
-            footerView = [self getFooterViewInSection:section];
-            
-        }else{
-            if(self.setFooterViewInSection){
-                footerView = self.setFooterViewInSection(section);
-            }
+        if(self.setFooterViewInSection){
+            footerView = self.setFooterViewInSection(section);
         }
     }
     NSMutableArray *secArr = self.mainDataArr.count ? [self isMultiDatas] ? self.mainDataArr[section] : self.mainDataArr : nil;
@@ -216,23 +216,10 @@
         return [self.tableDelegate tableView:tableView heightForHeaderInSection:section];
         
     }else{
-        if(self.setHeaderClassInSection){
-            if(self.setHeaderHeightInSection){
-                return self.setHeaderHeightInSection(section);
-            }else{
-                if(section < self.mainDataArr.count || (self.showHeaderWhenNoData &&  section == 0)){
-                    UIView *headerView = [self getHeaderViewInSection:section];
-                    return headerView.frame.size.height;
-                }else{
-                    return CGFLOAT_MIN;
-                }
-            }
+        if(self.setHeaderHeightInSection){
+            return self.setHeaderHeightInSection(section);
         }else{
-            if(self.setHeaderHeightInSection){
-                return self.setHeaderHeightInSection(section);
-            }else{
-                return CGFLOAT_MIN;
-            }
+            return CGFLOAT_MIN;
         }
     }
 }
@@ -241,55 +228,27 @@
         return [self.tableDelegate tableView:tableView heightForFooterInSection:section];
         
     }else{
-        if(self.setFooterClassInSection){
-            if(self.setFooterHeightInSection){
-                return self.setFooterHeightInSection(section);
-            }else{
-                if(section < self.mainDataArr.count || (self.showFooterWhenNoData &&  section == 0)){
-                    UIView *footerView = [self getFooterViewInSection:section];
-                    return footerView.frame.size.height;
-                }else{
-                    return CGFLOAT_MIN;
-                }
-            }
+        if(self.setFooterHeightInSection){
+            return self.setFooterHeightInSection(section);
         }else{
-            if(self.setFooterHeightInSection){
-                return self.setFooterHeightInSection(section);
-            }else{
-                return CGFLOAT_MIN;
-            }
+            return CGFLOAT_MIN;
         }
     }
 }
 
-#pragma mark 根据section获取headerView
--(UIView *)getHeaderViewInSection:(NSUInteger)section{
-    Class headerClass = self.setHeaderClassInSection(section);
-    UIView *headerView =  [[headerClass alloc]init];
-    return headerView;
-}
-
-#pragma mark 根据section获取footerView
--(UIView *)getFooterViewInSection:(NSUInteger)section{
-    Class footerClass = self.setFooterClassInSection(section);
-    UIView *footerView = [[footerClass alloc]init];
-    return footerView;
-}
 #pragma mark 声明cell的类并返回cell对象
--(void)setCellClassAtIndexPath:(Class (^)(NSIndexPath * indexPath)) setCellClassCallBack returnCell:(void (^)(NSIndexPath * indexPath,id cell))returnCellCallBack{
-    self.setCellClassAtIndexPath = setCellClassCallBack;
+-(void)setCellAtIndexPath:(SetCellAtIndexPath)setCellCallBack returnCell:(GetCellAtIndexPath)returnCellCallBack{
+    self.setCellAtIndexPath = setCellCallBack;
     self.getCellAtIndexPath = returnCellCallBack;
 }
-
 #pragma mark 声明HeaderView的类并返回HeaderView对象
--(void)setHeaderClassInSection:(Class (^)(NSInteger)) setHeaderClassCallBack returnHeader:(void (^)(NSUInteger section,id headerView,NSMutableArray *secArr))returnHeaderCallBack{
-    self.setHeaderClassInSection = setHeaderClassCallBack;
+-(void)setHeaderViewInSection:(SetHeaderViewInSection)setHeaderViewCallBack returnHeader:(GetHeaderViewInSection)returnHeaderCallBack{
+    self.setHeaderViewInSection = setHeaderViewCallBack;
     self.getHeaderViewInSection = returnHeaderCallBack;
 }
-
 #pragma mark 声明FooterView的类并返回FooterView对象
--(void)setFooterClassInSection:(Class (^)(NSInteger)) setFooterClassCallBack returnHeader:(void (^)(NSUInteger section,id headerView,NSMutableArray *secArr))returnFooterCallBack{
-    self.setFooterClassInSection = setFooterClassCallBack;
+-(void)setFooterViewInSection:(SetFooterViewInSection)setFooterViewCallBack returnHeader:(GetFooterViewInSection)returnFooterCallBack{
+    self.setFooterViewInSection = setFooterViewCallBack;
     self.getFooterViewInSection = returnFooterCallBack;
 }
 #pragma mark - scrollView相关代理

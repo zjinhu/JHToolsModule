@@ -30,9 +30,12 @@
     tableView.setCountOfRowsInSection = ^CGFloat(NSUInteger section) {
         return 20;
     };
+    [JHBaseTableViewCell registerCell:tableView];
     
-    tableView.setCellClassAtIndexPath = ^Class _Nonnull(NSIndexPath * _Nonnull indexPath) {
-        return [JHBaseTableViewCell class];
+    tableView.setCellAtIndexPath = ^JHBaseTableViewCell *(NSIndexPath *indexPath, UITableView *tableView) {
+        JHBaseTableViewCell *cell = [JHBaseTableViewCell dequeueReusableCell:tableView];
+        cell.textLabel.text = [NSString stringWithFormat:@"text%zd",indexPath.row];
+        return cell;
     };
 }
 
