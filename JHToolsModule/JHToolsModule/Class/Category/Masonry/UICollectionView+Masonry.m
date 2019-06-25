@@ -64,21 +64,12 @@
     
     UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     collection.backgroundColor = [UIColor whiteColor];
-    collection.pagingEnabled = YES;
+
     collection.delegate = delegate;
     collection.dataSource = delegate;
+    collection.showsVerticalScrollIndicator = NO;
     collection.showsHorizontalScrollIndicator = NO;
     [superView addSubview:collection];
-    
-    if (isHorizontal) {
-        [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-        collection.showsVerticalScrollIndicator = NO;
-        collection.showsHorizontalScrollIndicator = YES;
-    } else {
-        [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
-        collection.showsVerticalScrollIndicator = YES;
-        collection.showsHorizontalScrollIndicator = NO;
-    }
     
     if (superView) {
         if (constraints) {
