@@ -61,6 +61,11 @@
     layout.itemSize = itemSize;
     layout.minimumInteritemSpacing = minimumInteritemSpacing;
     layout.minimumLineSpacing = minimumLineSpacing;
+    if (isHorizontal) {
+        [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    } else {
+        [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    }
     
     UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     collection.backgroundColor = [UIColor whiteColor];
