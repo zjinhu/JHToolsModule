@@ -81,7 +81,7 @@ static NSString *POSTRequest = @"POST";
     self.title = self.navTitle;
     [self.view addSubview:self.reloadBtn];
     
-    self.webView = [[WKWebView alloc]initWithFrame:self.view.bounds configuration:self.config];
+    self.webView = [[WKWebView alloc]initWithFrame:CGRectZero configuration:self.config];
     self.webView.navigationDelegate = self;
     self.webView.UIDelegate = self;
     self.webView.scrollView.delegate = self;
@@ -112,7 +112,9 @@ static NSString *POSTRequest = @"POST";
             make.bottom.equalTo(self.view.mas_bottom);
         }];
 //    }
-    
+    if(@available(iOS 11.0, *)) {
+        self.webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
     [self.view addSubview:self.loadingProgressView];
     
     [self loadRequest];
