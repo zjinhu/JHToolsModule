@@ -14,8 +14,6 @@
 static NSString *POSTRequest = @"POST";
 
 @interface JHBaseWebViewController ()<WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler,UIScrollViewDelegate>
-@property (nonatomic, strong) UIProgressView *loadingProgressView;//进度条
-@property (nonatomic, strong) UIButton *reloadBtn;//重新加载的按钮
 
 @property (nonatomic, strong) WKWebViewConfiguration *config;
 @property(nonatomic, strong) NSMutableURLRequest    *request;                   //WebView入口请求

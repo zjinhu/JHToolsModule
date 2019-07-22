@@ -10,6 +10,10 @@
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
 @interface JHBaseWebViewController : JHBaseViewController
+
+@property (nonatomic, strong) UIProgressView *loadingProgressView;//进度条
+@property (nonatomic, strong) UIButton *reloadBtn;//重新加载的按钮
+
 @property (nonatomic, strong) WKWebView *webView;     //webview
 @property (nonatomic, strong) NSString *navTitle;     //页面标题
 @property (nonatomic, assign) BOOL supportAutoLogin;  //默认不支持
