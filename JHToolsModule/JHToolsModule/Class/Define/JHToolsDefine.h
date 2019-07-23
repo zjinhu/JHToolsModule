@@ -134,7 +134,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
 #define FIT_WIDTH  (SCREEN_WIDTH/375)
 #define FIT_HEIGHT  (SCREEN_HEIGHT/667)
-
+//APP BundleID
+#define kBundleID [[NSBundle mainBundle] bundleIdentifier]
+//APP版本号
+#define kAppVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
 //系统版本
 #define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
