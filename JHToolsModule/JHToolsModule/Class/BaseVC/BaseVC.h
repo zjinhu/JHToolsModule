@@ -11,4 +11,5 @@
 #import "JHBaseViewController.h"
 #import "JHBaseTableViewController.h"
 #import "JHBaseWebViewController.h"
+#import "JHBaseCollectionViewController.h"
 #endif /* BaseVC_h */

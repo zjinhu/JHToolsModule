@@ -7,10 +7,7 @@
 //
 
 #import "JHBaseTableViewController.h"
-#import "JHToolsDefine.h"
-#import "BaseUI.h"
-#import <MJRefresh/MJRefresh.h>
-#import "Utility.h" 
+
 @interface JHBaseTableViewController ()
 
 @end

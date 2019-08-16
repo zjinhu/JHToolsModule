@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -71,6 +71,10 @@
 		91B3BE4C21A695160044CC8D /* UIControl+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B3BE4B21A695160044CC8D /* UIControl+Block.m */; };
 		91B8B77E227305DB004FB751 /* NSDate+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B8B77D227305DB004FB751 /* NSDate+Tool.m */; };
 		91F943CF22B23C9F00C8E124 /* JHBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F943CE22B23C9F00C8E124 /* JHBaseTableView.m */; };
+		E2B8AA792306751D000BE864 /* JHBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B8AA782306751D000BE864 /* JHBaseCollectionViewCell.m */; };
+		E2B8AA7C23067541000BE864 /* JHBaseCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B8AA7B23067541000BE864 /* JHBaseCollectionReusableView.m */; };
+		E2B8AA7F23069395000BE864 /* JHBaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B8AA7E23069395000BE864 /* JHBaseCollectionViewController.m */; };
+		E2B8AA822306B73B000BE864 /* CollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B8AA812306B73B000BE864 /* CollViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -202,6 +206,14 @@
 		91F943CE22B23C9F00C8E124 /* JHBaseTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHBaseTableView.m; sourceTree = "<group>"; };
 		92D1C6EFC981BC9F00DF6516 /* Pods_JHToolsModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JHToolsModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18AE08586D1AEDD7D5D41F5 /* Pods-JHToolsModule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JHToolsModule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JHToolsModule/Pods-JHToolsModule.debug.xcconfig"; sourceTree = "<group>"; };
+		E2B8AA772306751D000BE864 /* JHBaseCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHBaseCollectionViewCell.h; sourceTree = "<group>"; };
+		E2B8AA782306751D000BE864 /* JHBaseCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHBaseCollectionViewCell.m; sourceTree = "<group>"; };
+		E2B8AA7A23067541000BE864 /* JHBaseCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHBaseCollectionReusableView.h; sourceTree = "<group>"; };
+		E2B8AA7B23067541000BE864 /* JHBaseCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHBaseCollectionReusableView.m; sourceTree = "<group>"; };
+		E2B8AA7D23069395000BE864 /* JHBaseCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHBaseCollectionViewController.h; sourceTree = "<group>"; };
+		E2B8AA7E23069395000BE864 /* JHBaseCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHBaseCollectionViewController.m; sourceTree = "<group>"; };
+		E2B8AA802306B73B000BE864 /* CollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollViewController.h; sourceTree = "<group>"; };
+		E2B8AA812306B73B000BE864 /* CollViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollViewController.m; sourceTree = "<group>"; };
 		F97202E71F0164F075C5D120 /* Pods-JHToolsModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JHToolsModule.release.xcconfig"; path = "Pods/Target Support Files/Pods-JHToolsModule/Pods-JHToolsModule.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -244,6 +256,8 @@
 				850741FA20FD9AAA004439B9 /* AppDelegate.m */,
 				850741FC20FD9AAA004439B9 /* ViewController.h */,
 				850741FD20FD9AAA004439B9 /* ViewController.m */,
+				E2B8AA802306B73B000BE864 /* CollViewController.h */,
+				E2B8AA812306B73B000BE864 /* CollViewController.m */,
 				850741FF20FD9AAA004439B9 /* Main.storyboard */,
 				8507420220FD9AB9004439B9 /* Assets.xcassets */,
 				8507420420FD9AB9004439B9 /* LaunchScreen.storyboard */,
@@ -297,6 +311,8 @@
 				8574B6F120FF2ED600F3EB05 /* JHBaseViewController.m */,
 				8574B6F320FF2EF900F3EB05 /* JHBaseTableViewController.h */,
 				8574B6F420FF2EF900F3EB05 /* JHBaseTableViewController.m */,
+				E2B8AA7D23069395000BE864 /* JHBaseCollectionViewController.h */,
+				E2B8AA7E23069395000BE864 /* JHBaseCollectionViewController.m */,
 				8523429B2113173E00364793 /* JHBaseWebViewController.h */,
 				8523429C2113173E00364793 /* JHBaseWebViewController.m */,
 			);
@@ -313,6 +329,10 @@
 				910F8A2321F70C05009DBC37 /* JHBaseTableViewCell.m */,
 				910F8A2521F713F2009DBC37 /* JHBaseHeaderFooterView.h */,
 				910F8A2621F713F2009DBC37 /* JHBaseHeaderFooterView.m */,
+				E2B8AA772306751D000BE864 /* JHBaseCollectionViewCell.h */,
+				E2B8AA782306751D000BE864 /* JHBaseCollectionViewCell.m */,
+				E2B8AA7A23067541000BE864 /* JHBaseCollectionReusableView.h */,
+				E2B8AA7B23067541000BE864 /* JHBaseCollectionReusableView.m */,
 				910F8A2021F70B6E009DBC37 /* MSWeakTimer.h */,
 				910F8A1F21F70B6E009DBC37 /* MSWeakTimer.m */,
 				91AA65BA21CB8FB60055905F /* LimitTextField.h */,
@@ -604,6 +624,7 @@
 				8538AE2A21003F0900AF014C /* UITableViewCell+AddLine.m in Sources */,
 				91F943CF22B23C9F00C8E124 /* JHBaseTableView.m in Sources */,
 				8574B70320FF304500F3EB05 /* UIColor+BaseUI.m in Sources */,
+				E2B8AA7F23069395000BE864 /* JHBaseCollectionViewController.m in Sources */,
 				85087155212AD490006EA702 /* UILineView.m in Sources */,
 				8574B72D20FF317C00F3EB05 /* UIButton+Countdown.m in Sources */,
 				8538AE232100383B00AF014C /* UIView+Masonry.m in Sources */,
@@ -619,6 +640,7 @@
 				8574B73620FF344400F3EB05 /* JHMasonryTool.m in Sources */,
 				8574B70920FF307700F3EB05 /* UINavigationBar+BaseUI.m in Sources */,
 				8508714D212AD42F006EA702 /* NSArray+Sudoku.m in Sources */,
+				E2B8AA7C23067541000BE864 /* JHBaseCollectionReusableView.m in Sources */,
 				8538AE1A2100248600AF014C /* UITextField+Masonry.m in Sources */,
 				8574B72420FF312100F3EB05 /* NSObject+swizzle.m in Sources */,
 				910F8A2721F713F2009DBC37 /* JHBaseHeaderFooterView.m in Sources */,
@@ -638,7 +660,9 @@
 				8574B71C20FF30EE00F3EB05 /* NSMutableDictionary+safe.m in Sources */,
 				852342972113168000364793 /* NLog.m in Sources */,
 				8526922F212C24A50079B497 /* UIImageView+LoadURL.m in Sources */,
+				E2B8AA792306751D000BE864 /* JHBaseCollectionViewCell.m in Sources */,
 				85087154212AD490006EA702 /* GPSLocationManager.m in Sources */,
+				E2B8AA822306B73B000BE864 /* CollViewController.m in Sources */,
 				8574B71A20FF30EE00F3EB05 /* NSNumber+safe.m in Sources */,
 				8574B71F20FF30EE00F3EB05 /* UITableView+safe.m in Sources */,
 				8574B73020FF317C00F3EB05 /* NSObject+BlockSEL.m in Sources */,

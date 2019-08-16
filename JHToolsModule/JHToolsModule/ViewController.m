@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "JHToolsModule.h"
+#import "CollViewController.h"
 @interface ViewController ()
 
 @end
@@ -38,15 +39,32 @@
 //        return cell;
 //    };
 
-    [UIImageView masImageViewWithImage:[self blureImage:[UIImage imageNamed:@"2"] withInputRadius:10] SuperView:self.view constraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(self.view.mas_centerX);
-        make.top.mas_equalTo(500);
-        make.size.mas_equalTo(CGSizeMake(700, 440));
-    }];
-    [UIImageView masImageViewWithImage:[UIImage imageNamed:@"2"] SuperView:self.view constraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(self.view.mas_centerX);
-        make.top.mas_equalTo(450);
-        make.size.mas_equalTo(CGSizeMake(700, 440));
+//    [UIImageView masImageViewWithImage:[self blureImage:[UIImage imageNamed:@"2"] withInputRadius:10] SuperView:self.view constraints:^(MASConstraintMaker *make) {
+//        make.centerX.mas_equalTo(self.view.mas_centerX);
+//        make.top.mas_equalTo(500);
+//        make.size.mas_equalTo(CGSizeMake(700, 440));
+//    }];
+//    [UIImageView masImageViewWithImage:[UIImage imageNamed:@"2"] SuperView:self.view constraints:^(MASConstraintMaker *make) {
+//        make.centerX.mas_equalTo(self.view.mas_centerX);
+//        make.top.mas_equalTo(450);
+//        make.size.mas_equalTo(CGSizeMake(700, 440));
+//    }];
+    [UIButton masButtonWithTitle:@"保存"
+                      titleColor:[UIColor whiteColor]
+                       backColor:[UIColor baseColor]
+                        fontSize:18
+                    cornerRadius:20
+                         supView:self.view
+                     constraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(100);
+        make.top.mas_equalTo(200);
+        make.width.mas_equalTo(300);
+        make.height.mas_equalTo(50);
+    } touchUp:^(id sender) {
+        CollViewController *vc = [[CollViewController alloc] initHorCollectionViewController];
+        [self presentViewController:vc animated:YES completion:^{
+            
+        }];
     }];
 }
 

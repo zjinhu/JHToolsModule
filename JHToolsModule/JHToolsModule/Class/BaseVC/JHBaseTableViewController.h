@@ -8,6 +8,10 @@
 
 
 #import "JHBaseViewController.h"
+#import "JHToolsDefine.h"
+#import "BaseUI.h"
+#import <MJRefresh/MJRefresh.h>
+#import "Utility.h" 
 typedef NS_ENUM(NSInteger,TableViewType) {
     TableViewStylePlain = 0,
     TableViewStyleGrouped

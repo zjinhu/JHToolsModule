@@ -20,4 +20,6 @@
 #import "MSWeakTimer.h"
 #import "JHBaseTableViewCell.h"
 #import "JHBaseTableView.h"
+#import "JHBaseCollectionViewCell.h"
+#import "JHBaseCollectionReusableView.h"
 #endif /* Utility_h */
