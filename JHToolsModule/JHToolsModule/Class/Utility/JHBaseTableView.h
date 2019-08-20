@@ -11,8 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface JHBaseTableView : UITableView
 typedef UITableViewCell *_Nonnull(^SetCellAtIndexPath)(NSIndexPath * _Nonnull indexPath,UITableView *tableView);
 typedef CGFloat (^SetCellHeightAtIndexPath)(NSIndexPath *indexPath);
-typedef CGFloat (^SetCountOfSectionsInTableView)(UITableView *tableView);
-typedef CGFloat (^SetCountOfRowsInSection)(NSUInteger section);
+typedef NSInteger (^SetCountOfSectionsInTableView)(UITableView *tableView);
+typedef NSInteger (^SetCountOfRowsInSection)(NSUInteger section);
 typedef UIView *_Nonnull(^SetHeaderViewInSection)(NSInteger section);
 typedef UIView *_Nonnull(^SetFooterViewInSection)(NSInteger section);
 typedef CGFloat (^SetHeaderHeightInSection)(NSInteger section);
@@ -21,6 +21,9 @@ typedef CGFloat (^SetFooterHeightInSection)(NSInteger section);
 typedef void (^GetCellAtIndexPath)(NSIndexPath *indexPath,UITableViewCell *cell);
 typedef void (^GetHeaderViewInSection)(NSUInteger section,UIView *headerView,NSMutableArray *secArr);
 typedef void (^GetFooterViewInSection)(NSUInteger section,UIView *footerView,NSMutableArray *secArr);
+
+typedef void (^GetClickCellAtIndexPath)(NSIndexPath *indexPath,id cell);
+typedef void (^WillDisplayCell)(NSIndexPath *indexPath,id cell);
 #pragma mark - 数据设置
 ///设置所有数据数组
 @property(nonatomic, strong)NSMutableArray *mainDataArr;
@@ -67,13 +70,13 @@ typedef void (^GetFooterViewInSection)(NSUInteger section,UIView *footerView,NSM
 -(void)setFooterViewInSection:(SetFooterViewInSection)setFooterViewCallBack returnHeader:(GetFooterViewInSection)returnFooterCallBack;
 #pragma mark - 代理事件相关
 ///选中某一行，把id改成对应类名即可无需强制转换
-@property (nonatomic, copy) void (^didSelectedAtIndexPath)(NSIndexPath *indexPath,id cell);
+@property (nonatomic, copy) GetClickCellAtIndexPath didSelectedAtIndexPath;
 ///取消选中某一行，把id改成对应类名即可无需强制转换
-@property (nonatomic, copy) void (^didDeselectedAtIndexPath)(NSIndexPath *indexPath,id cell);
+@property (nonatomic, copy) GetClickCellAtIndexPath didDeselectedAtIndexPath;
 ///滑动编辑
 @property (nonatomic, copy) NSArray<UITableViewRowAction *>* (^editActionsForRowAtIndexPath)(NSIndexPath *indexPath);
 ///cell将要展示，把id改成对应类名即可无需强制转换
-@property (nonatomic, copy) void (^willDisplayCell)(NSIndexPath *indexPath,id cell);
+@property (nonatomic, copy) WillDisplayCell willDisplayCell;
 ///scrollView滚动事件
 @property (nonatomic, copy) void (^scrollViewDidScroll)(UIScrollView *scrollView);
 ///scrollView缩放事件

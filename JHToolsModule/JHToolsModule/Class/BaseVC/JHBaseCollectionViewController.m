@@ -48,8 +48,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initData];
-    
-    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.flowLayout];
+    if (!_flowLayout) {
+        [self setupLayout];
+        [_flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    }
+    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_flowLayout];
     _collectionView.backgroundColor = [UIColor clearColor];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
