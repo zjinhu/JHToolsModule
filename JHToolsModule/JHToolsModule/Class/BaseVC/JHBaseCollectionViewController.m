@@ -48,6 +48,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initData];
+    
     if (!_flowLayout) {
         [self setupLayout];
         [_flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
