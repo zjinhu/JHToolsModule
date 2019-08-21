@@ -136,9 +136,6 @@
 //    cell.backgroundColor = ColorOfRandom;
     return cell;
 }
-////水平滑动时：最左上角  最左下角
-////竖直滑动时：最左上角  最右上角
-//
 ////设置item的大小
 ////item的默认大小：50*50
 //- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
