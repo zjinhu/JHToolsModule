@@ -114,7 +114,10 @@ static NSString *POSTRequest = @"POST";
 //    }
     if(@available(iOS 11.0, *)) {
         self.webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    
     [self.view addSubview:self.loadingProgressView];
     
     [self loadRequest];
