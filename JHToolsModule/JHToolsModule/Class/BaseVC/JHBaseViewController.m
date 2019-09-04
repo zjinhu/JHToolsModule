@@ -16,9 +16,9 @@
 
 @implementation JHBaseViewController
 
--(UIRectEdge)preferredScreenEdgesDeferringSystemGestures{
-    return UIRectEdgeAll;
-}
+//-(UIRectEdge)preferredScreenEdgesDeferringSystemGestures{
+//    return UIRectEdgeAll;
+//}
 
 -(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
     if (self.navigationController.viewControllers.count == 1) {
@@ -26,6 +26,18 @@
     }else{
         return YES;
     }
+}
+
+-(void)closePopGestureRecognizer{
+    id target = self.navigationController.interactivePopGestureRecognizer.delegate;
+    // 获取添加系统边缘触发手势的View
+    UIView *targetView = self.navigationController.interactivePopGestureRecognizer.view;
+    // 创建pan手势 作用范围是全屏
+    UIPanGestureRecognizer *fullScreenGes = [[UIPanGestureRecognizer alloc]initWithTarget:target action:nil];
+    fullScreenGes.delegate = (id<UIGestureRecognizerDelegate>)self;
+    [targetView addGestureRecognizer:fullScreenGes];
+    // 关闭边缘触发手势 防止和原有边缘手势冲突（也可不用关闭）
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
