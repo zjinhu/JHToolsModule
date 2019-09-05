@@ -13,9 +13,9 @@
 @property (nonatomic,strong) UIButton        * leftBarButton;               //导航左侧按钮
 @property (nonatomic,strong) UIButton        * rightBarButton;              //导航右侧按钮
 /**
- *  NO关闭侧滑返回上一级页面 YES 打开
+ *  NO关闭侧滑返回上一级页面 YES 打开 在viewDidAppear调用，调用完之后记得在viewDidDisappear
  */
--(void)popGestureChange:(BOOL)enable;
+-(void)popGestureChangeFromVC:(UIViewController *)vc enable:(BOOL)enable;
 /**
  *  返回上一级页面
  */

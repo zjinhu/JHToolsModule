@@ -27,11 +27,10 @@
 //        return YES;
 //    }
 //}
-
--(void)popGestureChange:(BOOL)enable{
-    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+-(void)popGestureChangeFromVC:(UIViewController *)vc enable:(BOOL)enable{
+    if ([vc.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         //遍历所有的手势
-        for (UIGestureRecognizer *popGesture in self.navigationController.interactivePopGestureRecognizer.view.gestureRecognizers) {
+        for (UIGestureRecognizer *popGesture in vc.navigationController.interactivePopGestureRecognizer.view.gestureRecognizers) {
             popGesture.enabled = enable;
         }
     }
