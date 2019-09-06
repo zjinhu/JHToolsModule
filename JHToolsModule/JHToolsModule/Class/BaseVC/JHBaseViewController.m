@@ -27,13 +27,20 @@
 //        return YES;
 //    }
 //}
--(void)popGestureChangeFromVC:(UIViewController *)vc enable:(BOOL)enable{
-    if ([vc.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+- (void)popGestureChange:(BOOL)enable{
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         //遍历所有的手势
-        for (UIGestureRecognizer *popGesture in vc.navigationController.interactivePopGestureRecognizer.view.gestureRecognizers) {
+        for (UIGestureRecognizer *popGesture in self.navigationController.interactivePopGestureRecognizer.view.gestureRecognizers) {
             popGesture.enabled = enable;
         }
     }
+}
+
+-(void)closePopGestureRecognizer{
+    //禁止返回
+    id traget = self.navigationController.interactivePopGestureRecognizer.delegate;
+    UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:traget action:nil];
+    [self.view addGestureRecognizer:pan];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -15,7 +15,11 @@
 /**
  *  NO关闭侧滑返回上一级页面 YES 打开 在viewDidAppear调用，调用完之后记得在viewDidDisappear
  */
--(void)popGestureChangeFromVC:(UIViewController *)vc enable:(BOOL)enable;
+- (void)popGestureChange:(BOOL)enable;
+/**
+ *  关闭侧滑返回上一级页面
+ */
+-(void)closePopGestureRecognizer;
 /**
  *  返回上一级页面
  */
