@@ -67,8 +67,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    [self setLeftBackBarButton];
-    [self.leftBarButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+//    [self setLeftBackBarButton];
+//    [self.leftBarButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
     // Do any additional setup after loading the view.
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
@@ -94,31 +94,31 @@
     }
 }
 
-/**
- *  设置导航默认返回按钮
- */
-- (void)setLeftBackBarButton{
-    
-    _leftBarButton = [[UIButton alloc] init];
-    
-    [_leftBarButton setImage:[UIImage loadImageNamed:@"nav_ic_back"] forState:UIControlStateHighlighted];
-    [_leftBarButton setImage:[UIImage loadImageNamed:@"nav_ic_back"] forState:UIControlStateNormal];
-    _leftBarButton.frame = CGRectMake(0, 0, KNavigationBarButtonHeight, KNavigationBarButtonHeight);
-    
-    [_leftBarButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftButtonItem       = [[UIBarButtonItem alloc] initWithCustomView:_leftBarButton];
-    if (@available(ios 11.0,*)) {
-        _leftBarButton.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
-        _leftBarButton.contentEdgeInsets =UIEdgeInsetsMake(0, -10,0, 0);
-        leftButtonItem.imageInsets = UIEdgeInsetsMake(0, -10, 0, 0);
-        self.navigationItem.leftBarButtonItem = leftButtonItem;
-    } else {
-        
-        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-        negativeSpacer.width = -10;
-        self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:negativeSpacer, leftButtonItem, nil];
-    }
-}
+///**
+// *  设置导航默认返回按钮
+// */
+//- (void)setLeftBackBarButton{
+//
+//    _leftBarButton = [[UIButton alloc] init];
+//
+//    [_leftBarButton setImage:[UIImage loadImageNamed:@"nav_ic_back"] forState:UIControlStateHighlighted];
+//    [_leftBarButton setImage:[UIImage loadImageNamed:@"nav_ic_back"] forState:UIControlStateNormal];
+//    _leftBarButton.frame = CGRectMake(0, 0, KNavigationBarButtonHeight, KNavigationBarButtonHeight);
+//
+//    [_leftBarButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *leftButtonItem       = [[UIBarButtonItem alloc] initWithCustomView:_leftBarButton];
+//    if (@available(ios 11.0,*)) {
+//        _leftBarButton.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+//        _leftBarButton.contentEdgeInsets =UIEdgeInsetsMake(0, -10,0, 0);
+//        leftButtonItem.imageInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+//        self.navigationItem.leftBarButtonItem = leftButtonItem;
+//    } else {
+//
+//        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+//        negativeSpacer.width = -10;
+//        self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:negativeSpacer, leftButtonItem, nil];
+//    }
+//}
 /**
  *  设置导航左侧按钮图片
  *

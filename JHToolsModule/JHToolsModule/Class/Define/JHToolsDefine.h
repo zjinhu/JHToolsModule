@@ -142,6 +142,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
+#define iOSAvailable(version) @available(iOS version, *)
 #define IOS10_OR_BEFORE ([[[UIDevice currentDevice] systemVersion] floatValue] < 11.0)
 #define IOS10_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0)
 #define IOS11_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 11.0)

@@ -50,7 +50,7 @@
 /**
  *  设置导航默认返回按钮
  */
-- (void)setLeftBackBarButton;
+//- (void)setLeftBackBarButton;
 
 /**
  *  设置导航左侧按钮文本

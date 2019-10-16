@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JHToolsModule'
-  s.version          = '1.9.2'
+  s.version          = '1.9.3'
   s.summary          = '工具类组件.'
  
   s.description      = <<-DESC
@@ -22,9 +22,9 @@ Pod::Spec.new do |s|
   s.dependency 'MJRefresh'
   s.dependency 'EasyShowView'
   s.dependency 'SDWebImage'
-   s.resource_bundles = {
-     'JHToolsModule' => ['JHToolsModule/JHToolsModule/Images/**/*.*']
-  }
+  #  s.resource_bundles = {
+  #    'JHToolsModule' => ['JHToolsModule/JHToolsModule/Images/*.xcassets']
+  # }
     s.source_files = 'JHToolsModule/JHToolsModule/Class/JHToolsModule.h' 
     s.public_header_files = "JHToolsModule/JHToolsModule/Class/JHToolsModule.h"
 

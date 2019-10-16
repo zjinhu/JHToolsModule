@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, GradientType) {
 };
 
 @interface UIImage (BaseUI)
-+ (UIImage *)loadImageNamed:(NSString *)name;
+//+ (UIImage *)loadImageNamed:(NSString *)name;
 //根据颜色生成图片
 + (UIImage *)imageWithColor:(UIColor *)color;
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
@@ -25,7 +25,7 @@ typedef NS_ENUM(NSUInteger, GradientType) {
  *  根据CIImage生成指定大小的UIImage
  *  @return 生成的高清的UIImage
  */
-+ (UIImage *)qrImageForString:(NSString *)string imageSize:(CGFloat)Imagesize logoImageSize:(CGFloat)waterImagesize;
+//+ (UIImage *)qrImageForString:(NSString *)string imageSize:(CGFloat)Imagesize logoImageSize:(CGFloat)waterImagesize;
 
 
 + (UIImage *)reSizeImage:(UIImage *)image toSize:(CGSize)reSize;
