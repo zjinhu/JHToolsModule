@@ -9,29 +9,29 @@
 #import "UIImage+BaseUI.h"
 #import <CoreImage/CoreImage.h>
 
-//// FakeClass 仅作占位符用，即只为分类中的 `bundleForClass:` 方法服务
-//@interface FakeClass : NSObject
-//@end
-//@implementation FakeClass
-//@end
+// FakeClass 仅作占位符用，即只为分类中的 `bundleForClass:` 方法服务
+@interface FakeClass : NSObject
+@end
+@implementation FakeClass
+@end
 
 @implementation UIImage (BaseUI)
 
-//+ (UIImage *)loadImageNamed:(NSString *)name{
-//    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[FakeClass class]] pathForResource:@"JHToolsModule" ofType:@"bundle"]];
-////    NSString *mainBundlePath = [NSBundle mainBundle].bundlePath;
-////    NSString *bundlePath = [NSString stringWithFormat:@"%@/%@",mainBundlePath,@"JHToolsModule.bundle"];
-////    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
-////    if (bundle == nil) {
-////        bundlePath = [NSString stringWithFormat:@"%@/%@",mainBundlePath,@"Frameworks/JHToolsModule.framework/JHToolsModule.bundle"];
-////        bundle = [NSBundle bundleWithPath:bundlePath];
-////    }
-//    if ([UIImage respondsToSelector:@selector(imageNamed:inBundle:compatibleWithTraitCollection:)]) {
-//        return [UIImage imageNamed:name inBundle:bundle compatibleWithTraitCollection:nil];
-//    } else {
-//        return [UIImage imageWithContentsOfFile:[bundle pathForResource:name ofType:nil]];
++ (UIImage *)loadImageNamed:(NSString *)name{
+    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[FakeClass class]] pathForResource:@"JHToolsModule" ofType:@"bundle"]];
+//    NSString *mainBundlePath = [NSBundle mainBundle].bundlePath;
+//    NSString *bundlePath = [NSString stringWithFormat:@"%@/%@",mainBundlePath,@"JHToolsModule.bundle"];
+//    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
+//    if (bundle == nil) {
+//        bundlePath = [NSString stringWithFormat:@"%@/%@",mainBundlePath,@"Frameworks/JHToolsModule.framework/JHToolsModule.bundle"];
+//        bundle = [NSBundle bundleWithPath:bundlePath];
 //    }
-//}
+    if ([UIImage respondsToSelector:@selector(imageNamed:inBundle:compatibleWithTraitCollection:)]) {
+        return [UIImage imageNamed:name inBundle:bundle compatibleWithTraitCollection:nil];
+    } else {
+        return [UIImage imageWithContentsOfFile:[bundle pathForResource:name ofType:nil]];
+    }
+}
 
 + (UIImage *)imageWithColor:(UIColor *)color{
     CGRect rect = CGRectMake(0, 0, 1, 1);
