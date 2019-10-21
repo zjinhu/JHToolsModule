@@ -15,4 +15,7 @@
 //手动设置占位图
 - (void)imageCenterPlaceHolder:(UIImage*)imagePlaceHolder
                       imageURL:(NSString*)imageURL;
+- (void)imageCenterPlaceHolder:(UIImage*)imagePlaceHolder
+                        toSize:(CGSize)size
+                      imageURL:(NSString*)imageURL;
 @end
