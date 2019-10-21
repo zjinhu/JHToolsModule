@@ -20,7 +20,7 @@
 }
 - (void)imageCenterPlaceHolder:(UIImage*)imagePlaceHolder
                       imageURL:(NSString*)imageURL {
-    [self sd_setImageWithURL:[NSURL URLWithString:imageURL] placeholderImage:[UIImage imageCenterPlaceHolder:imagePlaceHolder toSize:self.frame.size]];
+    [self sd_setImageWithURL:[NSURL URLWithString:imageURL] placeholderImage:[UIImage imageCenter:imagePlaceHolder toSize:self.frame.size]];
 }
 
 @end

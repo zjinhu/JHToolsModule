@@ -35,5 +35,5 @@ typedef NS_ENUM(NSUInteger, GradientType) {
 - (UIImage *)scaleToSize:(CGSize)size;
 
 ///x生成不同大小的占位图
-+ (UIImage *)imageCenterPlaceHolder:(UIImage *)image toSize:(CGSize)size;
++ (UIImage *)imageCenter:(UIImage *)image toSize:(CGSize)size;
 @end
