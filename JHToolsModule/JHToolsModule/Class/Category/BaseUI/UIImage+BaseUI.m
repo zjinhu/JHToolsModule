@@ -8,7 +8,9 @@
 
 #import "UIImage+BaseUI.h"
 #import <CoreImage/CoreImage.h>
-
+#import "UIColor+BaseUI.h"
+#import "NSString+Base.h"
+static NSMutableDictionary *mutableImageDic;
 // FakeClass 仅作占位符用，即只为分类中的 `bundleForClass:` 方法服务
 @interface FakeClass : NSObject
 @end
@@ -192,5 +194,42 @@
     UIGraphicsEndImageContext();
     // 返回新的改变大小后的图片
     return scaledImage;
+}
+
++ (UIImage *)imageCenterPlaceHolder:(UIImage *)image toSize:(CGSize)size{
+    //初始化
+    NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(image)];
+    NSString *imageHash = [NSString getMD5WithData:imageData];
+    
+    if (!mutableImageDic) {
+        mutableImageDic = [NSMutableDictionary new];
+        [mutableImageDic setObject:image forKey:imageHash];
+    }
+    if (CGSizeEqualToSize(size, CGSizeZero)) {//如果是自动布局没有size，则三倍面积
+        UIImage *img = (UIImage *)[mutableImageDic objectForKey:imageHash];
+        size = CGSizeMake(img.size.width * 3, img.size.height * 3);
+    }
+    //如果缓存里面，马上返回
+    NSString *imageSizeKey = NSStringFromCGSize(size);
+    UIImage *cacheImage = [mutableImageDic objectForKey:imageSizeKey];
+    if (cacheImage) {
+        return cacheImage;
+    }
+    //没有就绘制
+    UIImage *img = [mutableImageDic objectForKey:imageHash];
+    UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [UIColor mostColor:img scale:0.2].CGColor);
+    CGContextFillRect(context, CGRectMake(0, 0, size.width, size.height));
+    if (size.width < img.size.width || size.height < img.size.height) {
+        [img drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    }else{
+        [img drawInRect:CGRectMake((size.width - img.size.width)/2, (size.height - img.size.height)/2, img.size.width, img.size.height)];
+    }
+    UIImage* retImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    //绘制后添加到到字典内
+    [mutableImageDic setObject:retImage forKey:imageSizeKey];
+    return retImage;
 }
 @end

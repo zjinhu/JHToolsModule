@@ -33,4 +33,7 @@ typedef NS_ENUM(NSUInteger, GradientType) {
 + (UIImage *)cornerRadiusWithImage:(UIImage *)image cornerRadius:(CGFloat)cornerRadius rectCornerType:(UIRectCorner)rectCornerType;
 
 - (UIImage *)scaleToSize:(CGSize)size;
+
+///x生成不同大小的占位图
++ (UIImage *)imageCenterPlaceHolder:(UIImage *)image toSize:(CGSize)size;
 @end

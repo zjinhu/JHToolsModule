@@ -123,4 +123,13 @@
 + (UIColor *)colorWithHex:(NSInteger)hexValue alpha:(CGFloat)alpha;
 + (UIColor *)colorWithHexString:(NSString *)hexString;
 + (UIColor *)colorWithHex:(NSInteger)hexColor;
+/**
+ *  获取图片的主色
+ *
+ *  @param image image
+ *  @param scale 精准度0.1~1
+ *
+ *  @return 图片的主要颜色
+ */
++ (UIColor *)mostColor:(UIImage *)image scale:(CGFloat)scale;
 @end

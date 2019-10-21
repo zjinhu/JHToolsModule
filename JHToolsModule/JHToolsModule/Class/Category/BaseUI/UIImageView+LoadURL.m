@@ -7,9 +7,8 @@
 //
 
 #import "UIImageView+LoadURL.h"
-#import "UIColor+BaseUI.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-
+#import "UIImage+BaseUI.h"
 @implementation UIImageView (LoadURL)
  
 - (void)imageWithURL:(NSString*)url{
@@ -21,24 +20,7 @@
 }
 - (void)imageCenterPlaceHolder:(UIImage*)imagePlaceHolder
                       imageURL:(NSString*)imageURL {
-    self.clipsToBounds = YES;
-    [self configImageView:imagePlaceHolder];
-    [self sd_setImageWithURL:[NSURL URLWithString:imageURL] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        if (image) {
-            self.image = image;
-            self.contentMode = UIViewContentModeScaleAspectFill;
-            self.backgroundColor = [UIColor clearColor];
-        }else{
-            [self configImageView:imagePlaceHolder];
-        }
-    }];
+    [self sd_setImageWithURL:[NSURL URLWithString:imageURL] placeholderImage:[UIImage imageCenterPlaceHolder:imagePlaceHolder toSize:self.frame.size]];
 }
--(void)configImageView:(UIImage*)imagePlaceHolder{
-    self.backgroundColor = [UIColor baseNaviBackGroundColor];
-    self.contentMode = UIViewContentModeCenter;
-    self.image = imagePlaceHolder;
-    if (CGRectGetWidth(self.frame)<imagePlaceHolder.size.width) {
-        self.contentMode = UIViewContentModeScaleAspectFit;
-    }
-}
+
 @end

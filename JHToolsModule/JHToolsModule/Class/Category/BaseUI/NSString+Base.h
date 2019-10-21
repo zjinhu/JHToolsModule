@@ -10,6 +10,9 @@
 #import <UIKit/UIKit.h>
 @interface NSString (Base)
 - (NSString *)getMD5;
+
++ (NSString *)getMD5WithData:(NSData *)data;
+
 - (NSString *)stringByTrim;
 - (NSString *)getBase64;
 
