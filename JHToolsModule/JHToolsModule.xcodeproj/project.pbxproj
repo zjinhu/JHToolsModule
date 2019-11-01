@@ -65,6 +65,7 @@
 		91AA65BD21CB8FB70055905F /* LimitTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AA65B821CB8FB40055905F /* LimitTextField.m */; };
 		91B3BE4C21A695160044CC8D /* UIControl+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B3BE4B21A695160044CC8D /* UIControl+Block.m */; };
 		91B8B77E227305DB004FB751 /* NSDate+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B8B77D227305DB004FB751 /* NSDate+Tool.m */; };
+		91D90CA9236C29FB006479A3 /* UIViewController+HiddenBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D90CA8236C29FB006479A3 /* UIViewController+HiddenBar.m */; };
 		91F943CF22B23C9F00C8E124 /* JHBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F943CE22B23C9F00C8E124 /* JHBaseTableView.m */; };
 		E2B8AA792306751D000BE864 /* JHBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B8AA782306751D000BE864 /* JHBaseCollectionViewCell.m */; };
 		E2B8AA7C23067541000BE864 /* JHBaseCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B8AA7B23067541000BE864 /* JHBaseCollectionReusableView.m */; };
@@ -192,6 +193,8 @@
 		91B3BE4B21A695160044CC8D /* UIControl+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Block.m"; sourceTree = "<group>"; };
 		91B8B77C227305DB004FB751 /* NSDate+Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Tool.h"; sourceTree = "<group>"; };
 		91B8B77D227305DB004FB751 /* NSDate+Tool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Tool.m"; sourceTree = "<group>"; };
+		91D90CA7236C29FB006479A3 /* UIViewController+HiddenBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HiddenBar.h"; sourceTree = "<group>"; };
+		91D90CA8236C29FB006479A3 /* UIViewController+HiddenBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HiddenBar.m"; sourceTree = "<group>"; };
 		91F943CD22B23C9F00C8E124 /* JHBaseTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHBaseTableView.h; sourceTree = "<group>"; };
 		91F943CE22B23C9F00C8E124 /* JHBaseTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHBaseTableView.m; sourceTree = "<group>"; };
 		92D1C6EFC981BC9F00DF6516 /* Pods_JHToolsModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JHToolsModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -436,6 +439,8 @@
 				8526922D212C24A50079B497 /* UIImageView+LoadURL.m */,
 				8574B70720FF307700F3EB05 /* UINavigationBar+BaseUI.h */,
 				8574B70820FF307700F3EB05 /* UINavigationBar+BaseUI.m */,
+				91D90CA7236C29FB006479A3 /* UIViewController+HiddenBar.h */,
+				91D90CA8236C29FB006479A3 /* UIViewController+HiddenBar.m */,
 				8574B6FC20FF304500F3EB05 /* UIColor+BaseUI.h */,
 				8574B6FA20FF304500F3EB05 /* UIColor+BaseUI.m */,
 				8574B70120FF304500F3EB05 /* UIImage+BaseUI.h */,
@@ -649,6 +654,7 @@
 				850741FB20FD9AAA004439B9 /* AppDelegate.m in Sources */,
 				8574B6EF20FF2E6100F3EB05 /* EdgeInsetsLabel.m in Sources */,
 				8574B73F20FF4AEB00F3EB05 /* UIGestureRecognizer+Block.m in Sources */,
+				91D90CA9236C29FB006479A3 /* UIViewController+HiddenBar.m in Sources */,
 				8574B74520FF4DFF00F3EB05 /* UILabel+Masonry.m in Sources */,
 				8574B6F520FF2EF900F3EB05 /* JHBaseTableViewController.m in Sources */,
 				8574B70620FF304500F3EB05 /* UIImage+BaseUI.m in Sources */,
