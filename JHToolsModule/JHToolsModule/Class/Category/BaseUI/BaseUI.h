@@ -16,5 +16,5 @@
 #import "UILabel+FitLines.h"
 #import "UITableViewCell+AddLine.h"
 #import "UILabel+AttributeClick.h"
-#import "UIViewController+HiddenBar.h"
+#import "UINavigationController+Bar.h"
 #endif /* BaseUI_h */

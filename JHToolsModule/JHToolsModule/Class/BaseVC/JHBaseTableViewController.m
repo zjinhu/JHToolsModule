@@ -36,15 +36,15 @@
     _tableView.backgroundColor = [UIColor clearColor];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    _tableView.tableFooterView = [UIView new];
+    _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, CGFLOAT_MIN)];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.separatorColor = [UIColor baseLineColor];
     _tableView.showsHorizontalScrollIndicator = NO;
     _tableView.showsVerticalScrollIndicator = NO;
     _tableView.estimatedRowHeight = 100;
     _tableView.rowHeight = UITableViewAutomaticDimension;
-    _tableView.estimatedSectionHeaderHeight = 0;
-    _tableView.estimatedSectionFooterHeight = 0;
+    _tableView.estimatedSectionHeaderHeight = CGFLOAT_MIN;
+    _tableView.estimatedSectionFooterHeight = CGFLOAT_MIN;
     //头角需要自适应高度的话请设置
 //    self.tableView.estimatedSectionHeaderHeight = 200;
 //    self.tableView.sectionHeaderHeight = UITableViewAutomaticDimension;
