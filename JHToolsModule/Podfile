@@ -14,3 +14,12 @@ target 'JHToolsModule' do
   pod 'EasyShowView'
   pod 'SDWebImage'
 end
+
+target 'JHToolsModule_Swift' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for JHToolsModule
+  pod 'SwifterSwift'
+  pod 'SnapKit'
+end

@@ -62,6 +62,14 @@
 		91276999235701FB00DFAA4A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91276998235701FB00DFAA4A /* Images.xcassets */; };
 		913C1D902379045C00FC9F58 /* UINavigationController+Bar.m in Sources */ = {isa = PBXBuildFile; fileRef = 913C1D8F2379045C00FC9F58 /* UINavigationController+Bar.m */; };
 		91420FCF21B7C033005B7961 /* UILabel+AttributeClick.m in Sources */ = {isa = PBXBuildFile; fileRef = 91420FCE21B7C033005B7961 /* UILabel+AttributeClick.m */; };
+		915526F32382368B0066043E /* JHBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915526F22382368B0066043E /* JHBaseViewController.swift */; };
+		915526F5238236AF0066043E /* JHBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915526F4238236AF0066043E /* JHBaseTableViewController.swift */; };
+		915526F7238236CE0066043E /* JHBaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915526F6238236CE0066043E /* JHBaseCollectionViewController.swift */; };
+		915526F9238236E30066043E /* JHBaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915526F8238236E30066043E /* JHBaseWebViewController.swift */; };
+		915526FB23824ADD0066043E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 915526FA23824ADD0066043E /* Images.xcassets */; };
+		915526FD238254EF0066043E /* JHImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915526FC238254EF0066043E /* JHImageLoader.swift */; };
+		91552701238271580066043E /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91552700238271580066043E /* TestViewController.swift */; };
+		91552705238296130066043E /* JHBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91552704238296130066043E /* JHBaseTableViewCell.swift */; };
 		916A0DC5237E879800C78A00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A0DC4237E879800C78A00 /* AppDelegate.swift */; };
 		916A0DC7237E879800C78A00 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A0DC6237E879800C78A00 /* SceneDelegate.swift */; };
 		916A0DC9237E879800C78A00 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916A0DC8237E879800C78A00 /* ViewController.swift */; };
@@ -74,6 +82,7 @@
 		91B3BE4C21A695160044CC8D /* UIControl+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B3BE4B21A695160044CC8D /* UIControl+Block.m */; };
 		91B8B77E227305DB004FB751 /* NSDate+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B8B77D227305DB004FB751 /* NSDate+Tool.m */; };
 		91F943CF22B23C9F00C8E124 /* JHBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F943CE22B23C9F00C8E124 /* JHBaseTableView.m */; };
+		DE580D4F52615FFF1D04DAF0 /* Pods_JHToolsModule_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95FA7E3492E9CD1A3F6CBC06 /* Pods_JHToolsModule_Swift.framework */; };
 		E2B8AA792306751D000BE864 /* JHBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B8AA782306751D000BE864 /* JHBaseCollectionViewCell.m */; };
 		E2B8AA7C23067541000BE864 /* JHBaseCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B8AA7B23067541000BE864 /* JHBaseCollectionReusableView.m */; };
 		E2B8AA7F23069395000BE864 /* JHBaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B8AA7E23069395000BE864 /* JHBaseCollectionViewController.m */; };
@@ -81,6 +90,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		660995E97A9D0ECE1574C165 /* Pods-JHToolsModule_Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JHToolsModule_Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JHToolsModule_Swift/Pods-JHToolsModule_Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		850741F620FD9AAA004439B9 /* JHToolsModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JHToolsModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		850741F920FD9AAA004439B9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		850741FA20FD9AAA004439B9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -190,6 +200,14 @@
 		913C1D8F2379045C00FC9F58 /* UINavigationController+Bar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Bar.m"; sourceTree = "<group>"; };
 		91420FCD21B7C033005B7961 /* UILabel+AttributeClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AttributeClick.h"; sourceTree = "<group>"; };
 		91420FCE21B7C033005B7961 /* UILabel+AttributeClick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AttributeClick.m"; sourceTree = "<group>"; };
+		915526F22382368B0066043E /* JHBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHBaseViewController.swift; sourceTree = "<group>"; };
+		915526F4238236AF0066043E /* JHBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHBaseTableViewController.swift; sourceTree = "<group>"; };
+		915526F6238236CE0066043E /* JHBaseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHBaseCollectionViewController.swift; sourceTree = "<group>"; };
+		915526F8238236E30066043E /* JHBaseWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHBaseWebViewController.swift; sourceTree = "<group>"; };
+		915526FA23824ADD0066043E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		915526FC238254EF0066043E /* JHImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHImageLoader.swift; sourceTree = "<group>"; };
+		91552700238271580066043E /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		91552704238296130066043E /* JHBaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHBaseTableViewCell.swift; sourceTree = "<group>"; };
 		916A0DC2237E879800C78A00 /* JHToolsModule_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JHToolsModule_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		916A0DC4237E879800C78A00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		916A0DC6237E879800C78A00 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -214,6 +232,7 @@
 		91F943CD22B23C9F00C8E124 /* JHBaseTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHBaseTableView.h; sourceTree = "<group>"; };
 		91F943CE22B23C9F00C8E124 /* JHBaseTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHBaseTableView.m; sourceTree = "<group>"; };
 		92D1C6EFC981BC9F00DF6516 /* Pods_JHToolsModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JHToolsModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95FA7E3492E9CD1A3F6CBC06 /* Pods_JHToolsModule_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JHToolsModule_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18AE08586D1AEDD7D5D41F5 /* Pods-JHToolsModule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JHToolsModule.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JHToolsModule/Pods-JHToolsModule.debug.xcconfig"; sourceTree = "<group>"; };
 		E2B8AA772306751D000BE864 /* JHBaseCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHBaseCollectionViewCell.h; sourceTree = "<group>"; };
 		E2B8AA782306751D000BE864 /* JHBaseCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHBaseCollectionViewCell.m; sourceTree = "<group>"; };
@@ -223,6 +242,7 @@
 		E2B8AA7E23069395000BE864 /* JHBaseCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHBaseCollectionViewController.m; sourceTree = "<group>"; };
 		E2B8AA802306B73B000BE864 /* CollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollViewController.h; sourceTree = "<group>"; };
 		E2B8AA812306B73B000BE864 /* CollViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollViewController.m; sourceTree = "<group>"; };
+		EE1F804A31CE0135D7C7784C /* Pods-JHToolsModule_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JHToolsModule_Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-JHToolsModule_Swift/Pods-JHToolsModule_Swift.release.xcconfig"; sourceTree = "<group>"; };
 		F97202E71F0164F075C5D120 /* Pods-JHToolsModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JHToolsModule.release.xcconfig"; path = "Pods/Target Support Files/Pods-JHToolsModule/Pods-JHToolsModule.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -239,6 +259,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE580D4F52615FFF1D04DAF0 /* Pods_JHToolsModule_Swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +503,34 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		91552702238294240066043E /* BaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				915526F22382368B0066043E /* JHBaseViewController.swift */,
+				915526F4238236AF0066043E /* JHBaseTableViewController.swift */,
+				915526F6238236CE0066043E /* JHBaseCollectionViewController.swift */,
+				915526F8238236E30066043E /* JHBaseWebViewController.swift */,
+			);
+			path = BaseVC;
+			sourceTree = "<group>";
+		};
+		91552703238294570066043E /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				916A0DD7237E8A3500C78A00 /* JHToolsDefine.swift */,
+				915526FC238254EF0066043E /* JHImageLoader.swift */,
+				91552704238296130066043E /* JHBaseTableViewCell.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		915527062382A0B80066043E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		916A0DC3237E879800C78A00 /* JHToolsModule_Swift */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +538,7 @@
 				916A0DC4237E879800C78A00 /* AppDelegate.swift */,
 				916A0DC6237E879800C78A00 /* SceneDelegate.swift */,
 				916A0DC8237E879800C78A00 /* ViewController.swift */,
+				91552700238271580066043E /* TestViewController.swift */,
 				916A0DCA237E879800C78A00 /* Main.storyboard */,
 				916A0DCD237E879800C78A00 /* Assets.xcassets */,
 				916A0DCF237E879800C78A00 /* LaunchScreen.storyboard */,
@@ -500,7 +550,10 @@
 		916A0DD6237E89AD00C78A00 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				916A0DD7237E8A3500C78A00 /* JHToolsDefine.swift */,
+				915526FA23824ADD0066043E /* Images.xcassets */,
+				915527062382A0B80066043E /* Extension */,
+				91552703238294570066043E /* Utility */,
+				91552702238294240066043E /* BaseVC */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -510,6 +563,8 @@
 			children = (
 				B18AE08586D1AEDD7D5D41F5 /* Pods-JHToolsModule.debug.xcconfig */,
 				F97202E71F0164F075C5D120 /* Pods-JHToolsModule.release.xcconfig */,
+				660995E97A9D0ECE1574C165 /* Pods-JHToolsModule_Swift.debug.xcconfig */,
+				EE1F804A31CE0135D7C7784C /* Pods-JHToolsModule_Swift.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -518,6 +573,7 @@
 			isa = PBXGroup;
 			children = (
 				92D1C6EFC981BC9F00DF6516 /* Pods_JHToolsModule.framework */,
+				95FA7E3492E9CD1A3F6CBC06 /* Pods_JHToolsModule_Swift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -549,9 +605,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 916A0DD3237E879800C78A00 /* Build configuration list for PBXNativeTarget "JHToolsModule_Swift" */;
 			buildPhases = (
+				E1E122D27B23EFE3FAA38AA5 /* [CP] Check Pods Manifest.lock */,
 				916A0DBE237E879800C78A00 /* Sources */,
 				916A0DBF237E879800C78A00 /* Frameworks */,
 				916A0DC0237E879800C78A00 /* Resources */,
+				13847FAB3E3F5AE4F682FA5A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -617,6 +675,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				916A0DD1237E879800C78A00 /* LaunchScreen.storyboard in Resources */,
+				915526FB23824ADD0066043E /* Images.xcassets in Resources */,
 				916A0DCE237E879800C78A00 /* Assets.xcassets in Resources */,
 				916A0DCC237E879800C78A00 /* Main.storyboard in Resources */,
 			);
@@ -625,6 +684,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		13847FAB3E3F5AE4F682FA5A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JHToolsModule_Swift/Pods-JHToolsModule_Swift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JHToolsModule_Swift/Pods-JHToolsModule_Swift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JHToolsModule_Swift/Pods-JHToolsModule_Swift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		61B47F1ECC664910BD4EDE78 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -658,6 +734,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nTAGS=\"TODO:|FIX:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\n";
+		};
+		E1E122D27B23EFE3FAA38AA5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JHToolsModule_Swift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 		E2836A21303798E0F4A0EA41 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -750,9 +848,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91552701238271580066043E /* TestViewController.swift in Sources */,
+				915526FD238254EF0066043E /* JHImageLoader.swift in Sources */,
+				915526F32382368B0066043E /* JHBaseViewController.swift in Sources */,
 				916A0DD8237E8A3500C78A00 /* JHToolsDefine.swift in Sources */,
+				915526F9238236E30066043E /* JHBaseWebViewController.swift in Sources */,
 				916A0DC9237E879800C78A00 /* ViewController.swift in Sources */,
 				916A0DC5237E879800C78A00 /* AppDelegate.swift in Sources */,
+				91552705238296130066043E /* JHBaseTableViewCell.swift in Sources */,
+				915526F5238236AF0066043E /* JHBaseTableViewController.swift in Sources */,
+				915526F7238236CE0066043E /* JHBaseCollectionViewController.swift in Sources */,
 				916A0DC7237E879800C78A00 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -945,12 +1050,13 @@
 		};
 		916A0DD4237E879800C78A00 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 660995E97A9D0ECE1574C165 /* Pods-JHToolsModule_Swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 226YH5AK6L;
 				INFOPLIST_FILE = JHToolsModule_Swift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -968,12 +1074,13 @@
 		};
 		916A0DD5237E879800C78A00 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE1F804A31CE0135D7C7784C /* Pods-JHToolsModule_Swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 226YH5AK6L;
 				INFOPLIST_FILE = JHToolsModule_Swift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
