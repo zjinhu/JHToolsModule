@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import Lottie
-import ESTabBarController_swift
+import Lottie 
 import SnapKit
-class BaseContentView: ESTabBarItemContentView {
+class BaseContentView: JHTabBarItemContentView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,79 +22,5 @@ class BaseContentView: ESTabBarItemContentView {
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-}
-
-
-class LottieContentView: BaseContentView {
-
-    let lottieView: AnimationView = {
-        let lottieView = AnimationView()
-        lottieView.contentMode = .scaleAspectFit
-        return lottieView
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        changeLottieView()
-        addSubview(lottieView)
-    }
-    
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func updateLayout() {
-        super.updateLayout()
-        
-        lottieView.snp.makeConstraints { (make) in
-            make.center.equalToSuperview()
-            make.width.height.equalTo(30)
-        }
-    }
-    
-    override func selectAnimation(animated: Bool, completion: (() -> ())?) {
-        super.selectAnimation(animated: animated, completion: nil)
-        lottieView.play()
-    }
-    
-    override func deselectAnimation(animated: Bool, completion: (() -> ())?) {
-        super.deselectAnimation(animated: animated, completion: nil) 
-        lottieView.stop()
-    }
-
-    override func reselectAnimation(animated: Bool, completion: (() -> ())?) {
-        super.reselectAnimation(animated: animated, completion: nil)
-        lottieView.play()
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        if #available(iOS 13.0, *) {
-            if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
-                // 适配代码
-                changeLottieView()
-            }
-        } else {
-            // Fallback on earlier versions
-        }
-    }
  
-    func changeLottieView() {
-        if #available(iOS 13.0, *) {
-            if traitCollection.userInterfaceStyle == .dark {
-                // Dark
-                let animation = Animation.named("02")
-                lottieView.animation = animation
-            } else {
-                // Light
-                let animation = Animation.named("01")
-                lottieView.animation = animation
-            }
-        } else {
-            let animation = Animation.named("01")
-            lottieView.animation = animation
-        }
-    }
 }

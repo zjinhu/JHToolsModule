@@ -7,33 +7,31 @@
 //
 
 import Foundation
-import ESTabBarController_swift
-
+import UIKit
 class Tabbar {
     
-    static func lottieSytle() -> ESTabBarController {
+    static func lottieSytle() -> JHTabBarController {
         
         
-        let tabBarController = ESTabBarController()
-
-        let v1 = HabitVC()
-        let v2 = CountDownVC()
-        let v3 = MineVC()
+        let testController = JHTabBarController()
+        let vc1 = ViewController()
+        vc1.view.backgroundColor = .gray
+        vc1.tabBarItem = JHTabBarItem.init( title: "1", image: UIImage(named: "icon1_unselected")!, selectedImage: UIImage(named: "icon1_selected")!)
+        let vc2 = UIViewController()
+        vc2.view.backgroundColor = .black
+        vc2.tabBarItem = JHTabBarItem.init( title: "2", image: UIImage(named: "icon2_unselected")!, selectedImage: UIImage(named: "icon2_selected")!)
+        let vc3 = UIViewController()
+        vc3.view.backgroundColor = .blue
+        //        vc3.tabBarItem = TabBarItem.init(title: "3", image: UIImage(named: "icon3_unselected")!, selectedImage: UIImage(named: "icon3_selected")!)
+        vc3.tabBarItem = JHTabBarItem.init(JHTabBarItemContentView("01"), title: "3", image: UIImage(named: "icon3_unselected")!, selectedImage: UIImage(named: "icon3_selected")!)
         
-        let item1 = ESTabBarItem.init(BaseContentView(), title: "1", image: UIImage(named: "tab_home_nor"), selectedImage: UIImage(named: "tab_home_hi"))
-        let item2 = ESTabBarItem.init(BaseContentView(), title: nil, image: UIImage(named: "tab_chat_nor"), selectedImage: UIImage(named: "tab_chat_hi"))
-        let item3 = ESTabBarItem.init(LottieContentView(), title: nil, image: nil, selectedImage: nil)
+        let nav1 = UINavigationController.init(rootViewController: vc1)
+        let nav2 = UINavigationController.init(rootViewController: vc2)
+        let nav3 = UINavigationController.init(rootViewController: vc3)
         
-        v1.tabBarItem = item1
-        v2.tabBarItem = item2
-        v3.tabBarItem = item3
+        testController.viewControllers = [nav1, nav2, nav3]
+        testController.selectedIndex = 2
         
-        let nav1 = UINavigationController.init(rootViewController: v1)
-        let nav2 = UINavigationController.init(rootViewController: v2)
-        let nav3 = UINavigationController.init(rootViewController: v3)
-        
-        tabBarController.viewControllers = [nav1, nav2, nav3]
-        
-        return tabBarController
+        return testController
     }
 }
