@@ -15,10 +15,10 @@ PODS:
   - EasyShowView/EasyText (2.1.4):
     - EasyShowView/EasyShowUtils
   - Masonry (1.1.0)
-  - MJRefresh (3.2.2)
-  - SDWebImage (5.3.1):
-    - SDWebImage/Core (= 5.3.1)
-  - SDWebImage/Core (5.3.1)
+  - MJRefresh (3.4.3)
+  - SDWebImage (5.8.0):
+    - SDWebImage/Core (= 5.8.0)
+  - SDWebImage/Core (5.8.0)
   - SnapKit (4.2.0)
   - SwifterSwift (5.1.0):
     - SwifterSwift/AppKit (= 5.1.0)
@@ -62,11 +62,11 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   EasyShowView: ec832e175d5926baef413e2dc095fb4ec5c3add4
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MJRefresh: 72a46ecaa2a0feaf48fc5198dff95f25f8bb27c6
-  SDWebImage: 7137d57385fb632129838c1e6ab9528a22c666cc
+  MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
+  SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwifterSwift: a9e8e144832638c2850b43da5feaf9598c6ad65b
 
 PODFILE CHECKSUM: 473f5c212793395c6a220a3d1fea3b0b5c55dbf0
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1
